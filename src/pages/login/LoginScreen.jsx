@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import Form from '../../components/Form';
-import { login } from '../../services/AuthService';
+import { login } from '../../services/authService';
 import { Card, CardContent, Input, Button } from '@material-ui/core';
 import '../../styles/styles.css'; 
 
