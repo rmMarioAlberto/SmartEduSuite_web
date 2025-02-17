@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../services/AuthService'; // Se importa el logout.
+import { logout } from '../../services/authService'; // Se importa el logout.
 import "../../styles/TeachersHome.css";
 import horario from './horario';
 
