@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Form from '../../components/Form';
-import { changePassword } from '../../services/AuthService';
+import { changePassword } from '../../services/authService.js';
 import '../../styles/styles.css';
 
 function ChangePassword() {
