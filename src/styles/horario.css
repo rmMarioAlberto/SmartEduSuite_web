@@ -1,0 +1,46 @@
+
+
+.horario-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .horario-title {
+    font-family: 'Graduate', sans-serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .horario-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .horario-table th, .horario-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .horario-table th {
+    background-color: #52687a;
+    color: white;
+  }
+  
+  .horario-table td {
+    background-color: #fff;
+  }
+  
+  .horario-table td.empty {
+    background-color: #e9ecef;
+  }
+  
+
+

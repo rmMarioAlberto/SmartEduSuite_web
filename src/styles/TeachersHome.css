@@ -1,0 +1,66 @@
+.teachers-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.teachers-home-title {
+    font-family: 'Graduate', sans-serif;
+    font-size: 2.5rem;
+    color: #52687a;
+    margin-bottom: 120px;
+}
+
+.teachers-home-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    width: 60%;
+    margin-bottom: 120px;
+}
+
+.button-card {
+    width: 400px;
+    color: #52687a;
+    height: 200px;
+    background-color: rgb(195, 203, 227);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.button-card:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 3rem;
+    color: #52687a;
+    margin-bottom: 10px;
+}
+
+.logout-button {
+    background-color: #52687a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.logout-button:hover {
+    background-color: #405563;
+}
+
+

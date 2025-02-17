@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Graduate';
+    src: url('/src/assets/fonts/Graduate/Graduate-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .font-graduate {
+    font-family: 'Graduate', sans-serif;
+  }
+  
+  :root {
+    font-family: 'Graduate', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    background-color: #22354a;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #c8d8e6;
+  }
+  
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+  
+  a:hover {
+    color: #535bf2;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    font-family: 'Graduate', sans-serif;
+  }
+  
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  
+  button:hover {
+    border-color: #646cff;
+  }
+  
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .input-custom {
+    background: none;
+    border: 2px solid #02172c;
+    padding: 0.4em;
+    color: #E4E5E6;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1em;
+    margin-bottom: 3%;
+  }
+  
+  .input-custom:focus {
+    border-color: #1c2c3d;
+    box-shadow: 0 0 5px #1c2c3d;
+  }
+  
+  .error-message {
+    color: #ef4444;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .card-custom {
+    width: 800px; /* Aumenta el ancho de la tarjeta */
+    margin: auto; /* Centra la tarjeta horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Asegura que el texto esté centrado */
+    padding: 20px;
+    background: transparent; 
+    box-shadow: none;
+  }
+
+.card-custom * {
+    /* color: #c8d8e6; */
+    color: #52687a;
+}
+
+
+  
