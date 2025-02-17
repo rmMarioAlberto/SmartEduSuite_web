@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../services/AuthService'; // Importamos logout
+import { logout } from '../../services/authService'; // Importamos logout
 import "../../styles/AdminsHome.css";
 import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa";
 
