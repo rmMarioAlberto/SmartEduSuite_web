@@ -4,7 +4,6 @@ import { logout } from '../../services/authService'; // Importamos logout
 import "../../styles/AdminsHome.css";
 import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa";
 import indexMateria from './indexMateria';
-import indexCarrera from './indexCarrera';
 
 function IndexAdmin() {
   const navigate = useNavigate();
