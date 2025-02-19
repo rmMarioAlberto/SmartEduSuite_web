@@ -1,5 +1,4 @@
 export const login = async (correo, contra) => {
-    
     const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/auth/login', {
         method: 'POST',
         headers: {
@@ -18,7 +17,7 @@ export const login = async (correo, contra) => {
     localStorage.setItem('user', JSON.stringify(data.user));
     localStorage.setItem('token', data.token);
 
-    return data.user;
+    return { user: data.user, token: data.token };
 };
 
 export const changePassword = async (newPassword, id) => {

@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { getUser, getToken, login, logout } from '../services/authService';
+import { getUser, getToken, logout } from '../services/authService';
 
 export const AuthContext = createContext();
 
@@ -8,21 +8,13 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-        const loadUser = () => {
-            const user = getUser();
-            const token = getToken();
-            setUser(user);
-            setToken(token);
-        };
-        loadUser();
+        const storedUser = getUser();
+        const storedToken = getToken();
+        if (storedUser && storedToken) {
+            setUser(storedUser);
+            setToken(storedToken);
+        }
     }, []);
-
-    const handleLogin = async (correo, contra) => {
-        const user = await login(correo, contra);
-        setUser(user);
-        const token = getToken();
-        setToken(token);
-    };
 
     const handleLogout = () => {
         logout();
@@ -31,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, handleLogin, handleLogout }}>
+        <AuthContext.Provider value={{ user, token, setUser, setToken, handleLogout }}>
             {children}
         </AuthContext.Provider>
     );

@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
-import Form from '../../components/Form';
 import { login } from '../../services/authService';
 import { Card, CardContent, Input, Button } from '@material-ui/core';
+import { AuthContext } from '../../context/AuthContext';
 import '../../styles/styles.css'; 
 
 function LoginScreen() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { setUser, setToken } = useContext(AuthContext);
 
-  const handleLoginSuccess = (user) => {
+  const handleLoginSuccess = (user, token) => {
+    setUser(user);
+    setToken(token);
     if (user.contra === '') {
       navigate('/cambio-contrasena', { state: { user } });
     } else {
@@ -39,18 +42,12 @@ function LoginScreen() {
 
     setError('');
     try {
-        const user = await login(correo, contra); 
-        handleLoginSuccess(user); 
+        const { user, token } = await login(correo, contra); 
+        handleLoginSuccess(user, token); 
     } catch (err) {
         setError(err.message);
     }
-};
-
-
-  const fields = [
-    { name: 'correo', type: 'email', placeholder: 'Correo' },
-    { name: 'contra', type: 'password', placeholder: 'Contraseña' },
-  ];
+  };
 
   return (
     <div className="flex items-center justify-center bg-[#22354a] min-h-screen color: #c8d8e6">

@@ -23,18 +23,17 @@ function App() {
         <Routes>
           <Route path="/" element={<PublicRoute><LoginScreen /></PublicRoute>} />
           <Route path="/login" element={<PublicRoute><LoginScreen /></PublicRoute>} />
-          <Route path="/cambio-contrasena" element={<ChangePassword />} />
+          <Route path="/cambio-contrasena" element={<PublicRoute><ChangePassword /></PublicRoute>} />
           <Route path="/vista-maestro" element={<PrivateRoute allowedRoles={[2]}><IndexMaestro /></PrivateRoute>} />
           <Route path="/vista-admin" element={<PrivateRoute allowedRoles={[3]}><IndexAdmin /></PrivateRoute>} />
-          <Route path="/teachers/horarioMaestro" element={<HorarioMaestro />} />
-          <Route path="/teachers/listasMaestro" element={<ListasMaestro />} />
-          <Route path="/teachers/horario" element={<horario />} />
-          <Route path="/maestros" element={<PrivateRoute><Maestros /></PrivateRoute>} />
-          <Route path="/grupo" element={<PrivateRoute><Grupo /></PrivateRoute>} />
-          <Route path="/grafica" element={<PrivateRoute><Grafica /></PrivateRoute>} />
-          {/* Rutas de administradores. */}
-          <Route path="/admin/indexMateria" element={<indexMateria />} />
-          <Route path="/admin/indexCarrera" element={<indexCarrera />} />
+          <Route path="/teachers/horarioMaestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
+          <Route path="/teachers/listasMaestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
+          <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><horario /></PrivateRoute>} />
+          <Route path="/maestros" element={<PrivateRoute allowedRoles={[3]}><Maestros /></PrivateRoute>} />
+          <Route path="/grupo" element={<PrivateRoute allowedRoles={[3]}><Grupo /></PrivateRoute>} />
+          <Route path="/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
+          <Route path="/admin/indexMateria" element={<PrivateRoute allowedRoles={[3]}><indexMateria /></PrivateRoute>} />
+          <Route path="/admin/indexCarrera" element={<PrivateRoute allowedRoles={[3]}><indexCarrera /></PrivateRoute>} />
         </Routes>
       </Router>
     </AuthProvider>
