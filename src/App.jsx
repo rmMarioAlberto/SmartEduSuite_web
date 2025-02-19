@@ -10,14 +10,11 @@ import PublicRoute from './components/PublicRoute';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 import horario from './pages/teachers/horario';
-<<<<<<< HEAD
 import Maestros from './pages/admin/maestro';
 import Grupo from './pages/admin/grupo';
 import Grafica from './pages/admin/grafica';
-=======
 import indexMateria from './pages/admin/indexMateria';
 import indexCarrera from './pages/admin/indexCarrera';
->>>>>>> a7010232b82bfc690bff37287b312324ee65f8ba
 
 function App() {
   return (
@@ -32,16 +29,12 @@ function App() {
           <Route path="/teachers/horarioMaestro" element={<HorarioMaestro />} />
           <Route path="/teachers/listasMaestro" element={<ListasMaestro />} />
           <Route path="/teachers/horario" element={<horario />} />
-<<<<<<< HEAD
           <Route path="/maestros" element={<PrivateRoute><Maestros /></PrivateRoute>} />
           <Route path="/grupo" element={<PrivateRoute><Grupo /></PrivateRoute>} />
           <Route path="/grafica" element={<PrivateRoute><Grafica /></PrivateRoute>} />
-=======
-
           {/* Rutas de administradores. */}
           <Route path="/admin/indexMateria" element={<indexMateria />} />
           <Route path="/admin/indexCarrera" element={<indexCarrera />} />
->>>>>>> a7010232b82bfc690bff37287b312324ee65f8ba
         </Routes>
       </Router>
     </AuthProvider>
