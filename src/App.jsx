@@ -10,6 +10,7 @@ import PublicRoute from './components/PublicRoute';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 import horario from './pages/teachers/horario';
+import Maestros from './pages/admin/maestro';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/teachers/horarioMaestro" element={<HorarioMaestro />} />
           <Route path="/teachers/listasMaestro" element={<ListasMaestro />} />
           <Route path="/teachers/horario" element={<horario />} />
+          <Route path="/maestros" element={<PrivateRoute><Maestros /></PrivateRoute>} />
         </Routes>
       </Router>
     </AuthProvider>
