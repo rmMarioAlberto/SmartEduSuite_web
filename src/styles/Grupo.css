@@ -1,0 +1,75 @@
+/* Contenedor principal */
+.grupo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+
+  /* Botón de regreso */
+  .backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52687a;
+    font-size: 1.5rem;
+  }
+  
+  /* Título */
+  .grupo-title {
+    font-size: 2.5rem;
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #52687a;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Contenedor de botones */
+  .grupo-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  
+   /* Estilos de las tarjetas */
+  .grupo-card {
+    width: 100%;
+    height: 120px;
+    background-color: #c0c8db;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  .grupo-card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Texto dentro de las tarjetas */
+  .grupo-card p {
+    margin-top: 8px;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Graduate', sans-serif;
+    color: #52687a;
+  }
+  
+  .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  

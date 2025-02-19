@@ -29,7 +29,7 @@ function IndexAdmin() {
           <FaUsers className="icon" />
           <span>Grupo</span>
         </div>
-        <div className="button-card" onClick={() => navigate('/estadisticas')}>
+        <div className="button-card" onClick={() => navigate('/grafica')}>
           <FaChartBar className="icon" />
           <span>Estadísticas</span>
         </div>
