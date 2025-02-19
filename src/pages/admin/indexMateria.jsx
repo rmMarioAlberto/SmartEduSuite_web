@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../../services/authService'; // Se importa el logout.
 import "../../styles/TeachersHome.css";
 import { FaClock, FaClipboardList } from "react-icons/fa";
-import IndexAdmin from './indexAdmin';
 
 function indexMateria() {
   const navigate = useNavigate();
