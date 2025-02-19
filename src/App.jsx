@@ -10,6 +10,8 @@ import PublicRoute from './components/PublicRoute';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 import horario from './pages/teachers/horario';
+import indexMateria from './pages/admin/indexMateria';
+import indexCarrera from './pages/admin/indexCarrera';
 
 function App() {
   return (
@@ -24,6 +26,10 @@ function App() {
           <Route path="/teachers/horarioMaestro" element={<HorarioMaestro />} />
           <Route path="/teachers/listasMaestro" element={<ListasMaestro />} />
           <Route path="/teachers/horario" element={<horario />} />
+
+          {/* Rutas de administradores. */}
+          <Route path="/admin/indexMateria" element={<indexMateria />} />
+          <Route path="/admin/indexCarrera" element={<indexCarrera />} />
         </Routes>
       </Router>
     </AuthProvider>
