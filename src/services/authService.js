@@ -1,6 +1,6 @@
 export const login = async (correo, contra) => {
     
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/login', {
+    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const login = async (correo, contra) => {
 };
 
 export const changePassword = async (newPassword, id) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/change-password', {
+    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/auth/change-password', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

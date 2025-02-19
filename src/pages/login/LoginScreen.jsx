@@ -31,7 +31,7 @@ function LoginScreen() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // ❌ Evita que la página recargue y agregue datos a la URL.
+    event.preventDefault(); 
 
     const formData = new FormData(event.target);
     const correo = formData.get("correo");
@@ -39,8 +39,8 @@ function LoginScreen() {
 
     setError('');
     try {
-        const user = await login(correo, contra); // Llama a la función de autenticación
-        handleLoginSuccess(user); // Maneja la redirección según el tipo de usuario
+        const user = await login(correo, contra); 
+        handleLoginSuccess(user); 
     } catch (err) {
         setError(err.message);
     }
