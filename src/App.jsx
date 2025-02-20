@@ -15,6 +15,7 @@ import Grupo from './pages/admin/grupo';
 import Grafica from './pages/admin/grafica';
 import indexMateria from './pages/admin/indexMateria';
 import indexCarrera from './pages/admin/indexCarrera';
+import Alumno from './pages/admin/alumno';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
           <Route path="/admin/indexMateria" element={<PrivateRoute allowedRoles={[3]}><indexMateria /></PrivateRoute>} />
           <Route path="/admin/indexCarrera" element={<PrivateRoute allowedRoles={[3]}><indexCarrera /></PrivateRoute>} />
+          <Route path="/alumno" element={<PrivateRoute allowedRoles={[3]}><Alumno /></PrivateRoute>} />
         </Routes>
       </Router>
     </AuthProvider>
