@@ -21,12 +21,12 @@ const Alumnos = () => {
       <div className="buttonContainer">
         <button className="button" onClick={() => navigate('/crearCarrera')}>
           <FontAwesomeIcon icon={faUser} size="2x" class="icon"/>
-          <p className="cardText">Registrar nuevo alumno.</p>
+          <p className="buttonText">Registrar nuevo alumno.</p>
         </button>
 
         <button className="button">
           <FontAwesomeIcon icon={faSearch} size="2x" class="icon"/>
-          <p className="cardText">Consultar alumno.</p>
+          <p className="buttonText">Consultar alumno.</p>
         </button>
       </div>
     </div>

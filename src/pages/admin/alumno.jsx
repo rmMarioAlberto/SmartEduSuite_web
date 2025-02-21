@@ -19,13 +19,13 @@ const Alumno = () => {
 
       {/* Botones */}
       <div className="buttonContainer">
-        <div className="card">
+        <div className="button">
           <FaBook className="icon" />
-          <span className="cardText">Crear nuevo alumno</span>
+          <span className="buttonText">Crear nuevo alumno</span>
         </div>
-        <div className="card">
+        <div className="button">
           <IoSearch className="icon" />
-          <span className="cardText">Consultar alumno</span>
+          <span className="buttonText">Consultar alumno</span>
         </div>
       </div>
     </div>

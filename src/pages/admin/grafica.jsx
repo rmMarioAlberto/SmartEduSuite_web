@@ -14,27 +14,27 @@ const data = [
 const Grafica = () => {
     const navigate = useNavigate();
   return (
-    <div className="grafica-container">
+    <div className="container">
       {/* Botón de regreso */}
       <button onClick={() => navigate(-1)} className="back-button">
         <IoArrowBack />
       </button>
 
       {/* Título */}
-      <h1 className="grafica-title">Gráfica</h1>
+      <h1 className="title">Gráfica</h1>
 
       {/* Filtros */}
-      <div className="grafica-filtros">
+      <div className="filtros">
         <button className="filtro-button">Tipo de gráfica</button>
         <button className="filtro-button">Fecha Inicial</button>
         <button className="filtro-button">Fecha final</button>
       </div>
 
       {/* Texto indicador */}
-      <p className="grafica-subtitle">Promedio de consumo:</p>
+      <p className="subtitle">Promedio de consumo:</p>
 
       {/* Gráfica */}
-      <div className="grafica-chart">
+      <div className="chart">
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={data} margin={{ top: 10, right: 30, left: 10, bottom: 10 }}>
             <CartesianGrid strokeDasharray="3 3" />

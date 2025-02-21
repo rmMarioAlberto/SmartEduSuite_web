@@ -19,12 +19,12 @@ const Maestros = () => {
 
       {/* Contenedor de botones */}
       <div className="buttonContainer">
-        <button className="card">
+        <button className="button">
           <FontAwesomeIcon icon={faUser} size="2x" class="icon"/>
           <p className="cardText">Crear maestro/a.</p>
         </button>
 
-        <button className="card">
+        <button className="button">
           <FontAwesomeIcon icon={faSearch} size="2x" class="icon"/>
           <p className="cardText">Consultar maestro/a.</p>
         </button>

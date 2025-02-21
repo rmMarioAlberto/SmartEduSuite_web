@@ -1,5 +1,5 @@
 /* Contenedor principal */
-.grafica-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,7 @@
   }
   
   /* Título */
-  .grafica-title {
+  .title {
     font-size: 2.5rem;
     font-family: 'Graduate', sans-serif;
     font-weight: bold;
@@ -31,7 +31,7 @@
   }
   
   /* Filtros */
-  .grafica-filtros {
+  .filtros {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
@@ -54,7 +54,7 @@
   }
   
   /* Subtítulo */
-  .grafica-subtitle {
+  .subtitle {
     font-size: 1.2rem;
     font-family: 'Graduate', sans-serif;
     color: #c0c8db;
@@ -62,7 +62,7 @@
   }
   
   /* Gráfica */
-  .grafica-chart {
+  .chart {
     width: 80%;
     height: 250px;
     background: #c0c8db;
@@ -90,7 +90,7 @@
   }
   
   /* Texto dentro de la gráfica */
-  .grafica-chart text {
+  .chart text {
     font-family: 'Graduate', sans-serif;
     font-size: 1rem;
     fill: #52687a;

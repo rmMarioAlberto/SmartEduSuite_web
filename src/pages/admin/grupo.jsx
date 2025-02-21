@@ -11,17 +11,17 @@ const Grupo = () => {
     const navigate = useNavigate();
 
   return (
-    <div className="grupo-container">
+    <div className="container">
       <button onClick={() => navigate(-1)} className="backButton">
               <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      <h1 className="grupo-title">Grupo</h1>
-      <div className="grupo-buttons">
-        <div className="grupo-card">
+      <h1 className="title">Grupo</h1>
+      <div className="buttons">
+        <div className="button">
           <IoSearch className="icon" />
           <p>Crear nuevo grupo</p>
         </div>
-        <div className="grupo-card">
+        <div className="button">
           <FaUsers className="icon" />
           <p>Consultar grupo</p>
         </div>
