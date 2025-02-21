@@ -17,6 +17,7 @@
   border: none;
   cursor: pointer;
   color: #52687a;
+  font-size: 1.5rem;
 }
 
 /* Título */
@@ -24,10 +25,8 @@
   font-size: 2.5rem;
   font-family: 'Graduate', sans-serif;
   font-weight: bold;
-  color: #c0c8db;
-  margin-bottom: 20px;
   color: #52687a;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -38,8 +37,9 @@
   gap: 20px;
 }
 
-/* Estilos de las tarjetas */
-.button {
+
+ /* Estilos de los botones. */
+.button{
   width: 280px; 
     height: 120px; 
     background-color: rgb(181, 181, 199);
@@ -54,12 +54,13 @@
     transition: transform 0.2s ease-in-out;
 }
 
+
 .button:hover {
   transform: scale(1.03);
 }
 
 /* Texto dentro de las tarjetas */
-.buttonText {
+.button p {
   margin-top: 8px;
   font-size: 1rem;
   text-align: center;
@@ -68,8 +69,6 @@
 }
 
 .icon {
-  font-size: 1rem; /* Ajusta el tamaño de los íconos */
-  color: #52687a;
-  margin-bottom: 5px;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
-

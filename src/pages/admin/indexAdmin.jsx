@@ -30,7 +30,7 @@ function IndexAdmin() {
         </div>
         <div className="button" onClick={() => navigate('/grupo')}>
           <FaUsers className="icon" />
-          <span>Grupo</span>
+          <span>Grupo.</span>
         </div>
         <div className="button" onClick={() => navigate('/grafica')}>
           <FaChartBar className="icon" />
@@ -38,15 +38,15 @@ function IndexAdmin() {
         </div>
       </div>
       <div className="admin-home-buttons_two">
-        <div className="button" onClick={() => navigate('/admin/indexMateria')}>
+        <div className="button" onClick={() => navigate('/IndexMateria')}>
           <FaBook className="icon" />
           <span>Materia</span>
         </div>
-        <div className="button" onClick={() => navigate('/admin/indexCarrera')}>
+        <div className="button" onClick={() => navigate('/IndexCarrera')}>
           <FaGraduationCap className="icon" />
           <span>Carrera</span>
         </div>
-        <div className="button" onClick={() => navigate('/alumnos')}>
+        <div className="button" onClick={() => navigate('/alumno')}>
           <FaGraduationCap className="icon" />
           <span>Alumnos</span>
         </div>
