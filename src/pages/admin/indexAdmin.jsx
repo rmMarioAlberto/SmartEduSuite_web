@@ -50,6 +50,10 @@ function IndexAdmin() {
           <FaGraduationCap className="icon" />
           <span>Alumnos</span>
         </div>
+        <div className="button" onClick={() => navigate('/salon')}>
+          <FaGraduationCap className="icon" />
+          <span>Salones</span>
+        </div>
       </div>
       <button className="logout-button" onClick={handleLogoutClick}>Salir</button>
     </div>

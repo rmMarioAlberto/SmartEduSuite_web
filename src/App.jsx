@@ -12,10 +12,12 @@ import ListasMaestro from './pages/teachers/listasMaestro';
 import horario from './pages/teachers/horario';
 import Maestros from './pages/admin/maestro';
 import Grupo from './pages/admin/grupo';
+import Salon from './pages/admin/salon';
 import Grafica from './pages/admin/grafica';
 import Alumno from './pages/admin/alumno';
 import IndexMateria from './pages/admin/indexMateria';
 import IndexCarrera from './pages/admin/indexCarrera';
+import CrearSalon from './pages/admin/crearSalon';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           <Route path="/admin/indexMateria" element={<PrivateRoute allowedRoles={[3]}><indexMateria /></PrivateRoute>} />
           <Route path="/admin/indexCarrera" element={<PrivateRoute allowedRoles={[3]}><indexCarrera /></PrivateRoute>} />
           <Route path="/alumno" element={<PrivateRoute allowedRoles={[3]}><Alumno /></PrivateRoute>} />
+          <Route path="/salon" element={<PrivateRoute allowedRoles={[3]}><Salon /></PrivateRoute>} />
+          <Route path="/crearSalon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
         
         </Routes>
       </Router>
