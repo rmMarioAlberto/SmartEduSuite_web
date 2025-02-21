@@ -1,43 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Form from '../../components/Form';
-import { changePassword } from '../../services/authService.js';
-import '../../styles/styles.css';
+import { changePassword } from '../../services/authService';
+import { AuthContext } from '../../context/AuthContext';
 
 function ChangePassword() {
-    const [error, setError] = useState('');
+    const { setUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const { user } = location.state || {};
+    
+    // Obtenemos el usuario desde localStorage o la navegación
+    const user = location.state?.user || JSON.parse(localStorage.getItem('user'));
 
-    const handleSubmit = async (formData) => {
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         setError('');
-        if (formData.newPassword !== formData.confirmPassword) {
+        setSuccess('');
+
+        if (!password || !confirmPassword) {
+            setError('Todos los campos son obligatorios');
+            return;
+        }
+
+        if (password !== confirmPassword) {
             setError('Las contraseñas no coinciden');
             return;
         }
 
         try {
-            const message = await changePassword(formData.newPassword, user.id);
-            navigate('/login', { state: { message } });
+            const message = await changePassword(password, user.id);
+            setSuccess(message);
+
+            // Actualizar el usuario en el contexto
+            setUser({ ...user, firstLogin: false });
+            localStorage.setItem('user', JSON.stringify({ ...user, firstLogin: false }));
+
+            setTimeout(() => {
+                navigate('/vista-maestro');
+            }, 2000);
         } catch (err) {
             setError(err.message);
         }
     };
 
-    const fields = [
-        { name: 'newPassword', type: 'password', placeholder: 'Nueva Contraseña' },
-        { name: 'confirmPassword', type: 'password', placeholder: 'Confirmar Contraseña' },
-    ];
-
     return (
-        <div className="flex items-center justify-center min-h-screen bg-blue-900">
-            <div className="card">
-                <div className="card-content">
-                    <h1 className="title">Cambiar Contraseña</h1>
-                    <Form fields={fields} onSubmit={handleSubmit} buttonText="Cambiar Contraseña" error={error} />
-                </div>
-            </div>
+        <div>
+            <h2>Cambiar Contraseña</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="password"
+                    placeholder="Nueva contraseña"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <input
+                    type="password"
+                    placeholder="Confirmar contraseña"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <button type="submit">Cambiar Contraseña</button>
+            </form>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {success && <p style={{ color: 'green' }}>{success}</p>}
         </div>
     );
 }

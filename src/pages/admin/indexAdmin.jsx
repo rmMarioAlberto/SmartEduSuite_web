@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../services/authService'; // Importamos logout
+import { AuthContext } from '../../context/AuthContext';
 import "../../styles/AdminsHome.css";
 import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa";
-import indexMateria from './indexMateria';
 
 function IndexAdmin() {
   const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    logout(); // Eliminamos el usuario del localStorage.
-    navigate('/login'); // Redirigir al login.
+  const handleLogoutClick = () => {
+    handleLogout();
+    navigate('/login');
   };
 
   return (
     <div className="admin-home-container">
       <div className="admin-home-header">
-      <h1 className="admin-home-title">SmartEdu Suite</h1>
-      <h4 className="admin-home-subtitle">Administrador</h4>
+        <h1 className="admin-home-title">SmartEdu Suite</h1>
+        <h4 className="admin-home-subtitle">Administrador</h4>
       </div>
       <div className="admin-home-buttons_one">
         <div className="button" onClick={() => navigate('/horario')}>
@@ -51,7 +51,7 @@ function IndexAdmin() {
           <span>Alumnos</span>
         </div>
       </div>
-      <button className="logout-button" onClick={handleLogout}>Salir</button>
+      <button className="logout-button" onClick={handleLogoutClick}>Salir</button>
     </div>
   );
 }
