@@ -6,7 +6,6 @@
   justify-content: center;
   height: 100vh;
   background-color: transparent;
-  position: relative;
 }
 
 /* Botón de regreso */
@@ -27,6 +26,8 @@
   font-weight: bold;
   color: #c0c8db;
   margin-bottom: 20px;
+  color: #52687a;
+  margin-bottom: 50px;
   text-align: center;
 }
 

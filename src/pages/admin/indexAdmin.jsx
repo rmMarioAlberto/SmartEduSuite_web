@@ -38,11 +38,11 @@ function IndexAdmin() {
         </div>
       </div>
       <div className="admin-home-buttons_two">
-        <div className="button" onClick={() => navigate('/admin/indexMateria')}>
+        <div className="button" onClick={() => navigate('/IndexMateria')}>
           <FaBook className="icon" />
           <span>Materia</span>
         </div>
-        <div className="button" onClick={() => navigate('/admin/indexCarrera')}>
+        <div className="button" onClick={() => navigate('/IndexCarrera')}>
           <FaGraduationCap className="icon" />
           <span>Carrera</span>
         </div>

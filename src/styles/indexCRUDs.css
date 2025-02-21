@@ -4,7 +4,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #22354a;
+  height: 100vh;
+  background-color: transparent;
 }
 
 /* Botón de regreso */
@@ -16,6 +17,7 @@
   border: none;
   cursor: pointer;
   color: #52687a;
+  font-size: 1.5rem;
 }
 
 /* Título */
@@ -24,51 +26,49 @@
   font-family: 'Graduate', sans-serif;
   font-weight: bold;
   color: #52687a;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 /* Contenedor de botones */
 .buttonContainer {
   display: flex;
-  align-items: center;
   flex-direction: row;
-  justify-content: center;
   gap: 20px;
 }
 
-/* Estilos de las tarjetas */
-.button {
-  width: 240px; 
-  height: 120px; 
-  background-color: rgb(181, 181, 199);
+
+ /* Estilos de los botones. */
+.button{
+  width: 100%;
+  height: 120px;
+  background-color: #c0c8db;
+  border-radius: 12px;
   display: flex;
-  color: #41495a;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  border: none;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.card:hover {
+
+.button:hover {
   transform: scale(1.03);
 }
 
 /* Texto dentro de las tarjetas */
-.cardText {
-  margin-top: 5px;
-  font-size: 1.2rem; /* Ajusta el tamaño del texto */
+.button p {
+  margin-top: 8px;
+  font-size: 1rem;
   text-align: center;
   font-family: 'Graduate', sans-serif;
   color: #52687a;
 }
 
 .icon {
-  font-size: 32px; /* Ajusta el tamaño de los íconos */
-  color: #52687a;
-  margin-bottom: 5px;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
-

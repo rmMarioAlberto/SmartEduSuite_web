@@ -1,0 +1,91 @@
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: transparent;
+  }
+  
+  /* Botón de regreso */
+  .backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52687a;
+  }
+  
+  /* Título */
+  .title {
+    font-size: 2.5rem;
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #52687a;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  /* Contenedor de botones */
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  /* Estilos de los botones */
+  .button {
+    width: 100%;
+    height: 120px;
+    background-color: #c0c8db;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .button:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Texto dentro de los botones */
+  .buttonText {
+    margin-top: 8px;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Graduate', sans-serif;
+    color: #52687a;
+  }
+  
+  /* Iconos */
+  .icon {
+    font-size: 1rem;
+    color: #52687a;
+    margin-bottom: 5px;
+  }
+  
+  /* Botón de logout */
+  .logoutButton {
+    margin-top: 20px;
+    background-color: #52687a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+  }
+  
+  .logoutButton:hover {
+    background-color: #415564;
+  }
+  

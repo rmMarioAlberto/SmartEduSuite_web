@@ -19,7 +19,7 @@ const Carrera = () => {
 
       {/* Contenedor de botones */}
       <div className="buttonContainer">
-        <button className="button" onClick={() => navigate('/crearCarrera')}>
+        <button className="button" onClick={() => navigate('/IndexCarrera')}>
           <FontAwesomeIcon icon={faUser} size="2x" class="icon"/>
           <p className="cardText">Crear carrera.</p>
         </button>
