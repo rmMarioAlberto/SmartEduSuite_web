@@ -6,7 +6,7 @@
     justify-content: center;
     height: 100vh;
     background-color: transparent;
-    padding: 20px;
+    padding: 15px;
 }
 
 /* Botón de regreso */
@@ -52,7 +52,33 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-top: 2px;
+    color: #071929;
+    background-color: white;
+}
+
+.select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin-top: 5px;
+    color: #000; 
+    background-color: white;
+    appearance: none; /* Es para que no se vea el estilo que tiene el sistema por default. */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+.option {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #0c2e4b;
+    background-color: white;
 }
 
 /* Botones */

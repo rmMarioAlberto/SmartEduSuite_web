@@ -17,7 +17,7 @@ const Grupo = () => {
       </button>
       <h1 className="title">Grupo</h1>
       <div className="buttons">
-        <div className="button">
+        <div className="button" onClick={() => navigate('/admin/crear-grupo')}>          
           <IoSearch className="icon" />
           <p>Crear nuevo grupo</p>
         </div>
