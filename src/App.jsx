@@ -19,7 +19,8 @@ import CrudCarreras from './pages/admin/crudCarrera';
 import CrudGrupos from './pages/admin/crudGrupo';
 import CrudSalones from './pages/admin/crudSalon';
 import CrearSalon from './pages/admin/crearSalon';
-import CreaGrupo from './pages/admin/crearGrupo';
+import CrearAlumno from './pages/admin/crearAlumno';
+import CrearGrupo from './pages/admin/crearGrupo';
 import Grafica from './pages/admin/grafica';
 import CrudMaestros from './pages/admin/crudMaestro';
 
@@ -55,7 +56,9 @@ function App() {
           <Route path="/admin/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
           <Route path="/admin/crud-salones" element={<PrivateRoute allowedRoles={[3]}><CrudSalones /></PrivateRoute>} />
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
-          <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CreaGrupo /></PrivateRoute>} />
+          <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
+          <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
+
 
         </Routes>
       </Router>

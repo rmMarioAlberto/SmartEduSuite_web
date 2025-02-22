@@ -19,7 +19,7 @@ const Alumno = () => {
 
       {/* Botones */}
       <div className="buttonContainer">
-        <div className="button">
+        <div className="button" onClick={() => navigate('/admin/crear-alumno')}>
           <FaBook className="icon" />
           <span className="buttonText">Crear nuevo alumno</span>
         </div>

@@ -9,30 +9,37 @@ const crearGrupo = () => {
 
     return (
         <div className="container">
-            <button onClick={() => navigate(-1)} className="backButton">
-                <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-            </button>
-            <h1 className="title">Crear grupo</h1>
+            {/* Header. */}
+            <header className="header">
+                {/* Botón de regreso. */}
+                <button onClick={() => navigate(-1)} className="backButton">
+                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+                </button>
+
+                {/* Título. */}
+                <h1 className="title">Crear grupo</h1>
+            </header>
+
             <form className="form">
                 <label className="label">
                     Ingrese el nombre del grupo:
                     <input type="text" className="input" />
                 </label>
-                <label className="select-label">
-                    Seleccione la carrera:
+                <label className="label">
+                    Seleccione el grupo:
                 </label>
-                <select name="carrera" id="carrera" className="select">
-                    <option value="carrera1">Carrera1.</option>
-                    <option value="carrera2">Carrera2.</option>
-                    <option value="carrera3">Carrera3.</option>
-                    <option value="carrera4">Carrera4.</option>    
+                <select name="grupo" id="grupo" className="select">
+                    <option value="carrera1">Grupo1.</option>
+                    <option value="carrera2">Grupo2.</option>
+                    <option value="carrera3">Grupo3.</option>
+                    <option value="carrera4">Grupo4.</option>
                 </select>
-                <label className="select-label">
+                <label className="label">
                     Seleccione el status:
                 </label>
                 <select name="status" id="status" className="select">
                     <option value="activo">Activo</option>
-                    <option value="inactivo">Inactivo</option>   
+                    <option value="inactivo">Inactivo</option>
                 </select>
                 <div className="buttonContainer">
                     <button type="button" className="cancelButton">Cancelar</button>
