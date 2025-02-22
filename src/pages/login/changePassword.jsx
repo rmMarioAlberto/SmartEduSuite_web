@@ -40,7 +40,13 @@ function ChangePassword() {
             localStorage.setItem('user', JSON.stringify({ ...user, firstLogin: false }));
 
             setTimeout(() => {
-                navigate('/vista-maestro');
+                if (user.tipo === 2) {
+                    navigate('/maestro/dashboard');
+                } else if (user.tipo === 3) {
+                    navigate('/admin/dashboard');
+                } else {
+                    navigate('/login');
+                }
             }, 2000);
         } catch (err) {
             setError(err.message);

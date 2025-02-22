@@ -20,37 +20,37 @@ function IndexAdmin() {
         <h4 className="admin-home-subtitle">Administrador</h4>
       </div>
       <div className="admin-home-buttons_one">
-        <div className="button" onClick={() => navigate('/horario')}>
+        <div className="button" onClick={() => navigate('/admin/horario')}>
           <FaClock className="icon" />
           <span>Horarios</span>
         </div>
-        <div className="button" onClick={() => navigate('/maestros')}>
+        <div className="button" onClick={() => navigate('/admin/crud-maestros')}>
           <FaChalkboardTeacher className="icon" />
           <span>Maestros/as</span>
         </div>
-        <div className="button" onClick={() => navigate('/grupo')}>
+        <div className="button" onClick={() => navigate('/admin/crud-grupos')}>
           <FaUsers className="icon" />
-          <span>Grupo.</span>
+          <span>Grupos</span>
         </div>
-        <div className="button" onClick={() => navigate('/grafica')}>
+        <div className="button" onClick={() => navigate('/admin/grafica')}>
           <FaChartBar className="icon" />
           <span>Estadísticas</span>
         </div>
       </div>
       <div className="admin-home-buttons_two">
-        <div className="button" onClick={() => navigate('/IndexMateria')}>
+        <div className="button" onClick={() => navigate('/admin/crud-materias')}>
           <FaBook className="icon" />
-          <span>Materia</span>
+          <span>Materias</span>
         </div>
-        <div className="button" onClick={() => navigate('/IndexCarrera')}>
+        <div className="button" onClick={() => navigate('/admin/crud-carreras')}>
           <FaGraduationCap className="icon" />
-          <span>Carrera</span>
+          <span>Carreras</span>
         </div>
-        <div className="button" onClick={() => navigate('/alumno')}>
+        <div className="button" onClick={() => navigate('/admin/crud-alumnos')}>
           <FaGraduationCap className="icon" />
           <span>Alumnos</span>
         </div>
-        <div className="button" onClick={() => navigate('/salon')}>
+        <div className="button" onClick={() => navigate('/admin/crud-salones')}>
           <FaGraduationCap className="icon" />
           <span>Salones</span>
         </div>

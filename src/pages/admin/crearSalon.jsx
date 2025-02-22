@@ -1,4 +1,4 @@
-import "../../styles/crearSalon.css";
+import "../../styles/CrearSalon.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";

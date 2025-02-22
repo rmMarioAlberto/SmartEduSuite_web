@@ -15,10 +15,10 @@ function LoginScreen() {
     setUser(user, token);
     switch (user.tipo) {
       case 2:
-        navigate('/vista-maestro');
+        navigate('/maestro/dashboard');
         break;
       case 3:
-        navigate('/vista-admin');
+        navigate('/admin/dashboard');
         break;
       default:
         setError('Tipo de usuario desconocido');
@@ -54,7 +54,6 @@ function LoginScreen() {
       }
     }
   };
-
 
   return (
     <div className="flex items-center justify-center bg-[#22354a] min-h-screen">
