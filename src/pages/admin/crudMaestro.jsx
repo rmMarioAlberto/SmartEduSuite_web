@@ -2,37 +2,38 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
-import "../../styles/indexCRUDs.css"; // 
+import "../../styles/maestros.css"; // ✅ Importamos los estilos
 
-const crearCarrera = () => {
+const Maestros = () => {
   const navigate = useNavigate();
 
   return (
     <div className="container">
-      {/* Botón de regreso */}
       <button onClick={() => navigate(-1)} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-
-      {/* Título */}
-      <h1 className="title">Crear carrera</h1>
-
-      {/* Contenedor de botones */}
+      <h1 className="title">Maestros/as</h1>
       <div className="buttonContainer">
+<<<<<<< HEAD:src/pages/admin/maestro.jsx
+        <button onClick={() => navigate('/admin/MaestroForm')} className="card">
+=======
         <button className="button">
+>>>>>>> 9ec53efc70f02655f1c4790c1bf3d87ceb1772c6:src/pages/admin/crudMaestro.jsx
           <FontAwesomeIcon icon={faUser} size="2x" class="icon"/>
-          <p className="cardText">Crear carrera.</p>
+          <p className="cardText">Crear maestro/a.</p>
         </button>
 
+<<<<<<< HEAD:src/pages/admin/maestro.jsx
+        <button onClick={() => navigate('/admin/ConsultaMaestros')} className="card">
+=======
         <button className="button">
+>>>>>>> 9ec53efc70f02655f1c4790c1bf3d87ceb1772c6:src/pages/admin/crudMaestro.jsx
           <FontAwesomeIcon icon={faSearch} size="2x" class="icon"/>
-          <p className="cardText">Consultar carrera.</p>
+          <p className="cardText">Consultar maestro/a.</p>
         </button>
       </div>
     </div>
   );
 };
 
-export default crearCarrera;
-
-
+export default Maestros;

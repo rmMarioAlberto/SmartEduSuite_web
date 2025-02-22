@@ -1,0 +1,110 @@
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: transparent;
+    padding: 15px;
+}
+
+/* Botón de regreso */
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 1.5rem;
+}
+
+/* Título */
+.title {
+    font-size: 2.5rem;
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #c0c8db;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Formulario */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Etiqueta y entrada */
+.label {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Graduate', sans-serif;
+    font-size: 1rem;
+    color: #9ebad2;
+}
+
+.input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 2px;
+    color: #071929;
+    background-color: white;
+}
+
+.select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #000; 
+    background-color: white;
+    appearance: none; /* Es para que no se vea el estilo que tiene el sistema por default. */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+.option {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #0c2e4b;
+    background-color: white;
+}
+
+/* Botones */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancelButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sendButton {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+

@@ -1,59 +1,71 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../services/authService'; // Importamos logout
+import { AuthContext } from '../../context/AuthContext';
 import "../../styles/AdminsHome.css";
 import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa";
+<<<<<<< HEAD
 import indexMateria from './indexMateria';
 import { FaLanguage } from "react-icons/fa";
 
+=======
+>>>>>>> 9ec53efc70f02655f1c4790c1bf3d87ceb1772c6
 
 function IndexAdmin() {
   const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    logout(); // Eliminamos el usuario del localStorage.
-    navigate('/login'); // Redirigir al login.
+  const handleLogoutClick = () => {
+    handleLogout();
+    navigate('/login');
   };
 
   return (
     <div className="admin-home-container">
       <div className="admin-home-header">
-      <h1 className="admin-home-title">SmartEdu Suite</h1>
-      <h4 className="admin-home-subtitle">Administrador</h4>
+        <h1 className="admin-home-title">SmartEdu Suite</h1>
+        <h4 className="admin-home-subtitle">Administrador</h4>
       </div>
       <div className="admin-home-buttons_one">
+<<<<<<< HEAD
         <div className="button" onClick={() => navigate('/clase')}>
+=======
+        <div className="button" onClick={() => navigate('/admin/horario')}>
+>>>>>>> 9ec53efc70f02655f1c4790c1bf3d87ceb1772c6
           <FaClock className="icon" />
           <span>Horarios</span>
         </div>
-        <div className="button" onClick={() => navigate('/maestros')}>
+        <div className="button" onClick={() => navigate('/admin/crud-maestros')}>
           <FaChalkboardTeacher className="icon" />
           <span>Maestros/as</span>
         </div>
-        <div className="button" onClick={() => navigate('/grupo')}>
+        <div className="button" onClick={() => navigate('/admin/crud-grupos')}>
           <FaUsers className="icon" />
-          <span>Grupo.</span>
+          <span>Grupos</span>
         </div>
-        <div className="button" onClick={() => navigate('/grafica')}>
+        <div className="button" onClick={() => navigate('/admin/grafica')}>
           <FaChartBar className="icon" />
           <span>Estadísticas</span>
         </div>
       </div>
       <div className="admin-home-buttons_two">
-        <div className="button" onClick={() => navigate('/admin/indexMateria')}>
+        <div className="button" onClick={() => navigate('/admin/crud-materias')}>
           <FaBook className="icon" />
-          <span>Materia</span>
+          <span>Materias</span>
         </div>
-        <div className="button" onClick={() => navigate('/admin/indexCarrera')}>
+        <div className="button" onClick={() => navigate('/admin/crud-carreras')}>
           <FaGraduationCap className="icon" />
-          <span>Carrera</span>
+          <span>Carreras</span>
         </div>
-        <div className="button" onClick={() => navigate('/alumno')}>
+        <div className="button" onClick={() => navigate('/admin/crud-alumnos')}>
           <FaGraduationCap className="icon" />
           <span>Alumnos</span>
         </div>
+        <div className="button" onClick={() => navigate('/admin/crud-salones')}>
+          <FaGraduationCap className="icon" />
+          <span>Salones</span>
+        </div>
       </div>
-      <button className="logout-button" onClick={handleLogout}>Salir</button>
+      <button className="logout-button" onClick={handleLogoutClick}>Salir</button>
     </div>
   );
 }

@@ -30,11 +30,9 @@
 
 .admin-home-buttons_two {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center; /* Añade esta línea para centrar los botones */
-    align-items: center;
-    gap: 20px;
-    width: 76%;
+    grid-template-columns: repeat(4, 2fr); 
+    gap: 24px;
+    width: 100%;
     margin-bottom: 2rem;
 }
 

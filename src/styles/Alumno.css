@@ -39,7 +39,7 @@
   }
   
   /* Estilos de las tarjetas */
-  .card {
+  .button {
     width: 180px;
     height: 120px;
     background-color: #c0c8db;
@@ -54,12 +54,12 @@
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
   }
   
-  .card:hover {
+  .button:hover {
     transform: scale(1.03);
   }
   
   /* Texto dentro de las tarjetas */
-  .cardText {
+  .buttonText {
     margin-top: 8px;
     font-size: 1rem;
     text-align: center;

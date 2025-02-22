@@ -9,11 +9,32 @@ export const login = async (correo, contra) => {
 
     const data = await response.json();
 
+    if (response.status === 300 && (data.user.tipo === 2 || data.user.tipo === 3)) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
+        throw new Error('Primer login');
+    }
+
+    if (response.status === 301) {
+        throw new Error('Usuario deshabilitado');
+    }
+
+    if (response.status === 401) {
+        throw new Error('Contraseña incorrecta');
+    }
+
+    if (response.status === 404) {
+        throw new Error('Usuario no encontrado');
+    }
+
     if (!response.ok) {
         throw new Error(data.message);
     }
 
-    // Guardar la información del usuario en localStorage
+    if (data.user.tipo === 1) {
+        throw new Error('El tipo de usuario no tiene acceso al sistema');
+    }
+
     localStorage.setItem('user', JSON.stringify(data.user));
     localStorage.setItem('token', data.token);
 
@@ -30,6 +51,18 @@ export const changePassword = async (newPassword, id) => {
     });
 
     const data = await response.json();
+
+    if (response.status === 400) {
+        throw new Error(data.message || 'El id o la nueva contraseña es requerida');
+    }
+
+    if (response.status === 404) {
+        throw new Error('Usuario no encontrado');
+    }
+
+    if (response.status === 500) {
+        throw new Error('Error en el servidor');
+    }
 
     if (!response.ok) {
         throw new Error(data.message);

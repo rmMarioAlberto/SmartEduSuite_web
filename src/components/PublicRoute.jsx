@@ -8,9 +8,9 @@ const PublicRoute = ({ children }) => {
     if (token && user) {
         switch (user.tipo) {
             case 2:
-                return <Navigate to="/vista-maestro" />;
+                return <Navigate to="/maestro/dashboard" />;
             case 3:
-                return <Navigate to="/vista-admin" />;
+                return <Navigate to="/admin/dashboard" />;
             default:
                 return <Navigate to="/unauthorized" />;
         }

@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../services/authService'; // Se importa el logout.
+import { AuthContext } from '../../context/AuthContext'; 
 import "../../styles/TeachersHome.css";
 import { FaClock, FaClipboardList } from "react-icons/fa";
-import horarioMaestro from './horarioMaestro';
 
 function TeachersHome() {
   const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    logout(); // Este es para eliminar al usuario del localStorage.
-    navigate('/login'); // Para dirigir al login.
+  const handleLogoutClick = () => {
+    handleLogout();
+    navigate('/login');
   };
 
   return (
@@ -26,7 +26,7 @@ function TeachersHome() {
           <span>Asistencias</span>
         </div>
       </div>
-      <button className="logout-button" onClick={handleLogout}>Salir</button>
+      <button className="logout-button" onClick={handleLogoutClick}>Salir</button>
     </div>
   );
 }
