@@ -2,7 +2,10 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import "../../styles/AdminsHome.css";
-import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa";
+import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa"; HEAD
+import indexMateria from './indexMateria';
+import { FaLanguage } from "react-icons/fa";
+
 
 function IndexAdmin() {
   const navigate = useNavigate();
