@@ -9,22 +9,17 @@ const Maestros = () => {
 
   return (
     <div className="container">
-      {/* Botón de regreso */}
       <button onClick={() => navigate(-1)} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-
-      {/* Título */}
       <h1 className="title">Maestros/as</h1>
-
-      {/* Contenedor de botones */}
       <div className="buttonContainer">
-        <button className="card">
+        <button onClick={() => navigate('/admin/MaestroForm')} className="card">
           <FontAwesomeIcon icon={faUser} size="2x" class="icon"/>
           <p className="cardText">Crear maestro/a.</p>
         </button>
 
-        <button className="card">
+        <button onClick={() => navigate('/admin/ConsultaMaestros')} className="card">
           <FontAwesomeIcon icon={faSearch} size="2x" class="icon"/>
           <p className="cardText">Consultar maestro/a.</p>
         </button>

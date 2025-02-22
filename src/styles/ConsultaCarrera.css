@@ -1,0 +1,78 @@
+.container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    background-color: #b0c4de;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .back-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+  
+  .carrera-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
+  
+  .carrera-table th,
+  .carrera-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .carrera-table th {
+    background: lightgray;
+  }
+  
+  .update-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .update-button:hover {
+    background-color: #0056b3;
+  }
+  

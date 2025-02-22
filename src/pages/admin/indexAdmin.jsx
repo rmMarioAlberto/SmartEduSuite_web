@@ -4,6 +4,8 @@ import { logout } from '../../services/authService'; // Importamos logout
 import "../../styles/AdminsHome.css";
 import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa";
 import indexMateria from './indexMateria';
+import { FaLanguage } from "react-icons/fa";
+
 
 function IndexAdmin() {
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ function IndexAdmin() {
       <h4 className="admin-home-subtitle">Administrador</h4>
       </div>
       <div className="admin-home-buttons_one">
-        <div className="button" onClick={() => navigate('/horario')}>
+        <div className="button" onClick={() => navigate('/clase')}>
           <FaClock className="icon" />
           <span>Horarios</span>
         </div>
