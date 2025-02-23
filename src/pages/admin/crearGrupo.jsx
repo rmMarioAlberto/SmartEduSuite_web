@@ -9,6 +9,7 @@ const crearGrupo = () => {
 
     return (
         <div className="container">
+            
             {/* Header. */}
             <header className="header">
                 {/* Botón de regreso. */}

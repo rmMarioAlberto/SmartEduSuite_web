@@ -4,7 +4,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ConsultaCarreras = () => {
+const consultaCarrera = () => {
   const navigate = useNavigate();
 
   return (
@@ -67,4 +67,4 @@ const ConsultaCarreras = () => {
   );
 };
 
-export default ConsultaCarreras;
+export default consultaCarrera;

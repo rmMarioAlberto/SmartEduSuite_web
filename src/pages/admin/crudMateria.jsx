@@ -6,7 +6,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { logout } from "../../services/authService";
 
-const IndexMateria = () => {
+const crudMateria = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -21,7 +21,7 @@ const IndexMateria = () => {
             </button>
             <h1 className="title">Materia</h1>
             <div className="buttonContainer">
-                <div className="button" onClick={() => navigate("/teachers/horarioMaestro")}>  
+                <div className="button" onClick={() => navigate("/admin/crear-maestro")}>  
                     <FaClock className="icon" />
                     <p className="buttonText">Crear nueva materia</p>
                 </div>
@@ -35,4 +35,4 @@ const IndexMateria = () => {
     );
 };
 
-export default IndexMateria;
+export default crudMateria;

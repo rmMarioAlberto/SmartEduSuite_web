@@ -4,7 +4,7 @@ import "../../styles/MaestroForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const MaestroForm = () => {
+const crearMaestro = () => {
   const navigate = useNavigate();
 
   return (
@@ -52,4 +52,4 @@ const MaestroForm = () => {
   );
 };
 
-export default MaestroForm;
+export default crearMaestro;

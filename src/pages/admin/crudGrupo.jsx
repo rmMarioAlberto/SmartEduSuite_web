@@ -7,7 +7,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const Grupo = () => {
+const crudGrupo = () => {
     const navigate = useNavigate();
 
   return (
@@ -30,4 +30,4 @@ const Grupo = () => {
   );
 };
 
-export default Grupo;
+export default crudGrupo;

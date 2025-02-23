@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaLanguage } from "react-icons/fa";
 
 
-const Clase = () => {
+const crudClase = () => {
     const navigate = useNavigate();
 
   return (
@@ -19,7 +19,7 @@ const Clase = () => {
       <h1 className="grupo-title">Clases</h1>
       <div className="grupo-buttons">
         <div className="grupo-card">
-            <button onClick={() => navigate('/admin/CrearClase')} className="card">
+            <button onClick={() => navigate('/admin/crearClase')} className="card">
                 <FaLanguage className="icon" />
                 <p>Crear clase</p>
           </button>
@@ -35,4 +35,4 @@ const Clase = () => {
   );
 };
 
-export default Clase;
+export default crudClase;
