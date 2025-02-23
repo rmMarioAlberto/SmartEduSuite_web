@@ -23,6 +23,11 @@ import CrearAlumno from './pages/admin/crearAlumno';
 import CrearGrupo from './pages/admin/crearGrupo';
 import Grafica from './pages/admin/grafica';
 import CrudMaestros from './pages/admin/crudMaestro';
+import ConsultaCarreras from './pages/admin/ConsultaCarrera';
+import MaestroConsulta from './pages/admin/MaestroConsulta';
+import MaestroForm from './pages/admin/MaestroForm';
+import CrearClase from './pages/admin/CrearClase';
+import Clase from './pages/admin/Clase';
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
@@ -30,11 +35,6 @@ import Horario from './pages/teachers/horario';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 import horario from './pages/teachers/horario';
-import ConsultaCarreras from './pages/admin/ConsultaCarrera';
-import MaestroConsulta from './pages/admin/maestroConsulta';
-import MaestroForm from './pages/admin/MaestroForm';
-import CrearClase from './pages/admin/CrearClase';
-import Clase from './pages/admin/Clase';
 
 
 function App() {
