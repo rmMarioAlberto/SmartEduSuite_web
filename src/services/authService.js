@@ -1,5 +1,5 @@
 export const login = async (correo, contra) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/auth/login', {
+    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -41,19 +41,24 @@ export const login = async (correo, contra) => {
     return { user: data.user, token: data.token };
 };
 
-export const changePassword = async (newPassword, id) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/auth/change-password', {
+export const changePassword = async (newPassword, id, token) => {
+    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/change-password', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ newPassword, id }),
+        body: JSON.stringify({ newPassword, id, token }),
     });
 
     const data = await response.json();
 
     if (response.status === 400) {
         throw new Error(data.message || 'El id o la nueva contraseña es requerida');
+    }
+
+    if (response.status === 401) {
+        throw new Error('Token inválido o expirado');
     }
 
     if (response.status === 404) {

@@ -10,6 +10,7 @@ function ChangePassword() {
     
     // Obtenemos el usuario desde localStorage o la navegación
     const user = location.state?.user || JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
 
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -32,7 +33,7 @@ function ChangePassword() {
         }
 
         try {
-            const message = await changePassword(password, user.id);
+            const message = await changePassword(password, user.id, token);
             setSuccess(message);
 
             // Actualizar el usuario en el contexto
