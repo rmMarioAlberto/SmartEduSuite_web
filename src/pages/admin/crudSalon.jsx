@@ -15,6 +15,7 @@ const Salon = () => {
       <button onClick={() => navigate(-1)} className="backButton">
               <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
+      
       <h1 className="title">Salones</h1>
       <div className="buttons">
         <div className="button" onClick={() => navigate('/admin/crear-salon')}>

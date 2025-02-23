@@ -9,10 +9,19 @@ const crearSalon = () => {
 
     return (
         <div className="container">
-            <button onClick={() => navigate(-1)} className="backButton">
-                <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-            </button>
-            <h1 className="title">Crear salón</h1>
+
+            {/* Header. */}
+            <header className="header">
+                {/* Botón de regreso. */}
+                <button onClick={() => navigate(-1)} className="backButton">
+                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+                </button>
+
+                {/* Título. */}
+                <h1 className="title">Crear salón</h1>
+            </header>
+
+
             <form className="form">
                 <label className="label">
                     Ingrese el nombre del salón:
