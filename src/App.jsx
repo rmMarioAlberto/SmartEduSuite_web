@@ -28,13 +28,15 @@ import MaestroConsulta from './pages/admin/MaestroConsulta';
 import MaestroForm from './pages/admin/MaestroForm';
 import CrearClase from './pages/admin/CrearClase';
 import Clase from './pages/admin/Clase';
+import HorarioAdmin from './pages/admin/horarioAdmin'
+
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
-import Horario from './pages/teachers/horario';
+import HorarioMaestro2 from './pages/teachers/horario';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
-import horario from './pages/teachers/horario';
+
 
 
 function App() {
@@ -48,7 +50,7 @@ function App() {
           <Route path="/cambio-contrasena" element={<PublicRoute><ChangePassword /></PublicRoute>} />
           <Route path="/teachers/horarioMaestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/teachers/listasMaestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
-          <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><horario /></PrivateRoute>} />
+          <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
           <Route path="/admin/indexMateria" element={<PrivateRoute allowedRoles={[3]}><indexMateria /></PrivateRoute>} />
           <Route path="/admin/indexCarrera" element={<PrivateRoute allowedRoles={[3]}><indexCarrera /></PrivateRoute>} />
@@ -57,10 +59,10 @@ function App() {
           <Route path="/admin/MaestroForm" element={<PrivateRoute allowedRoles={[3]}><MaestroForm /></PrivateRoute>} />
           <Route path="/admin/CrearClase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
           <Route path="Clase" element={<PrivateRoute allowedRoles={[3]}><Clase /></PrivateRoute>} />
-          <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><Horario /></PrivateRoute>} />
+
           {/* Rutas de maestros */}
           <Route path="/maestro/dashboard" element={<PrivateRoute allowedRoles={[2]}><MaestroDashboard /></PrivateRoute>} />
-          <Route path="/maestro/horario" element={<PrivateRoute allowedRoles={[2]}><Horario /></PrivateRoute>} />
+          <Route path="/maestro/horario" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/maestro/horario-maestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/maestro/listas" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
 
@@ -76,6 +78,7 @@ function App() {
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
+          <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
 
 
         </Routes>

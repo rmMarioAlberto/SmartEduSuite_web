@@ -21,11 +21,11 @@ const IndexMateria = () => {
             </button>
             <h1 className="title">Materia</h1>
             <div className="buttonContainer">
-                <div className="button" onClick={() => navigate("/teachers/horarioMaestro")}>  
+                <div className="button" onClick={() => navigate("")}>  
                     <FaClock className="icon" />
                     <p className="buttonText">Crear nueva materia</p>
                 </div>
-                <div className="button" onClick={() => navigate("/listasMaestro")}>  
+                <div className="button" onClick={() => navigate("")}>  
                     <FaClipboardList className="icon" />
                     <p className="buttonText">Consultar materia</p>
                 </div>
