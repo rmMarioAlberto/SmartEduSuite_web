@@ -39,8 +39,8 @@ import horario from './pages/teachers/horario';
 
 function App() {
   return (
+    <Router>
     <AuthProvider>
-      <Router>
         <Routes>
           {/* Rutas públicas */}
           <Route path="/" element={<PublicRoute><LoginScreen /></PublicRoute>} />
@@ -79,8 +79,8 @@ function App() {
 
 
         </Routes>
+        </AuthProvider>
       </Router>
-    </AuthProvider>
   );
 }
 

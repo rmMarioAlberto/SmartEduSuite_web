@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getUser, getToken, logout as authLogout } from '../services/authService';
 
 export const AuthContext = createContext();
@@ -6,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedUser = getUser();
@@ -27,6 +29,7 @@ export const AuthProvider = ({ children }) => {
         authLogout();
         setUser(null);
         setToken(null);
+        navigate('/login');
     };
 
     return (
