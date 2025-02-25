@@ -18,25 +18,17 @@ import CrudMaterias from './pages/admin/crudMateria';
 import CrudCarreras from './pages/admin/crudCarrera';
 import CrudGrupos from './pages/admin/crudGrupo';
 import CrudSalones from './pages/admin/crudSalon';
-import CrudMaestros from './pages/admin/crudMaestro';
-import CrudClase from './pages/admin/crudClase';
-
 import CrearSalon from './pages/admin/crearSalon';
 import CrearAlumno from './pages/admin/crearAlumno';
 import CrearGrupo from './pages/admin/crearGrupo';
-import CrearClase from './pages/admin/crearClase';
-
 import Grafica from './pages/admin/grafica';
 import CrudMaestros from './pages/admin/crudMaestro';
 import ConsultaCarreras from './pages/admin/ConsultaCarrera';
 import MaestroConsulta from './pages/admin/MaestroConsulta';
-import MaestroForm from './pages/admin/MaestroForm';
 import CrearClase from './pages/admin/CrearClase';
 import Clase from './pages/admin/Clase';
 import HorarioAdmin from './pages/admin/horarioAdmin'
 
-import ConsultaCarrera from './pages/admin/consultaCarrera';
-import MaestroConsulta from './pages/admin/maestroConsulta';
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
@@ -45,7 +37,6 @@ import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 
 
-import Horario from './pages/teachers/horario';
 
 function App() {
   return (
@@ -56,8 +47,6 @@ function App() {
           <Route path="/" element={<PublicRoute><LoginScreen /></PublicRoute>} />
           <Route path="/login" element={<PublicRoute><LoginScreen /></PublicRoute>} />
           <Route path="/cambio-contrasena" element={<PublicRoute><ChangePassword /></PublicRoute>} />
-
-          {/* Rutas de maestros */}
           <Route path="/teachers/horarioMaestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/teachers/listasMaestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
           <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
@@ -71,7 +60,6 @@ function App() {
           <Route path="Clase" element={<PrivateRoute allowedRoles={[3]}><Clase /></PrivateRoute>} />
 
           {/* Rutas de maestros */}
-          <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><Horario /></PrivateRoute>} />
           <Route path="/maestro/dashboard" element={<PrivateRoute allowedRoles={[2]}><MaestroDashboard /></PrivateRoute>} />
           <Route path="/maestro/horario" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/maestro/horario-maestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
@@ -84,17 +72,14 @@ function App() {
           <Route path="/admin/crud-materias" element={<PrivateRoute allowedRoles={[3]}><CrudMaterias /></PrivateRoute>} />
           <Route path="/admin/crud-carreras" element={<PrivateRoute allowedRoles={[3]}><CrudCarreras /></PrivateRoute>} />
           <Route path="/admin/crud-alumnos" element={<PrivateRoute allowedRoles={[3]}><CrudAlumnos /></PrivateRoute>} />
-          <Route path="/admin/crud-clase" element={<PrivateRoute allowedRoles={[3]}><CrudClase /></PrivateRoute>} />
-          <Route path="/admin/crud-salones" element={<PrivateRoute allowedRoles={[3]}><CrudSalones /></PrivateRoute>} />
           <Route path="/admin/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
-          <Route path="/admin/consultaCarrera" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
+          <Route path="/admin/crud-salones" element={<PrivateRoute allowedRoles={[3]}><CrudSalones /></PrivateRoute>} />
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
           <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
 
 
-          <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
         </Routes>
         </AuthProvider>
       </Router>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const crearAlumno = () => {
+const crearSalon = () => {
     const navigate = useNavigate();
 
     return (
@@ -21,27 +21,34 @@ const crearAlumno = () => {
                 <h1 className="title-crear">Crear salón</h1>
             </header>
 
-            <div className="container-grid-3">
+            <div className="container-grid">
                 {/* Formulario. */}
                 {/* Columna 1. */}
-                <div className="column2">
+                <div className="column1">
                     <form className="form">
                         <label className="label">
-                            Ingrese el nombre del alumno:
+                            Ingrese el nombre del salón:
                             <input type="text" className="input" />
                         </label>
                         <label className="label">
-                            Ingrese el apellido materno:
+                            Ingrese del edificio:
                             <input type="text" className="input" />
                         </label>
-                        <label className="label">
-                            Seleccione el grupo:
+        
+                    </form>
+                </div>
+
+                {/* Columna 2. */}
+                <div className="column2">
+                    <form className="form">
+                    <label className="label">
+                            Seleccione el horario dispoonible:
                         </label>
-                        <select name="grupo" id="grupo" className="select">
-                            <option value="grupo1">Grupo1.</option>
-                            <option value="grupo2">Grupo2.</option>
-                            <option value="grupo3">Grupo3.</option>
-                            <option value="grupo4">Grupo4.</option>
+                        <select name="horario" id="horario" className="select">
+                            <option value="Horario1">Horario1.</option>
+                            <option value="Horario2">Horario2.</option>
+                            <option value="Horario3">Horario3.</option>
+                            <option value="Horario4">Horario4.</option>
                         </select>
                         <label className="label">
                             Seleccione el status:
@@ -65,6 +72,6 @@ const crearAlumno = () => {
     );
 };
 
-export default crearAlumno;
+export default crearSalon;
 
 
