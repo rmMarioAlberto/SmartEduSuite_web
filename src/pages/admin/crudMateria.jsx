@@ -21,11 +21,11 @@ const crudMateria = () => {
             </button>
             <h1 className="title">Materia</h1>
             <div className="buttonContainer">
-                <div className="button" onClick={() => navigate("/admin/crear-maestro")}>  
+                <div className="button" onClick={() => navigate("/admin/crear-materia")}>  
                     <FaClock className="icon" />
                     <p className="buttonText">Crear nueva materia</p>
                 </div>
-                <div className="button" onClick={() => navigate("")}>  
+                <div className="button" onClick={() => navigate("/admin/consulta-materia")}>  
                     <FaClipboardList className="icon" />
                     <p className="buttonText">Consultar materia</p>
                 </div>

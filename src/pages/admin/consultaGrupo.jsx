@@ -5,37 +5,36 @@ import "../../styles/Consulta.css"; // Estilos de la página
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
 
-const consultaMaestro = () => {
+const consultaGrupo = () => {
   const navigate = useNavigate();
 
   return (
     <div className="container">
-      {/* Botón de regreso */}
+      {/* Botón de regreso. */}
       <button onClick={() => navigate(-1)} className="backButton">
                           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      {/* Título */}
-      <h1 className="title">Maestros/as</h1>
+      {/* Título. */}
+      <h1 className="title">Grupos</h1>
 
-      {/* Barra de búsqueda */}
+      {/* Barra de búsqueda. */}
       <div className="searchContainer">
         <input
           type="text"
           className="searchInput"
-          placeholder="Ingrese el nombre del maestro o maestra."
+          placeholder="Ingrese el nombre del grupo."
         />
         <button className="searchButton">
           <IoSearch size={20} color="white" />
         </button>
       </div>
 
-      {/* Tabla de maestros */}
+      {/* Tabla de grupos. */}
       <table className="Table">
         <thead>
           <tr>
-            <th>Nombre completo</th>
-            <th>Correo</th>
-            <th>Huella</th>
+            <th>Nombre del grupo</th>
+            <th>Carrera</th>
             <th>Status</th>
             <th>Acciones</th>
           </tr>
@@ -43,17 +42,15 @@ const consultaMaestro = () => {
         <tbody>
           {/* Filas de ejemplo */}
           <tr>
-            <td>Alumno1</td>
-            <td>Correo1</td>
+            <td>Grupo1</td>
             <td>Carrera1</td>
             <td>Activa</td>
             <td>
-              <button onClick={() => navigate('/admin/crear-maestro')} className="updateButton">Actualizar</button>
+              <button onClick={() => navigate('/admin/crear-grupo')} className="updateButton">Actualizar</button>
             </td>
           </tr>
           <tr>
-            <td>Alumno2</td>
-            <td>Correo2</td>
+            <td>Grupo2</td>
             <td>Carrera2</td>
             <td>Inactiva</td>
             <td>
@@ -66,4 +63,4 @@ const consultaMaestro = () => {
   );
 };
 
-export default consultaMaestro;
+export default consultaGrupo;
