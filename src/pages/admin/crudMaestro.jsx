@@ -20,7 +20,7 @@ const CrudMaestro = () => {
           <FaUser size="2x" className="icon" /> {/* Usa FaUser */}
           <p className="cardText">Crear maestro/a.</p>
         </button>
-        <button onClick={() => navigate('/admin/ConsultaMaestros')} className="card button">
+        <button onClick={() => navigate('/admin/consulta-maestro')} className="card button">
           <FaSearch size="2x" className="icon" /> {/* Usa FaSearch */}
           <p className="cardText">Consultar maestro/a.</p>
         </button>

@@ -5,7 +5,7 @@ import "../../styles/ConsultaMaestros.css"; // Estilos de la página
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
 
-const MaestroConsulta = () => {
+const consultaMaestro = () => {
   const navigate = useNavigate();
 
   return (
@@ -60,11 +60,10 @@ const MaestroConsulta = () => {
               <button className="updateButton">Actualizar</button>
             </td>
           </tr>
-          {/* Agrega más filas según sea necesario */}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default MaestroConsulta;
+export default consultaMaestro;
