@@ -1,0 +1,90 @@
+/* Contenedor principal */
+.grupo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: transparent;
+  }
+  
+  /* Botón de regreso */
+  .backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52687a;
+    font-size: 1.5rem;
+  }
+  
+  /* Título */
+  .grupo-title {
+    font-size: 2.5rem;
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #c0c8db;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Barra de búsqueda */
+  .grupo-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+  }
+  
+  .input-search {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: #52687a;
+  }
+  
+  /* Tabla */
+  .grupo-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .grupo-table th, .grupo-table td {
+    border: 1px solid #52687a;
+    padding: 12px;
+    text-align: center;
+    font-family: 'Graduate', sans-serif;
+    color: #52687a;
+  }
+  
+  /* Botón de actualizar */
+  .update-button {
+    background-color: #52687a;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .update-button:hover {
+    background-color: #405566;
+  }
+  

@@ -1,4 +1,4 @@
-import "../../styles/Grupo.css";
+import "../../styles/GrupoConsulta.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
@@ -21,7 +21,11 @@ const crudGrupo = () => {
           <IoSearch className="icon" />
           <p>Crear nuevo grupo</p>
         </div>
+<<<<<<< HEAD
+        <div onClick={() => navigate('/admin/GrupoConsulta')} className="button">
+=======
         <div className="button"  onClick={() => navigate('/admin/consulta-grupo')}>
+>>>>>>> 789eb9dc09632f50484eb360ab4a93935ff1e1fb
           <FaUsers className="icon" />
           <p>Consultar grupo</p>
         </div>

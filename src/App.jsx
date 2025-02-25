@@ -31,6 +31,7 @@ import CrearCarrera from './pages/admin/crearCarrera';
 
 import Grafica from './pages/admin/grafica';
 import HorarioAdmin from './pages/admin/horarioAdmin'
+import GrupoConsulta from './pages/admin/GrupoConsulta';
 
 import ConsultaCarrera from './pages/admin/consultaCarrera';
 import ConsultaMaestro from './pages/admin/consultaMaestro';
@@ -75,6 +76,8 @@ function App() {
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
+          <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
+          <Route path="/admin/GrupoConsulta" element={<PrivateRoute allowedRoles={[3]}><GrupoConsulta /></PrivateRoute>} />
           <Route path="/admin/crear-maestro" element={<PrivateRoute allowedRoles={[3]}><CrearMaestro /></PrivateRoute>} />
           <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
           <Route path="/admin/crear-materia" element={<PrivateRoute allowedRoles={[3]}><CrearMateria /></PrivateRoute>} />
