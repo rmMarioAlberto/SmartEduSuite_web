@@ -38,6 +38,7 @@ import ConsultaMaestro from './pages/admin/consultaMaestro';
 import ConsultaGrupo from './pages/admin/consultaGrupo';
 import ConsultaMateria from './pages/admin/consultaMateria';
 import ConsultaSalon from './pages/admin/consultaSalon';
+import ConsultaAlumno from './pages/admin/consultaAlumno';
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
@@ -76,7 +77,6 @@ function App() {
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
-          <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
           <Route path="/admin/GrupoConsulta" element={<PrivateRoute allowedRoles={[3]}><GrupoConsulta /></PrivateRoute>} />
           <Route path="/admin/crear-maestro" element={<PrivateRoute allowedRoles={[3]}><CrearMaestro /></PrivateRoute>} />
           <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
@@ -89,6 +89,7 @@ function App() {
           <Route path="/admin/consulta-materia" element={<PrivateRoute allowedRoles={[3]}><ConsultaMateria /></PrivateRoute>} />
           <Route path="/admin/consulta-carrea" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
           <Route path="/admin/consulta-salon" element={<PrivateRoute allowedRoles={[3]}><ConsultaSalon /></PrivateRoute>} />
+          <Route path="/admin/consulta-alumno" element={<PrivateRoute allowedRoles={[3]}><ConsultaAlumno /></PrivateRoute>} />
 
         </Routes>
         </AuthProvider>
