@@ -1,64 +1,60 @@
 import React from "react";
-import "../../styles/ConsultaCarrera.css";
-import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoSearch } from "react-icons/io5"; // Icono de búsqueda
+import { useNavigate } from "react-router-dom"; // Para la navegación
+import "../../styles/Consulta.css"; // Estilos de la página
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
 
 const consultaCarrera = () => {
   const navigate = useNavigate();
 
   return (
     <div className="container">
+      {/* Botón de regreso. */}
       <button onClick={() => navigate(-1)} className="backButton">
-                    <FontAwesomeIcon icon={FaArrowLeft} size="lg" />
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
+      {/* Título. */}
       <h1 className="title">Carreras</h1>
-      <div className="search-container">
-        <input type="text" placeholder="Ingrese el nombre de una carrera." />
-        <button className="search-button">🔍</button>
+
+      {/* Barra de búsqueda. */}
+      <div className="searchContainer">
+        <input
+          type="text"
+          className="searchInput"
+          placeholder="Ingrese el nombre de la carrera."
+        />
+        <button className="searchButton">
+          <IoSearch size={20} color="white" />
+        </button>
       </div>
-      <table className="carrera-table">
+
+      {/* Tabla de carreras. */}
+      <table className="Table">
         <thead>
           <tr>
-            <th>Nombre</th>
+            <th>Nombre de la carrera.</th>
+            <th>Carrera</th>
             <th>Status</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
+          {/* Filas de ejemplo */}
           <tr>
+            <td>Grupo1</td>
             <td>Carrera1</td>
             <td>Activa</td>
             <td>
-              <button className="update-button">Actualizar</button>
+              <button onClick={() => navigate('/admin/crear-carrera')} className="updateButton">Actualizar</button>
             </td>
           </tr>
           <tr>
+            <td>Grupo2</td>
             <td>Carrera2</td>
-            <td>Activa</td>
+            <td>Inactiva</td>
             <td>
-              <button className="update-button">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <button className="update-button">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <button className="update-button">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <button className="update-button">Actualizar</button>
+              <button className="updateButton">Actualizar</button>
             </td>
           </tr>
         </tbody>

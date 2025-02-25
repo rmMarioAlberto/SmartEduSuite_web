@@ -21,11 +21,11 @@ const crudCarrera = () => {
             </button>
             <h1 className="title">Carrera</h1>
             <div className="buttonContainer">
-                <div className="button" onClick={() => navigate("/admin/crearCarrera")}>  
+                <div className="button" onClick={() => navigate("/admin/crear-carrera")}>  
                     <FaClock className="icon" />
                     <p className="buttonText">Crear nueva carrera</p>
                 </div>
-                <div className="button" onClick={() => navigate("/listasMaestro")}>  
+                <div className="button" onClick={() => navigate("/admin/consulta-carrera")}>  
                     <FaClipboardList className="icon" />
                     <p className="buttonText">Consultar carrera</p>
                 </div>

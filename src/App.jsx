@@ -27,6 +27,7 @@ import CrearGrupo from './pages/admin/crearGrupo';
 import CrearClase from './pages/admin/crearClase';
 import CrearMaestro from './pages/admin/crearMaestro';
 import CrearMateria from './pages/admin/crearMateria';
+import CrearCarrera from './pages/admin/crearCarrera';
 
 import Grafica from './pages/admin/grafica';
 import HorarioAdmin from './pages/admin/horarioAdmin'
@@ -74,19 +75,18 @@ function App() {
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
-<<<<<<< HEAD
           <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
           <Route path="/admin/GrupoConsulta" element={<PrivateRoute allowedRoles={[3]}><GrupoConsulta /></PrivateRoute>} />
-=======
           <Route path="/admin/crear-maestro" element={<PrivateRoute allowedRoles={[3]}><CrearMaestro /></PrivateRoute>} />
           <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
           <Route path="/admin/crear-materia" element={<PrivateRoute allowedRoles={[3]}><CrearMateria /></PrivateRoute>} />
->>>>>>> 789eb9dc09632f50484eb360ab4a93935ff1e1fb
+          <Route path="/admin/crear-carrera" element={<PrivateRoute allowedRoles={[3]}><CrearCarrera /></PrivateRoute>} />
 
-          <Route path="/admin/consulta-carreras" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
+          <Route path="/admin/consulta-carrera" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
           <Route path="/admin/consulta-maestro" element={<PrivateRoute allowedRoles={[3]}><ConsultaMaestro /></PrivateRoute>} />
           <Route path="/admin/consulta-grupo" element={<PrivateRoute allowedRoles={[3]}><ConsultaGrupo /></PrivateRoute>} />
           <Route path="/admin/consulta-materia" element={<PrivateRoute allowedRoles={[3]}><ConsultaMateria /></PrivateRoute>} />
+          <Route path="/admin/consulta-carrea" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
 
         </Routes>
         </AuthProvider>
