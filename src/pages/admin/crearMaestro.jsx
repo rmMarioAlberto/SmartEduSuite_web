@@ -4,13 +4,13 @@ import "../../styles/MaestroForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const MaestroForm = () => {
+const crearMaestro = () => {
   const navigate = useNavigate();
 
   return (
     <div className="maestro-container">
       <button onClick={() => navigate(-1)} className="backButton">
-                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       <h1 className="title">Maestro/a</h1>
       <form className="form-container">
@@ -52,4 +52,4 @@ const MaestroForm = () => {
   );
 };
 
-export default MaestroForm;
+export default crearMaestro;

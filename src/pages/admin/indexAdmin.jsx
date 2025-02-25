@@ -42,7 +42,7 @@ function IndexAdmin() {
       <div className="admin-home-buttons_two">
         <div className="button" onClick={() => navigate('/admin/crud-materias')}>
           <FaBook className="icon" />
-          <span>Materias</span>
+          <span>Materias</span>                                                   
         </div>
         <div className="button" onClick={() => navigate('/admin/crud-carreras')}>
           <FaGraduationCap className="icon" />

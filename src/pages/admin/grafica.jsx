@@ -11,7 +11,7 @@ const data = [
   { fecha: "04/02", horas: 5 },
 ];
 
-const Grafica = () => {
+const grafica = () => {
     const navigate = useNavigate();
   return (
     <div className="container">
@@ -52,4 +52,4 @@ const Grafica = () => {
   );
 };
 
-export default Grafica;
+export default grafica;

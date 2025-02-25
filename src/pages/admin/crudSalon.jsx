@@ -7,7 +7,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const Salon = () => {
+const crudSalon = () => {
     const navigate = useNavigate();
 
   return (
@@ -15,7 +15,7 @@ const Salon = () => {
       <button onClick={() => navigate(-1)} className="backButton">
               <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      
+
       <h1 className="title">Salones</h1>
       <div className="buttons">
         <div className="button" onClick={() => navigate('/admin/crear-salon')}>
@@ -31,4 +31,4 @@ const Salon = () => {
   );
 };
 
-export default Salon;
+export default crudSalon;

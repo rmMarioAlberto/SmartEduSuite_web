@@ -4,7 +4,7 @@ import { FaBook } from "react-icons/fa";
 import "../../styles/Alumno.css";
 import { useNavigate } from "react-router-dom";
 
-const Alumno = () => {
+const crudAlumno = () => {
     const navigate = useNavigate();
     return (
     <div className="container">
@@ -32,4 +32,4 @@ const Alumno = () => {
   );
 };
 
-export default Alumno;
+export default crudAlumno;

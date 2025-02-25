@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CrearGrupo = () => {
+const crearMateria = () => {
     const navigate = useNavigate();
 
     return (
@@ -15,21 +15,15 @@ const CrearGrupo = () => {
                 <FontAwesomeIcon icon={faArrowLeft} />
             </button>
 
-            <h1 className="title">Crear grupo</h1>
+            <h1 className="title">Crear materia</h1>
 
 
             <form className="form">
                 <label className="label">
-                    Ingrese el nombre del grupo:
+                    Ingrese el nombre de la materia:
                     <input type="text" className="input" />
                 </label>
-                <label className="label">Seleccione el grupo:</label>
-                <select name="grupo" id="grupo" className="select">
-                    <option value="carrera1">Grupo1.</option>
-                    <option value="carrera2">Grupo2.</option>
-                    <option value="carrera3">Grupo3.</option>
-                    <option value="carrera4">Grupo4.</option>
-                </select>
+                
                 <label className="label">Seleccione el status:</label>
                 <select name="status" id="status" className="select">
                     <option value="activo">Activo</option>
@@ -44,4 +38,4 @@ const CrearGrupo = () => {
     );
 };
 
-export default CrearGrupo;
+export default crearMateria;

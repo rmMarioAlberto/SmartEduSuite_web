@@ -1,11 +1,11 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5"; // Icono de búsqueda
 import { useNavigate } from "react-router-dom"; // Para la navegación
-import "../../styles/ConsultaMaestros.css"; // Estilos de la página
+import "../../styles/Consulta.css"; // Estilos de la página
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
 
-const MaestroConsulta = () => {
+const consultaMaestro = () => {
   const navigate = useNavigate();
 
   return (
@@ -30,7 +30,7 @@ const MaestroConsulta = () => {
       </div>
 
       {/* Tabla de maestros */}
-      <table className="teacherTable">
+      <table className="Table">
         <thead>
           <tr>
             <th>Nombre completo</th>
@@ -48,7 +48,7 @@ const MaestroConsulta = () => {
             <td>Carrera1</td>
             <td>Activa</td>
             <td>
-              <button onClick={() => navigate('/admin/MaestroForm')} className="updateButton">Actualizar</button>
+              <button onClick={() => navigate('/admin/crear-maestro')} className="updateButton">Actualizar</button>
             </td>
           </tr>
           <tr>
@@ -60,11 +60,10 @@ const MaestroConsulta = () => {
               <button className="updateButton">Actualizar</button>
             </td>
           </tr>
-          {/* Agrega más filas según sea necesario */}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default MaestroConsulta;
+export default consultaMaestro;
