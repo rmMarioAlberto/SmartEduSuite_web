@@ -10,7 +10,7 @@ const crearMaestro = () => {
   return (
     <div className="maestro-container">
       <button onClick={() => navigate(-1)} className="backButton">
-                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       <h1 className="title">Maestro/a</h1>
       <form className="form-container">
