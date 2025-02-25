@@ -19,7 +19,7 @@ import CrudCarreras from './pages/admin/crudCarrera';
 import CrudGrupos from './pages/admin/crudGrupo';
 import CrudSalones from './pages/admin/crudSalon';
 import CrudMaestros from './pages/admin/crudMaestro';
-import CrudClase from './pages/admin/crudClase'
+import CrudClase from './pages/admin/crudClase';
 
 import CrearSalon from './pages/admin/crearSalon';
 import CrearAlumno from './pages/admin/crearAlumno';
@@ -28,14 +28,13 @@ import CrearClase from './pages/admin/crearClase';
 
 import Grafica from './pages/admin/grafica';
 import ConsultaCarrera from './pages/admin/consultaCarrera';
-
+import MaestroConsulta from './pages/admin/maestroConsulta';
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
-import ConsultaCarreras from './pages/admin/consultaCarrera';
-import MaestroConsulta from './pages/admin/maestroConsulta';
+import Horario from './pages/teachers/horario';
 
 function App() {
   return (
@@ -46,15 +45,11 @@ function App() {
           <Route path="/" element={<PublicRoute><LoginScreen /></PublicRoute>} />
           <Route path="/login" element={<PublicRoute><LoginScreen /></PublicRoute>} />
           <Route path="/cambio-contrasena" element={<PublicRoute><ChangePassword /></PublicRoute>} />
-          <Route path="/vista-maestro" element={<PrivateRoute allowedRoles={[2]}><IndexMaestro /></PrivateRoute>} />
-          <Route path="/vista-admin" element={<PrivateRoute allowedRoles={[3]}><IndexAdmin /></PrivateRoute>} />
-          <Route path="/teachers/horarioMaestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
-          <Route path="/teachers/listasMaestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
-          <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><horario /></PrivateRoute>} />
-          <Route path="/maestros" element={<PrivateRoute allowedRoles={[3]}><Maestros /></PrivateRoute>} />
-          <Route path="/grupo" element={<PrivateRoute allowedRoles={[3]}><Grupo /></PrivateRoute>} />
 
           {/* Rutas de maestros */}
+          <Route path="/teachers/horarioMaestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
+          <Route path="/teachers/listasMaestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
+          <Route path="/teachers/horario" element={<PrivateRoute allowedRoles={[2]}><Horario /></PrivateRoute>} />
           <Route path="/maestro/dashboard" element={<PrivateRoute allowedRoles={[2]}><MaestroDashboard /></PrivateRoute>} />
           <Route path="/maestro/horario-maestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/maestro/listas" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
@@ -68,17 +63,12 @@ function App() {
           <Route path="/admin/crud-alumnos" element={<PrivateRoute allowedRoles={[3]}><CrudAlumnos /></PrivateRoute>} />
           <Route path="/admin/crud-clase" element={<PrivateRoute allowedRoles={[3]}><CrudClase /></PrivateRoute>} />
           <Route path="/admin/crud-salones" element={<PrivateRoute allowedRoles={[3]}><CrudSalones /></PrivateRoute>} />
-
           <Route path="/admin/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
           <Route path="/admin/consultaCarrera" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
-
           <Route path="/admin/crear-salon" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
           <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
-
-
-
         </Routes>
       </Router>
     </AuthProvider>

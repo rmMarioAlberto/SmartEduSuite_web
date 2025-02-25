@@ -1,24 +1,25 @@
 /* Contenedor principal */
-.container {
+.container-crear {    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: transparent;
-    padding: 1px;
+    padding: 0px;
+    position: relative;
+    margin: 0;
+    top: 0;
 }
 
-.header {
+.header-crear {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    position: absolute;
-    top: 28px;
+    position: relative;
+    top: 0px;
     width: 100%;
     padding: 20px;
-    grid-column: 1 / 3;
-    grid-row: 1;
 }
 
 .column1 {
@@ -35,31 +36,38 @@
     grid-gap: 40px;
     gap: 40px;
     width: 100%;
+    max-width: 1200px;
+}
+
+.container-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1px;
+    gap: 1px;
+    width: 100%;
     max-width: 800px;
 }
 
 /* Botón de regreso */
-.backButton {
-        top: 20px;
-        left: 20px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #000;
-        font-size: 1.5rem;
-        margin-left: 20px;
-        position: absolute;
+.backButton-crear {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #c0c8db;
+    cursor: pointer;
 }
 
 /* Título */
-.title {
+.title-crear {
     font-size: 2.5rem;
     font-family: 'Graduate', sans-serif;
     font-weight: bold;
     color: #c0c8db;
-    margin-bottom: 20px;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
 /* Formulario */
@@ -67,6 +75,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 /* Etiqueta y entrada */
@@ -86,6 +96,8 @@
     margin-top: 5px;
     color: #071929;
     background-color: white;
+    width: 100%;
+    max-width: 800px;
 }
 
 .select {
@@ -94,11 +106,11 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 2px;
-    color: #000; 
+    color: #000;
     background-color: white;
-    appearance: none; /* Es para que no se vea el estilo que tiene el sistema por default. */
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    max-width: 800px;
 }
 
 .option {
@@ -149,5 +161,3 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
-

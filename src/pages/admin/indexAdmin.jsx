@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import "../../styles/AdminsHome.css";
-import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa"; HEAD
+import { FaClock, FaChalkboardTeacher, FaUsers, FaChartBar, FaBook, FaGraduationCap } from "react-icons/fa"; 
 import { FaLanguage } from "react-icons/fa";
 
 
@@ -42,7 +42,7 @@ function IndexAdmin() {
       <div className="admin-home-buttons_two">
         <div className="button" onClick={() => navigate('/admin/crud-materias')}>
           <FaBook className="icon" />
-          <span>Materias</span>
+          <span>Materias</span>                                                   
         </div>
         <div className="button" onClick={() => navigate('/admin/crud-carreras')}>
           <FaGraduationCap className="icon" />

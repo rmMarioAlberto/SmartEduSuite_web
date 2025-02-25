@@ -11,15 +11,14 @@
   
   /* Botón de regreso */
   .backButton {
+    position: absolute;
     top: 20px;
     left: 20px;
     background: none;
     border: none;
-    cursor: pointer;
-    color: #000;
     font-size: 1.5rem;
-    margin-left: 20px;
-    position: absolute;
+    color: #c0c8db;
+    cursor: pointer;
   }
   
   /* Título */

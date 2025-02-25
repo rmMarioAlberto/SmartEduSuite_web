@@ -1,8 +1,6 @@
 import "../../styles/Grupo.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { IoSearch } from "react-icons/io5";
-import { FaUsers } from "react-icons/fa";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -15,17 +13,17 @@ const crudMaestro = () => {
       <button onClick={() => navigate(-1)} className="backButton">
               <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      
-      <h1 className="title">Maestros</h1>
-      <div className="buttons">
-        <div className="button" onClick={() => navigate('/admin/crear-maestro')}>
-          <IoSearch className="icon" />
-          <p>Registrar nuevo maestro</p>
-        </div>
-        <div className="button">
-          <FaUsers className="icon" />
-          <p>Consultar maestro</p>
-        </div>
+
+      <h1 className="title">Maestros/as</h1>
+      <div className="buttonContainer">
+        <button onClick={() => navigate('/admin/MaestroForm')} className="card button">
+          <FontAwesomeIcon icon={faUser} size="2x" className="icon"/>
+          <p className="cardText">Crear maestro/a.</p>
+        </button>
+        <button onClick={() => navigate('/admin/ConsultaMaestros')} className="card button">
+          <FontAwesomeIcon icon={faSearch} size="2x" className="icon"/>
+          <p className="cardText">Consultar maestro/a.</p>
+        </button>
       </div>
     </div>
   );
