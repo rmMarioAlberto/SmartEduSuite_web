@@ -36,6 +36,7 @@ import ConsultaCarrera from './pages/admin/consultaCarrera';
 import ConsultaMaestro from './pages/admin/consultaMaestro';
 import ConsultaGrupo from './pages/admin/consultaGrupo';
 import ConsultaMateria from './pages/admin/consultaMateria';
+import ConsultaSalon from './pages/admin/consultaSalon';
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
@@ -84,6 +85,7 @@ function App() {
           <Route path="/admin/consulta-grupo" element={<PrivateRoute allowedRoles={[3]}><ConsultaGrupo /></PrivateRoute>} />
           <Route path="/admin/consulta-materia" element={<PrivateRoute allowedRoles={[3]}><ConsultaMateria /></PrivateRoute>} />
           <Route path="/admin/consulta-carrea" element={<PrivateRoute allowedRoles={[3]}><ConsultaCarrera /></PrivateRoute>} />
+          <Route path="/admin/consulta-salon" element={<PrivateRoute allowedRoles={[3]}><ConsultaSalon /></PrivateRoute>} />
 
         </Routes>
         </AuthProvider>
