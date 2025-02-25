@@ -25,7 +25,7 @@ const crudMateria = () => {
                     <FaClock className="icon" />
                     <p className="buttonText">Crear nueva materia</p>
                 </div>
-                <div className="button" onClick={() => navigate("/listasMaestro")}>  
+                <div className="button" onClick={() => navigate("")}>  
                     <FaClipboardList className="icon" />
                     <p className="buttonText">Consultar materia</p>
                 </div>
