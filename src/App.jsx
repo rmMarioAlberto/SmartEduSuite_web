@@ -29,6 +29,7 @@ import MaestroForm from './pages/admin/MaestroForm';
 import CrearClase from './pages/admin/CrearClase';
 import Clase from './pages/admin/Clase';
 import HorarioAdmin from './pages/admin/horarioAdmin'
+import GrupoConsulta from './pages/admin/GrupoConsulta';
 
 
 //maestro imports
@@ -79,6 +80,7 @@ function App() {
           <Route path="/admin/crear-grupo" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
           <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
+          <Route path="/admin/GrupoConsulta" element={<PrivateRoute allowedRoles={[3]}><GrupoConsulta /></PrivateRoute>} />
 
 
         </Routes>
