@@ -1,35 +1,66 @@
-import React from "react";
-import { IoSearch } from "react-icons/io5"; // Icono de búsqueda
-import { useNavigate } from "react-router-dom"; // Para la navegación
-import "../../styles/ConsultaMaestros.css"; // Estilos de la página
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { getMaestro } from "../../services/maestroServices";
+import { getUser, getToken } from "../../services/authService"; // Importar las funciones de authService
+import "../../styles/ConsultaMaestros.css";
 
-const consultaMaestro = () => {
+const ConsultaMaestro = () => {
   const navigate = useNavigate();
+  const [maestros, setMaestros] = useState(null); // Inicializado como null
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  // Obtener el token y el id del usuario utilizando las funciones de authService
+  const user = getUser(); // Obtener el usuario
+  const token = getToken(); // Obtener el token
+  const idUsuario = user?.id; // Extraer el id del usuario
+
+  // Función para cargar los maestros
+  const handleFetchMaestros = async () => {
+    if (!idUsuario || !token) {
+      setError("ID de usuario o token no encontrado. Inicia sesión nuevamente.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Llamar al servicio getMaestro
+      const data = await getMaestro(idUsuario, token);
+      console.log("Datos de maestros recibidos:", JSON.stringify(data, null, 2));
+
+      // Actualizar el estado con los datos obtenidos
+      setMaestros(data);
+    } catch (error) {
+      console.error("Error al cargar maestros:", error);
+      setError(`Error al cargar maestros: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container">
-      {/* Botón de regreso */}
       <button onClick={() => navigate(-1)} className="backButton">
-                          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      {/* Título */}
+
       <h1 className="title">Maestros/as</h1>
 
-      {/* Barra de búsqueda */}
-      <div className="searchContainer">
-        <input
-          type="text"
-          className="searchInput"
-          placeholder="Ingrese el nombre del maestro o maestra."
-        />
-        <button className="searchButton">
-          <IoSearch size={20} color="white" />
-        </button>
-      </div>
+      {/* Botón para cargar los maestros */}
+      <button 
+        onClick={handleFetchMaestros} 
+        className="fetchButton"
+        disabled={loading}
+      >
+        {loading ? "Cargando..." : "Cargar Maestros"}
+      </button>
 
-      {/* Tabla de maestros */}
+      {error && <div className="errorMessage">{error}</div>}
+
       <table className="teacherTable">
         <thead>
           <tr>
@@ -41,29 +72,38 @@ const consultaMaestro = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Filas de ejemplo */}
-          <tr>
-            <td>Alumno1</td>
-            <td>Correo1</td>
-            <td>Carrera1</td>
-            <td>Activa</td>
-            <td>
-              <button onClick={() => navigate('/admin/MaestroForm')} className="updateButton">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Alumno2</td>
-            <td>Correo2</td>
-            <td>Carrera2</td>
-            <td>Inactiva</td>
-            <td>
-              <button className="updateButton">Actualizar</button>
-            </td>
-          </tr>
+          {maestros ? (
+            maestros.length > 0 ? (
+              maestros.map((maestro) => (
+                <tr key={maestro.id}>
+                  <td>{`${maestro.nombre} ${maestro.apellidoPa} ${maestro.apellidoMa}`}</td>
+                  <td>{maestro.correo}</td>
+                  <td>{maestro.huella ? "Registrada" : "No registrada"}</td>
+                  <td>{maestro.status === 1 ? "Activo" : "Inactivo"}</td>
+                  <td>
+                    <button
+                      onClick={() => navigate(`/admin/MaestroForm/${maestro.id}`)}
+                      className="updateButton"
+                    >
+                      Actualizar
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5">No hay maestros disponibles</td>
+              </tr>
+            )
+          ) : (
+            <tr>
+              <td colSpan="5">Presiona 'Cargar Maestros' para ver la lista</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default consultaMaestro;
+export default ConsultaMaestro;

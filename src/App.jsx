@@ -30,7 +30,7 @@ import CrearMaestro from './pages/admin/crearMaestro';
 import Grafica from './pages/admin/grafica';
 import HorarioAdmin from './pages/admin/horarioAdmin'
 
-import ConsultaCarrera from './pages/admin/consultaCarrera';
+import ConsultaCarrera from './pages/admin/ConsultaCarrera';
 import ConsultaMaestro from './pages/admin/consultaMaestro';
 
 //maestro imports

@@ -74,6 +74,7 @@
     border-radius: 12px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    color: black
   }
   
   /* Encabezado de la tabla */
