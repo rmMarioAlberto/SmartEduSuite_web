@@ -30,7 +30,6 @@ const crudMateria = () => {
                     <p className="buttonText">Consultar materia</p>
                 </div>
             </div>
-            <button className="logoutButton" onClick={handleLogout}>Salir</button>
         </div>
     );
 };
