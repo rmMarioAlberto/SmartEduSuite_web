@@ -1,4 +1,3 @@
-// maestroServices.js
 export const getMaestro = async (id, token, handleLogout) => {
     try {
         const response = await fetch(
@@ -13,7 +12,7 @@ export const getMaestro = async (id, token, handleLogout) => {
         );
         const data = await response.json();
         if (response.status === 401) {
-            handleLogout(); // Llamar a handleLogout si el token es inválido o ha expirado
+            handleLogout();
             return;
         }
         if (!response.ok) {
@@ -32,7 +31,7 @@ export const addMaestro = async (nombre, apellidoMa, apellidoPa, correo, status,
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token }) // Enviar el token en el cuerpo
+            body: JSON.stringify({ nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token })
         });
 
         const data = await response.json();
@@ -59,7 +58,7 @@ export const updateMaestro = async (idMaestro, nombre, apellidoMa, apellidoPa, c
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ idMaestro, nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token }) // Enviar el token en el cuerpo
+            body: JSON.stringify({ idMaestro, nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token })
         });
 
         const data = await response.json();
@@ -89,18 +88,17 @@ export const getMaestroById = async (idMaestro, idUsuario, token, handleLogout) 
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ idMaestro, idUsuario, token }), // Enviar el ID del maestro, ID del usuario y token en el cuerpo
+                body: JSON.stringify({ idMaestro, idUsuario, token }), 
             }
         );
         const data = await response.json();
         if (response.status === 401) {
-            handleLogout(); // Llamar a handleLogout si el token es inválido o ha expirado
-            return;
+            handleLogout(); 
         }
         if (!response.ok) {
             throw new Error(data.message || `Error HTTP: ${response.status}`);
         }
-        return data; // Retornar los datos del maestro
+        return data; 
     } catch (error) {
         throw new Error(`Error al obtener el maestro: ${error.message}`);
     }
@@ -113,7 +111,7 @@ export const searchMaestro = async (nombre, idUsuario, token, handleLogout) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ nombre, idUsuario, token }) // Enviar el token en el cuerpo
+            body: JSON.stringify({ nombre, idUsuario, token })
         });
 
         const data = await response.json();
