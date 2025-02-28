@@ -90,6 +90,7 @@ const ConsultaCarrera = () => {
       <table className="Table">
         <thead>
           <tr>
+            <th>id</th>
             <th>Nombre de la carrera</th>
             <th>Status</th>
             <th>Acciones</th>
@@ -107,6 +108,7 @@ const ConsultaCarrera = () => {
           ) : carreras.length > 0 ? (
             carreras.map((carrera) => (
               <tr key={carrera.id}>
+                <td>{carrera.id}</td>
                 <td>{carrera.nombre}</td>
                 <td>{carrera.status === 1 ? "Activo" : "Inactivo"}</td>
                 <td>
