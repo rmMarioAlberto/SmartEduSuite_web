@@ -108,7 +108,7 @@ const ConsultaCarrera = () => {
             carreras.map((carrera) => (
               <tr key={carrera.id}>
                 <td>{carrera.nombre}</td>
-                <td>{carrera.status === "1" ? "Activo" : "Inactivo"}</td>
+                <td>{carrera.status === 1 ? "Activo" : "Inactivo"}</td>
                 <td>
                   <button
                     onClick={() => navigate(`/admin/crear-carrera/${carrera.id}`)}
