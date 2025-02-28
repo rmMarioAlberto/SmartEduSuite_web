@@ -1,7 +1,8 @@
-export const getMaestro = async (id, token) => {
+// maestroServices.js
+export const getMaestro = async (id, token, handleLogout) => {
     try {
         const response = await fetch(
-            "http://localhost:3000/web/crudMaestro/maestros",
+            "https://smar-edu-suite-backend.vercel.app/web/crudMaestro/maestros",
             {
                 method: "POST",
                 headers: {
@@ -10,104 +11,124 @@ export const getMaestro = async (id, token) => {
                 body: JSON.stringify({ id, token }),
             }
         );
-
-        // Verificar el tipo de contenido primero
-        const contentType = response.headers.get("content-type");
-
-        if (!contentType || !contentType.includes("application/json")) {
-            const text = await response.text();
-            console.error("Respuesta no JSON:", text);
-            throw new Error(`Respuesta no JSON: ${text.substring(0, 100)}...`);
-        }
-
         const data = await response.json();
-
-        // Imprimir la respuesta completa en la consola
-        console.log("Respuesta de la API:", JSON.stringify(data, null, 2));
-
+        if (response.status === 401) {
+            handleLogout(); // Llamar a handleLogout si el token es inválido o ha expirado
+            return;
+        }
         if (!response.ok) {
             throw new Error(data.message || `Error HTTP: ${response.status}`);
         }
-
         return data;
     } catch (error) {
-        console.error("Error en getMaestro:", error);
         throw new Error(`Error al obtener los maestros: ${error.message}`);
     }
 };
 
-export const getMaestroById = async (idMaestro, idUsuario, token) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/maestroById', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ idMaestro, idUsuario, token })
-    });
+export const addMaestro = async (nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token, handleLogout) => {
+    try {
+        const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/addMaestro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token }) // Enviar el token en el cuerpo
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(data.message || 'Error en la solicitud');
+        if (response.status === 401) {
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        }
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error en la solicitud');
+        }
+
+        return data.message;
+    } catch (error) {
+        throw new Error(`Error al agregar el maestro: ${error.message}`);
     }
-
-    return data;
 };
 
-export const addMaestro = async (nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/addMaestro', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token })
-    });
+export const updateMaestro = async (idMaestro, nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token, handleLogout) => {
+    try {
+        const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/updateMaestro', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ idMaestro, nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token }) // Enviar el token en el cuerpo
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(data.message || 'Error en la solicitud');
+        if (response.status === 401) {
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        }
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error en la solicitud');
+        }
+
+        return data.message;
+    } catch (error) {
+        throw new Error(`Error al actualizar el maestro: ${error.message}`);
     }
-
-    return data.message;
 };
 
-export const updateMaestro = async (idMaestro, nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/updateMaestro', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ idMaestro, nombre, apellidoMa, apellidoPa, correo, status, huella, idUsuario, token })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(data.message || 'Error en la solicitud');
+// maestroServices.js
+export const getMaestroById = async (idMaestro, idUsuario, token, handleLogout) => {
+    try {
+        const response = await fetch(
+            "https://smar-edu-suite-backend.vercel.app/web/crudMaestro/maestroById",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ idMaestro, idUsuario, token }), // Enviar el ID del maestro, ID del usuario y token en el cuerpo
+            }
+        );
+        const data = await response.json();
+        if (response.status === 401) {
+            handleLogout(); // Llamar a handleLogout si el token es inválido o ha expirado
+            return;
+        }
+        if (!response.ok) {
+            throw new Error(data.message || `Error HTTP: ${response.status}`);
+        }
+        return data; // Retornar los datos del maestro
+    } catch (error) {
+        throw new Error(`Error al obtener el maestro: ${error.message}`);
     }
-
-    return data.message;
 };
 
-export const searchMaestro = async (nombre, idUsuario, token) => {
-    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/findMaestro', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ nombre, idUsuario, token })
-    });
+export const searchMaestro = async (nombre, idUsuario, token, handleLogout) => {
+    try {
+        const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaestro/findMaestro', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ nombre, idUsuario, token }) // Enviar el token en el cuerpo
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(data.message || 'Error en la solicitud');
+        if (response.status === 401) {
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        }
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error en la solicitud');
+        }
+
+        return data;
+    } catch (error) {
+        throw new Error(`Error al buscar maestros: ${error.message}`);
     }
-
-    return data;
 };

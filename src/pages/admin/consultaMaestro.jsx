@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+// ConsultaMaestro.jsx
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { getMaestro } from "../../services/maestroServices";
-import { getUser, getToken } from "../../services/authService"; // Importar las funciones de authService
+import { IoSearch } from "react-icons/io5";
+import { getMaestro, searchMaestro } from "../../services/maestroServices";
+import { getUser , getToken } from "../../services/authService";
+import { AuthContext } from '../../context/AuthContext';
 import "../../styles/ConsultaMaestros.css";
 
 const ConsultaMaestro = () => {
   const navigate = useNavigate();
-  const [maestros, setMaestros] = useState(null); // Inicializado como null
+  const { handleLogout } = useContext(AuthContext);
+  const [maestros, setMaestros] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Obtener el token y el id del usuario utilizando las funciones de authService
-  const user = getUser(); // Obtener el usuario
-  const token = getToken(); // Obtener el token
-  const idUsuario = user?.id; // Extraer el id del usuario
+  const user = getUser ();
+  const token = getToken();
+  const idUsuario = user?.id;
 
-  // Función para cargar los maestros
   const handleFetchMaestros = async () => {
     if (!idUsuario || !token) {
       setError("ID de usuario o token no encontrado. Inicia sesión nuevamente.");
@@ -28,61 +31,90 @@ const ConsultaMaestro = () => {
     setError(null);
 
     try {
-      // Llamar al servicio getMaestro
-      const data = await getMaestro(idUsuario, token);
-      console.log("Datos de maestros recibidos:", JSON.stringify(data, null, 2));
-
-      // Actualizar el estado con los datos obtenidos
+      const data = await getMaestro(idUsuario, token, handleLogout);
       setMaestros(data);
     } catch (error) {
-      console.error("Error al cargar maestros:", error);
       setError(`Error al cargar maestros: ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleSearchMaestros = async () => {
+    if (!idUsuario || !token || !searchTerm.trim()) {
+      setError("Ingrese un término de búsqueda válido.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await searchMaestro(searchTerm, idUsuario, token, handleLogout);
+      setMaestros(data);
+    } catch (error) {
+      setError(`Error al buscar maestros: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleFetchMaestros();
+  }, []);
+
   return (
     <div className="container">
       <button onClick={() => navigate(-1)} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-
       <h1 className="title">Maestros/as</h1>
+      <div className="searchContainer">
+        <input
+          type="text"
+          className="searchInput"
+          placeholder="Ingrese el nombre del maestro o maestra."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button className="searchButton" onClick={handleSearchMaestros}>
+          <IoSearch size={20} color="white" />
+        </button>
+      </div>
 
-      {/* Botón para cargar los maestros */}
-      <button 
-        onClick={handleFetchMaestros} 
-        className="fetchButton"
-        disabled={loading}
-      >
-        {loading ? "Cargando..." : "Cargar Maestros"}
-      </button>
-
-      {error && <div className="errorMessage">{error}</div>}
-
+      {/* Tabla de maestros */}
       <table className="teacherTable">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nombre completo</th>
             <th>Correo</th>
-            <th>Huella</th>
             <th>Status</th>
+            <th>Huella</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {maestros ? (
+          {loading ? (
+            <tr>
+              <td colSpan="6">Cargando maestros...</td>
+            </tr>
+          ) : error ? (
+            <tr>
+              <td colSpan="6">{error}</td>
+            </tr>
+          ) : maestros ? (
             maestros.length > 0 ? (
               maestros.map((maestro) => (
                 <tr key={maestro.id}>
+                  <td>{maestro.id}</td>
                   <td>{`${maestro.nombre} ${maestro.apellidoPa} ${maestro.apellidoMa}`}</td>
                   <td>{maestro.correo}</td>
-                  <td>{maestro.huella ? "Registrada" : "No registrada"}</td>
                   <td>{maestro.status === 1 ? "Activo" : "Inactivo"}</td>
+                  <td>{maestro.huella ? "Registrada" : "No registrada"}</td>
                   <td>
                     <button
-                      onClick={() => navigate(`/admin/MaestroForm/${maestro.id}`)}
+                      onClick={() => navigate(`/admin/crear-maestro/${maestro.id}`)}
                       className="updateButton"
                     >
                       Actualizar
@@ -92,12 +124,12 @@ const ConsultaMaestro = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5">No hay maestros disponibles</td>
+                <td colSpan="6">No hay maestros disponibles</td>
               </tr>
             )
           ) : (
             <tr>
-              <td colSpan="5">Presiona 'Cargar Maestros' para ver la lista</td>
+              <td colSpan="6">Presiona 'Cargar Maestros' para ver la lista</td>
             </tr>
           )}
         </tbody>
