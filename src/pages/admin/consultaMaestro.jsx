@@ -7,7 +7,8 @@ import { IoSearch } from "react-icons/io5";
 import { getMaestro, searchMaestro } from "../../services/maestroServices";
 import { getUser , getToken } from "../../services/authService";
 import { AuthContext } from '../../context/AuthContext';
-import "../../styles/ConsultaMaestros.css";
+
+// import "../../styles/ConsultaMaestros"; --- el css no existe
 
 const ConsultaMaestro = () => {
   const navigate = useNavigate();
