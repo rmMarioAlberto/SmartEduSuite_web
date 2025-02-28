@@ -24,7 +24,7 @@ function IndexAdmin() {
       <div className="admin-home-buttons_one">
         <div className="button" onClick={() => navigate('/admin/horario')}>
           <FaClock className="icon" />
-          <span>Horarios</span>
+          <span>Clases</span>
         </div>
         <div className="button" onClick={() => navigate('/admin/crud-maestros')}>
           <FaChalkboardTeacher className="icon" />

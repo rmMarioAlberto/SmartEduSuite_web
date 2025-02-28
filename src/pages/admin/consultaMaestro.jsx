@@ -1,30 +1,84 @@
-import React from "react";
-import { IoSearch } from "react-icons/io5"; // Icono de búsqueda
-import { useNavigate } from "react-router-dom"; // Para la navegación
-import "../../styles/Consulta.css"; // Estilos de la página
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
+// ConsultaMaestro.jsx
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { IoSearch } from "react-icons/io5";
+import { getMaestro, searchMaestro } from "../../services/maestroServices";
+import { getUser , getToken } from "../../services/authService";
+import { AuthContext } from '../../context/AuthContext';
 
-const consultaMaestro = () => {
+// import "../../styles/ConsultaMaestros"; --- el css no existe
+
+const ConsultaMaestro = () => {
   const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
+  const [maestros, setMaestros] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const user = getUser ();
+  const token = getToken();
+  const idUsuario = user?.id;
+
+  const handleFetchMaestros = async () => {
+    if (!idUsuario || !token) {
+      setError("ID de usuario o token no encontrado. Inicia sesión nuevamente.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await getMaestro(idUsuario, token, handleLogout);
+      setMaestros(data);
+    } catch (error) {
+      setError(`Error al cargar maestros: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSearchMaestros = async () => {
+    if (!idUsuario || !token || !searchTerm.trim()) {
+      setError("Ingrese un término de búsqueda válido.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await searchMaestro(searchTerm, idUsuario, token, handleLogout);
+      setMaestros(data);
+    } catch (error) {
+      setError(`Error al buscar maestros: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleFetchMaestros();
+  }, []);
 
   return (
     <div className="container">
-      {/* Botón de regreso */}
       <button onClick={() => navigate(-1)} className="backButton">
-                          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      {/* Título */}
       <h1 className="title">Maestros/as</h1>
-
-      {/* Barra de búsqueda */}
       <div className="searchContainer">
         <input
           type="text"
           className="searchInput"
           placeholder="Ingrese el nombre del maestro o maestra."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="searchButton">
+        <button className="searchButton" onClick={handleSearchMaestros}>
           <IoSearch size={20} color="white" />
         </button>
       </div>
@@ -33,37 +87,56 @@ const consultaMaestro = () => {
       <table className="Table">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nombre completo</th>
             <th>Correo</th>
-            <th>Huella</th>
             <th>Status</th>
+            <th>Huella</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {/* Filas de ejemplo */}
-          <tr>
-            <td>Alumno1</td>
-            <td>Correo1</td>
-            <td>Carrera1</td>
-            <td>Activa</td>
-            <td>
-              <button onClick={() => navigate('/admin/crear-maestro')} className="updateButton">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Alumno2</td>
-            <td>Correo2</td>
-            <td>Carrera2</td>
-            <td>Inactiva</td>
-            <td>
-              <button className="updateButton">Actualizar</button>
-            </td>
-          </tr>
+          {loading ? (
+            <tr>
+              <td colSpan="6">Cargando maestros...</td>
+            </tr>
+          ) : error ? (
+            <tr>
+              <td colSpan="6">{error}</td>
+            </tr>
+          ) : maestros ? (
+            maestros.length > 0 ? (
+              maestros.map((maestro) => (
+                <tr key={maestro.id}>
+                  <td>{maestro.id}</td>
+                  <td>{`${maestro.nombre} ${maestro.apellidoPa} ${maestro.apellidoMa}`}</td>
+                  <td>{maestro.correo}</td>
+                  <td>{maestro.status === 1 ? "Activo" : "Inactivo"}</td>
+                  <td>{maestro.huella ? "Registrada" : "No registrada"}</td>
+                  <td>
+                    <button
+                      onClick={() => navigate(`/admin/crear-maestro/${maestro.id}`)}
+                      className="updateButton"
+                    >
+                      Actualizar
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6">No hay maestros disponibles</td>
+              </tr>
+            )
+          ) : (
+            <tr>
+              <td colSpan="6">Presiona 'Cargar Maestros' para ver la lista</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default consultaMaestro;
+export default ConsultaMaestro;

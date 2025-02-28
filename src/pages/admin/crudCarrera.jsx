@@ -30,7 +30,6 @@ const crudCarrera = () => {
                     <p className="buttonText">Consultar carrera</p>
                 </div>
             </div>
-            <button className="logoutButton" onClick={handleLogout}>Salir</button>
         </div>
     );
 };

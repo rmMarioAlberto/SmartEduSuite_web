@@ -1,5 +1,3 @@
-import {useAuth} from '../context/AuthContext'
-
 export const getMateria = async (id, token) => {
     const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/materias', {
         method: 'POST',
