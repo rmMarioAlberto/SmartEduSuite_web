@@ -5,7 +5,7 @@ import "../../styles/Consulta.css"; // Estilos de la página
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
 
-const consultaCarrera = () => {
+const consultaSalon = () => {
   const navigate = useNavigate();
 
   return (
@@ -15,43 +15,43 @@ const consultaCarrera = () => {
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       {/* Título. */}
-      <h1 className="title">Carreras</h1>
+      <h1 className="title">Salón</h1>
 
       {/* Barra de búsqueda. */}
       <div className="searchContainer">
         <input
           type="text"
           className="searchInput"
-          placeholder="Ingrese el nombre de la carrera."
+          placeholder="Ingrese el nombre del salón."
         />
         <button className="searchButton">
           <IoSearch size={20} color="white" />
         </button>
       </div>
 
-      {/* Tabla de carreras. */}
+      {/* Tabla de salones. ;) */}
       <table className="Table">
         <thead>
           <tr>
-            <th>Nombre de la carrera.</th>
-            <th>Carrera</th>
+            <th>Nombre del salón</th>
+            <th>Edificio</th>
             <th>Status</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {/* Filas de ejemplo */}
+          {/* Filas de ejemplo. */}
           <tr>
-            <td>Grupo1</td>
-            <td>Carrera1</td>
+            <td>Salon1.</td>
+            <td>Edificio1.</td>
             <td>Activa</td>
             <td>
-              <button onClick={() => navigate('/admin/crear-carrera')} className="updateButton">Actualizar</button>
+              <button onClick={() => navigate('/admin/crear-materia')} className="updateButton">Actualizar</button>
             </td>
           </tr>
           <tr>
-            <td>Grupo2</td>
-            <td>Carrera2</td>
+            <td>Salon2.</td>
+            <td>Edificio2.</td>
             <td>Inactiva</td>
             <td>
               <button className="updateButton">Actualizar</button>
@@ -63,4 +63,4 @@ const consultaCarrera = () => {
   );
 };
 
-export default consultaCarrera;
+export default consultaSalon;

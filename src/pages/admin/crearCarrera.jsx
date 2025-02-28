@@ -4,35 +4,26 @@ import { useNavigate } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const crearAlumno = () => {
+const crearCarrera = () => {
     const navigate = useNavigate();
 
     return (
         <div className="container-crear">
 
-            {/* Header. */}
-            <header className="header-crear">
-                {/* Botón de regreso. */}
-                <button onClick={() => navigate(-1)} className="backButton-crear">
-                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-                </button>
+            {/* Botón de regreso */}
+            <button className="backButton-crear" onClick={() => navigate(-1)}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
 
-                {/* Título. */}
-                <h1 className="title-crear">Crear salón</h1>
-            </header>
+            <h1 className="title">Crear carrera</h1>
+
 
             <form className="form">
                 <label className="label">
-                    Ingrese el nombre del salón:
+                    Ingrese el nombre de la carrera:
                     <input type="text" className="input" />
                 </label>
-                <label className="label">Seleccione el edificio:</label>
-                <select name="edificio" id="edificio" className="select">
-                    <option value="edificio1">Edificio1.</option>
-                    <option value="edificio2">Edificio2.</option>
-                    <option value="edificio3">Edificio3.</option>
-                    <option value="edificio4">Edificio4.</option>
-                </select>
+                
                 <label className="label">Seleccione el status:</label>
                 <select name="status" id="status" className="select">
                     <option value="activo">Activo</option>
@@ -47,6 +38,4 @@ const crearAlumno = () => {
     );
 };
 
-export default crearAlumno;
-
-
+export default crearCarrera;

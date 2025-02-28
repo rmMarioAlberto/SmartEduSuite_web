@@ -22,7 +22,7 @@ const crudSalon = () => {
           <IoSearch className="icon" />
           <p>Registrar nuevo salón</p>
         </div>
-        <div className="button">
+        <div className="button" onClick={() => navigate('/admin/consulta-salon')}>
           <FaUsers className="icon" />
           <p>Consultar salón</p>
         </div>

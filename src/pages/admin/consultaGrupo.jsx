@@ -5,7 +5,7 @@ import "../../styles/Consulta.css"; // Estilos de la página
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
 
-const consultaCarrera = () => {
+const consultaGrupo = () => {
   const navigate = useNavigate();
 
   return (
@@ -15,25 +15,25 @@ const consultaCarrera = () => {
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       {/* Título. */}
-      <h1 className="title">Carreras</h1>
+      <h1 className="title">Grupos</h1>
 
       {/* Barra de búsqueda. */}
       <div className="searchContainer">
         <input
           type="text"
           className="searchInput"
-          placeholder="Ingrese el nombre de la carrera."
+          placeholder="Ingrese el nombre del grupo."
         />
         <button className="searchButton">
           <IoSearch size={20} color="white" />
         </button>
       </div>
 
-      {/* Tabla de carreras. */}
+      {/* Tabla de grupos. */}
       <table className="Table">
         <thead>
           <tr>
-            <th>Nombre de la carrera.</th>
+            <th>Nombre del grupo</th>
             <th>Carrera</th>
             <th>Status</th>
             <th>Acciones</th>
@@ -46,7 +46,7 @@ const consultaCarrera = () => {
             <td>Carrera1</td>
             <td>Activa</td>
             <td>
-              <button onClick={() => navigate('/admin/crear-carrera')} className="updateButton">Actualizar</button>
+              <button onClick={() => navigate('/admin/crear-grupo')} className="updateButton">Actualizar</button>
             </td>
           </tr>
           <tr>
@@ -63,4 +63,4 @@ const consultaCarrera = () => {
   );
 };
 
-export default consultaCarrera;
+export default consultaGrupo;

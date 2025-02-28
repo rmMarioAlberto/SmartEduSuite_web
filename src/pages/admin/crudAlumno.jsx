@@ -23,7 +23,7 @@ const crudAlumno = () => {
           <FaBook className="icon" />
           <span className="buttonText">Crear nuevo alumno</span>
         </div>
-        <div className="button">
+        <div className="button" onClick={() => navigate('/admin/consulta-alumno')}>
           <IoSearch className="icon" />
           <span className="buttonText">Consultar alumno</span>
         </div>

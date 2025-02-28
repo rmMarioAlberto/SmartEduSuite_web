@@ -83,7 +83,7 @@ const ConsultaMaestro = () => {
       </div>
 
       {/* Tabla de maestros */}
-      <table className="teacherTable">
+      <table className="Table">
         <thead>
           <tr>
             <th>ID</th>

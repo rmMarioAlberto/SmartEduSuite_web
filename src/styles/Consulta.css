@@ -67,7 +67,7 @@
   }
   
   /* Estilos de la tabla */
-  .teacherTable {
+  .Table {
     width: 90%;
     border-collapse: collapse;
     background-color: white;
@@ -78,19 +78,19 @@
   }
   
   /* Encabezado de la tabla */
-  .teacherTable thead {
+  .Table thead {
     background-color: #52687a;
     color: white;
   }
   
-  .teacherTable th, .teacherTable td {
+  .Table th, .Table td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ccc;
   }
   
   /* Filas alternas */
-  .teacherTable tbody tr:nth-child(even) {
+  .Table tbody tr:nth-child(even) {
     background-color: #f8f9fa;
   }
   
