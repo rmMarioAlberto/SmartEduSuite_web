@@ -1,27 +1,84 @@
 /* Contenedor principal */
-.container-crear {    
+.container-crear {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: transparent;
-    padding: 0px;
-    position: relative;
+    padding: 0;
     margin: 0;
     top: 0;
 }
 
-.header-crear {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    position: relative;
-    top: 0px;
-    width: 100%;
-    padding: 20px;
+/* Botón de regreso */
+.backButton-crear {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #52687a; /* Adaptado del segundo código */
+    cursor: pointer;
 }
 
+/* Título */
+.title-crear {
+    font-size: 2.5rem;
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #c0c8db;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Adaptado del segundo código */
+}
+
+/* Formulario */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px; /* Adaptado del segundo código */
+}
+
+/* Etiqueta y entrada */
+.label {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Graduate', sans-serif;
+    font-size: 1rem;
+    color: #52687a; /* Adaptado del segundo código */
+    margin-bottom: 5px; /* Adaptado del segundo código */
+}
+
+.input,
+.select {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px; /* Adaptado del segundo código */
+    margin-top: 5px;
+    color: #52687a; /* Adaptado del segundo código */
+    background-color: #c0c8db; /* Adaptado del segundo código */
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Adaptado del segundo código */
+    text-align: center; /* Adaptado del segundo código */
+}
+
+.option {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #0c2e4b;
+    background-color: white;
+}
+
+/* Columnas */
 .column1 {
     grid-column: 1;
 }
@@ -30,6 +87,7 @@
     grid-column: 2;
 }
 
+/* Grillas */
 .container-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -48,81 +106,37 @@
     max-width: 800px;
 }
 
-/* Botón de regreso */
-.backButton-crear {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: none;
+/* Botones */
+.buttonContainer {
+    display: flex;
+    justify-content: center; /* Adaptado del segundo código */
+    gap: 20px; /* Adaptado del segundo código */
+    margin-top: 20px; /* Adaptado del segundo código */
+}
+
+.cancelButton,
+.sendButton {
+    background-color: #e74c3c; /* Adaptado del segundo código */
+    color: white;
     border: none;
-    font-size: 1.5rem;
-    color: #c0c8db;
+    padding: 10px 20px;
+    border-radius: 12px; /* Adaptado del segundo código */
+    font-size: 1rem;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Adaptado del segundo código */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Adaptado del segundo código */
 }
 
-/* Título */
-.title-crear {
-    font-size: 2.5rem;
-    font-family: 'Graduate', sans-serif;
-    font-weight: bold;
-    color: #c0c8db;
-    text-align: center;
-    margin: 0 auto; 
+.sendButton {
+    background-color: #2980b9; /* Adaptado del segundo código */
 }
 
-/* Formulario */
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
+.cancelButton:hover,
+.sendButton:hover {
+    transform: scale(1.03); /* Adaptado del segundo código */
 }
 
-/* Etiqueta y entrada */
-.label {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Graduate', sans-serif;
-    font-size: 1rem;
-    color: #9ebad2;
-}
-
-.input {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
-    color: #071929;
-    background-color: white;
-    width: 100%;
-    max-width: 800px;
-}
-
-.select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 2px;
-    color: #000;
-    background-color: white;
-    appearance: none;
-    width: 100%;
-    max-width: 800px;
-}
-
-.option {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
-    color: #0c2e4b;
-    background-color: white;
-}
-
+/* Pie de página */
 .footer {
     display: flex;
     justify-content: center;
@@ -133,31 +147,4 @@
     padding: 20px;
     grid-column: 3 / 3;
     grid-row: 3;
-}
-
-/* Botones */
-.buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-}
-
-.cancelButton {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.sendButton {
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
 }

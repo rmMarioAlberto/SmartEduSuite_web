@@ -1,5 +1,5 @@
 /* Contenedor principal */
-.maestro-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +35,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    row-gap: 50px;
+    gap: 50px;
     max-width: 800px;
     width: 100%;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/MaestroForm.css";
+import "../../styles/listaCreacion.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,11 +8,11 @@ const crearMaestro = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="maestro-container">
-      <button onClick={() => navigate(-1)} className="backButton">
+    <div className="container-crear">
+      <button onClick={() => navigate(-1)} className="backButton-crear">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      <h1 className="title">Maestro/a</h1>
+      <h1 className="title-crear">Maestro/a</h1>
       <form className="form-container">
         <div className="form-group">
           <label>Ingrese el nombre del maestro/a:</label>
