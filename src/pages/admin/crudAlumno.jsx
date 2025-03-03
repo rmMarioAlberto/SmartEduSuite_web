@@ -1,7 +1,7 @@
 import React from "react";
 import { IoArrowBack, IoSearch } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
-import "../../styles/Grupo.css";
+import "../../styles/indexCRUD.css";
 import { useNavigate } from "react-router-dom";
 
 const crudAlumno = () => {

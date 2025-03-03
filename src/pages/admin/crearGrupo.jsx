@@ -36,8 +36,8 @@ const CrearGrupo = () => {
                     <option value="inactivo">Inactivo</option>
                 </select>
                 <div className="buttonContainer">
-                    <button type="button" className="cancelButton">Cancelar</button>
-                    <button type="submit" className="sendButton">Enviar</button>
+                <button type="button" className="cancelButton" onClick={() => navigate(-1)}>Cancelar</button>
+                <button type="submit" className="sendButton">Enviar</button>
                 </div>
             </form>
         </div>

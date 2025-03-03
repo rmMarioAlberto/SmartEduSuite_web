@@ -1,4 +1,4 @@
-import "../../styles/carrera.css";
+import "../../styles/indexCRUD.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaClock, FaClipboardList } from "react-icons/fa";

@@ -1,4 +1,4 @@
-import "../../styles/Grupo.css";
+import "../../styles/indexCRUD.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
