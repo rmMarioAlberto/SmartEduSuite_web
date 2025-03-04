@@ -7,6 +7,9 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { AuthProvider } from './context/AuthContext';
 
+//google impost
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 //public imports
 import LoginScreen from './pages/login/LoginScreen';
 import ChangePassword from './pages/login/changePassword';
@@ -47,8 +50,11 @@ import HorarioMaestro2 from './pages/teachers/horario';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 
+const clientId = '1018434450389-cont8867068oegkgggd59e7n4apjrer3.apps.googleusercontent.com'
+
 function App() {
   return (
+    <GoogleOAuthProvider clientId={clientId}>
     <Router>
     <AuthProvider>
         <Routes>
@@ -97,6 +103,7 @@ function App() {
         </Routes>
         </AuthProvider>
       </Router>
+      </GoogleOAuthProvider>
   );
 }
 

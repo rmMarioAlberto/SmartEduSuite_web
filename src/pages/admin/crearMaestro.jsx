@@ -112,9 +112,9 @@ const CrearMaestro = () => {
 
             <div className="container-grid">
                 {/* Formulario */}
-                {/* Columna 1 */}
-                <div className="column1">
-                    <form className="form" onSubmit={handleSubmit}>
+                <form className="form" onSubmit={handleSubmit}>
+                    {/* Columna 1 */}
+                    <div className="column1">
                         <label className="label">
                             Ingrese el nombre del maestro/a:
                             <input
@@ -151,12 +151,10 @@ const CrearMaestro = () => {
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
                         </select>
-                    </form>
-                </div>
+                    </div>
 
-                {/* Columna 2 */}
-                <div className="column2">
-                    <form className="form" onSubmit={handleSubmit}>
+                    {/* Columna 2 */}
+                    <div className="column2">
                         <label className="label">
                             Ingrese el apellido paterno:
                             <input
@@ -189,18 +187,18 @@ const CrearMaestro = () => {
                                 onChange={(e) => setHuella(e.target.value)}
                             />
                         </label>
-                    </form>
-                </div>
-
-                {/* Footer */}
-                <footer className="footer">
-                    <div className="buttonContainer">
-                        <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
-                        <button type="submit" className="sendButton" disabled={loading}>
-                            {loading ? "Enviando..." : "Enviar"}
-                        </button>
                     </div>
-                </footer>
+
+                    {/* Footer */}
+                    <footer className="footer">
+                        <div className="buttonContainer">
+                            <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
+                            <button type="submit" className="sendButton" disabled={loading}>
+                                {loading ? "Enviando..." : "Enviar"}
+                            </button>
+                        </div>
+                    </footer>
+                </form>
             </div>
         </div>
     );
