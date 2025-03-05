@@ -66,7 +66,7 @@ const ConsultaCarrera = () => {
   return (
     <div className="container">
       {/* Botón de regreso. */}
-      <button onClick={() => navigate(-1)} className="backButton">
+      <button onClick={() => navigate('/admin/crud-carreras')} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       {/* Título. */}

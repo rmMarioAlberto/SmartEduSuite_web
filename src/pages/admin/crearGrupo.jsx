@@ -11,7 +11,7 @@ const CrearGrupo = () => {
         <div className="container-crear">
 
             {/* Botón de regreso */}
-            <button className="backButton-crear" onClick={() => navigate(-1)}>
+            <button className="backButton-crear" onClick={() => navigate('/admin/crud-grupos')}>
                 <FontAwesomeIcon icon={faArrowLeft} />
             </button>
 

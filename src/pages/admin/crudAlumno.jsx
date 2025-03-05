@@ -10,7 +10,7 @@ const crudAlumno = () => {
     <div className="container">
 
       {/* Botón de regreso */}
-      <button onClick={() => navigate(-1)} className="backButton">
+      <button onClick={() => navigate('/admin/dashboard')} className="backButton">
         <IoArrowBack />
       </button>
 
