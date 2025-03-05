@@ -38,7 +38,7 @@ const CrearMaestro = () => {
                     setHuella(data.huella);
                     setStatus(data.status.toString());
                 } catch (error) {
-                    setError(`Error al cargar los datos del maestro: ${error.message}`);
+                    setError('Error al cargar los datos del maestro: ${error.message}');
                 }
             };
 
@@ -91,7 +91,7 @@ const CrearMaestro = () => {
             // Si la operación es exitosa, redirigir a la lista de maestros
             navigate("/admin/consulta-maestro");
         } catch (error) {
-            setError(`Error al crear o actualizar el maestro: ${error.message}`);
+            setError('Error al crear o actualizar el maestro: ${error.message}');
         } finally {
             setLoading(false);
         }
@@ -189,17 +189,20 @@ const CrearMaestro = () => {
                                 onChange={(e) => setHuella(e.target.value)}
                             />
                         </label>
-                    </form>
-                </div>
 
-                {/* Footer */}
-                <footer className="footer">
-                    <div className="buttonContainer">
+                        <div className="buttonContainer">
                         <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
                         <button type="submit" className="sendButton" disabled={loading}>
                             {loading ? "Enviando..." : "Enviar"}
                         </button>
                     </div>
+                        
+                    </form>
+                </div>
+
+                {/* Footer */}
+                <footer className="footer">
+                    
                 </footer>
             </div>
         </div>
