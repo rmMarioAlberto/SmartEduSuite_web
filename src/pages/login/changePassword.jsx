@@ -2,12 +2,13 @@ import React, { useState, useContext } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { changePassword } from '../../services/authService';
 import { AuthContext } from '../../context/AuthContext';
+import "../../styles/changePassword.css";
 
 function ChangePassword() {
     const { setUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    
+
     // Obtenemos el usuario desde localStorage o la navegación
     const user = location.state?.user || JSON.parse(localStorage.getItem('user'));
     const token = localStorage.getItem('token');
@@ -55,25 +56,39 @@ function ChangePassword() {
     };
 
     return (
-        <div>
-            <h2>Cambiar Contraseña</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="password"
-                    placeholder="Nueva contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Confirmar contraseña"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                <button type="submit">Cambiar Contraseña</button>
-            </form>
+        <div className='container-change-password'>
+
+            <header className='header-change-password'>
+                <h2 className='title-change-password'>Cambiar Contraseña</h2>
+            </header>
+
+            <div className='form-change-password'>
+                <p>Por favor, cambia tu contraseña para continuar</p>
+                <form onSubmit={handleSubmit}>
+                    <label className='label'>Ingresa tu nueva contraseña:
+                        <input
+                            type="password"
+                            placeholder="Nueva contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
+
+                    <label className='label'>Confirma tu nueva contraseña:
+                        <input
+                            type="password"
+                            placeholder="Confirmar contraseña"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                    </label>
+
+                    <button type="submit">Cambiar Contraseña</button>
+                </form>
+            </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {success && <p style={{ color: 'green' }}>{success}</p>}
+                
         </div>
     );
 }
