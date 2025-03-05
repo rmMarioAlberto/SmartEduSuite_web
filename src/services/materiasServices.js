@@ -1,172 +1,135 @@
-export const getMateria = async (id, token) => {
+export const getMateria = async (id, token, handleLogout) => {
     const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/materias', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ id, token })
     });
 
     const data = await response.json();
 
-    if (response.status === 400) {
-        throw new Error(data.message || 'Solicitud incorrecta');
+    switch (response.status) {
+        case 200:
+            return data;
+        case 400:
+            throw new Error(data.message || 'Solicitud incorrecta');
+        case 401:
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        case 500:
+            throw new Error('Error en el servidor');
+        default:
+            throw new Error(data.message || 'Error desconocido');
     }
-
-    if (response.status === 401) {
-        handlehandleLogout();
-        throw new Error('Token inválido o expirado');
-    }
-
-    if (response.status === 500) {
-        throw new Error('Error en el servidor');
-    }
-
-    if (!response.ok) {
-        throw new Error(data.message);
-    }
-
-    return data;
 };
 
-export const getMateriaById = async (idMateria, idUsuario, token) => {
-    const response = await fetch ('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/materiaById', {
-        method : 'get', 
-        headers : {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+export const getMateriaById = async (idMateria, idUsuario, token, handleLogout) => {
+    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/materiaById', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
-
-        body: JSON.stringify({idMateria, idUsuario, token})
+        body: JSON.stringify({ idMateria, idUsuario, token })
     });
 
     const data = await response.json();
 
-    if (response.status === 400){
-        throw new Error(data.message || 'Solicitud incorrecta')
+    switch (response.status) {
+        case 200:
+            return data; // Devuelve los datos si la respuesta es exitosa
+        case 400:
+            throw new Error(data.message || 'Solicitud incorrecta');
+        case 401:
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        case 404:
+            throw new Error('Materia no encontrada');
+        case 500:
+            throw new Error('Error en el servidor');
+        default:
+            throw new Error(data.message || 'Error desconocido');
     }
+};
 
-    if (response.status === 401){
-        handleLogout();
-        throw new Error ('Token invalido o expirado')
-    }
-
-    if(response.status === 404){
-        throw new Error("Materia no encontrada");
-    }
-
-    if(response.status === 500){
-        throw new Error("Error en el servidor");
-    }
-
-    if (!response.ok){
-        throw new Error(data.message);
-    }
-
-    return data;
-}
-
-export const addMateria = async (nombre, status, idUsuario, token) => {
+export const addMateria = async (nombre, status, idUsuario, token, handleLogout) => {
     const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/addMateria', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ nombre, status, idUsuario, token })
     });
 
     const data = await response.json();
 
-    if (response.status === 400) {
-        throw new Error(data.message || 'Solicitud incorrecta');
+    switch (response.status) {
+        case 200:
+            return data.message; 
+        case 400:
+            throw new Error(data.message || 'Solicitud incorrecta');
+        case 401:
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        case 500:
+            throw new Error('Error en el servidor');
+        default:
+            throw new Error(data.message || 'Error desconocido');
     }
-
-    if (response.status === 401) {
-        handleLogout();
-        throw new Error('Token inválido o expirado');
-    }
-
-    if (response.status === 500) {
-        throw new Error('Error en el servidor');
-    }
-
-    if (!response.ok) {
-        throw new Error(data.message);
-    }
-
-    return data.message;
 };
 
-export const updateMateria = async (nombre, status, idMateria, idUsuario, token) => {
+export const updateMateria = async (nombre, status, idMateria, idUsuario, token, handleLogout) => {
     const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/updateMateria', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ nombre, status, idMateria, idUsuario, token })
     });
 
     const data = await response.json();
 
-    if (response.status === 400) {
-        throw new Error(data.message || 'Solicitud incorrecta');
+    switch (response.status) {
+        case 200:
+            return data.message; 
+        case 400:
+            throw new Error(data.message || 'Solicitud incorrecta');
+        case 401:
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        case 404:
+            throw new Error('Materia no encontrada');
+        case 500:
+            throw new Error('Error en el servidor');
+        default:
+            throw new Error(data.message || 'Error desconocido');
     }
-
-    if (response.status === 401) {
-        handleLogout();
-        throw new Error('Token inválido o expirado');
-    }
-
-    if (response.status === 404) {
-        throw new Error('Materia no encontrada');
-    }
-
-    if (response.status === 500) {
-        throw new Error('Error en el servidor');
-    }
-
-    if (!response.ok) {
-        throw new Error(data.message);
-    }
-
-    return data.message;
 };
 
-export const searchMateria = async (nombre, idUsuario, token) => {
+export const searchMateria = async (nombre, idUsuario, token, handleLogout) => {
     const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/crudMaterias/searchMateria', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ nombre, idUsuario, token })
     });
 
     const data = await response.json();
 
-    if (response.status === 400) {
-        throw new Error(data.message || 'Solicitud incorrecta');
+    switch (response.status) {
+        case 200:
+            return data; 
+        case 400:
+            throw new Error(data.message || 'Solicitud incorrecta');
+        case 401:
+            handleLogout();
+            throw new Error('Token inválido o expirado');
+        case 404:
+            throw new Error('Materia no encontrada');
+        case 500:
+            throw new Error('Error en el servidor');
+        default:
+            throw new Error(data.message || 'Error desconocido');
     }
-
-    if (response.status === 401) {
-        handleLogout();
-        throw new Error('Token inválido o expirado');
-    }
-
-    if (response.status === 404) {
-        throw new Error('Materia no encontrada');
-    }
-
-    if (response.status === 500) {
-        throw new Error('Error en el servidor');
-    }
-
-    if (!response.ok) {
-        throw new Error(data.message);
-    }
-
-    return data;
 };
