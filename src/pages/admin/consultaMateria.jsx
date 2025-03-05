@@ -66,13 +66,11 @@ const ConsultaMateria = () => {
   return (
     <div className="container">
       {/* Botón de regreso. */}
-<<<<<<< HEAD
       <button onClick={() => navigate('/admin/crud-materias')} className="backButton">
-                          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-=======
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+      </button>
       <button onClick={() => navigate(-1)} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
->>>>>>> f1d731e26e62459ec56540e5be61a115242dc577
       </button>
       {/* Título. */}
       <h1 className="title">Materia</h1>
