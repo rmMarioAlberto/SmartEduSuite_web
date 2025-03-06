@@ -28,7 +28,7 @@ import CrudEstadisticas from './pages/admin/crudEstadistica';
 import CrearSalon from './pages/admin/crearSalon';
 import CrearAlumno from './pages/admin/crearAlumno';
 import CrearGrupo from './pages/admin/crearGrupo';
-import CrearClase from './pages/admin/crearClase';
+import CrearClase from './pages/admin/CrearClase';
 import CrearMaestro from './pages/admin/crearMaestro';
 import CrearMateria from './pages/admin/crearMateria';
 import CrearCarrera from './pages/admin/crearCarrera';

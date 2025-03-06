@@ -19,14 +19,14 @@ const crearClase = () => {
         <h1 className="title-crear">Crear clase</h1>
       </header>
       <label className="label">Ingrese el nombre de la materia:
-              <input type="text" className="input" placeholder="Materia" required />
-            </label>
-            
+        <input type="text" className="input" placeholder="Materia" required />
+      </label>
+
       <div className="container-grid">
         {/* Columna 1 */}
         <div className="column1">
           <form className="form">
-            
+
             <label className="label">Seleccione el grupo:</label>
             <select name="grupo" id="grupo" className="select" required>
               <option>Grupo</option>
@@ -45,7 +45,7 @@ const crearClase = () => {
         {/* Columna 2 */}
         <div className="column2">
           <form className="form">
-          <label className="label">Seleccione el día:</label>
+            <label className="label">Seleccione el día:</label>
             <select name="dia" id="dia" className="select" required>
               <option>Día</option>
             </select>

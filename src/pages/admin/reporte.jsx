@@ -12,7 +12,7 @@ const data = [
 ];
 
 const reporte = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="container">
       {/* Botón de regreso */}
@@ -25,9 +25,20 @@ const reporte = () => {
 
       {/* Filtros */}
       <div className="filtros">
-        <select className="filtro-maestro">Seleccione un maestro</select>
-        <button className="filtro-button">Fecha Inicial</button>
-        <button className="filtro-button">Fecha final</button>
+        <label className="label">Seleccione un maestro:
+          <select className="filtro-maestro">
+            <option value="maestro1">Maestro 1</option>
+            <option value="maestro2">Maestro 2</option>
+            <option value="maestro3">Maestro 3</option>
+            <option value="maestro4">Maestro 4</option>
+          </select>
+        </label>
+        <label className="label"> Seleccione la fecha de inicio:
+          <button className="filtro-button">Fecha Inicial</button>
+        </label>
+        <label className="label">Seleccione la fecha final:
+          <button className="filtro-button">Fecha final</button>
+        </label>
       </div>
 
       {/* Texto indicador */}
