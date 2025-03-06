@@ -16,15 +16,15 @@ const crudClase = () => {
               <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
 
-      <h1 className="grupo-title">Clases</h1>
+      <h1 className="title">Clases</h1>
       <div className="buttonContainer">
             <button onClick={() => navigate('/admin/crear-clase')} className="card button">
                 <FaLanguage size="2x" className="icon" />
                 <p className="cardText">Crear clase</p>
           </button>
-          <button onClick={() => navigate('/admin/Horario')} className="card button">
+          <button onClick={() => navigate('/admin/consulta-clase')} className="card button">
                 <IoSearch className="icon" />
-                <p className="cardText">Consultar grupo</p>
+                <p className="cardText">Consultar clase</p>
           </button>
         </div>
     </div>

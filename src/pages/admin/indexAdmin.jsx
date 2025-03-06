@@ -22,7 +22,7 @@ function IndexAdmin() {
         <h4 className="admin-home-subtitle">Administrador</h4>
       </div>
       <div className="admin-home-buttons_one">
-        <div className="button" onClick={() => navigate('/admin/crud-clase')}>
+        <div className="button" onClick={() => navigate('/admin/crud-clases')}>
           <FaClock className="icon" />
           <span>Clases</span>
         </div>
@@ -34,7 +34,7 @@ function IndexAdmin() {
           <FaUsers className="icon" />
           <span>Grupos</span>
         </div>
-        <div className="button" onClick={() => navigate('/admin/grafica')}>
+        <div className="button" onClick={() => navigate('/admin/crud-estadisticas')}>
           <FaChartBar className="icon" />
           <span>Estadísticas</span>
         </div>

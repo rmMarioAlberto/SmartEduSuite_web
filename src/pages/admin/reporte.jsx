@@ -11,7 +11,7 @@ const data = [
   { fecha: "04/02", horas: 5 },
 ];
 
-const grafica = () => {
+const reporte = () => {
     const navigate = useNavigate();
   return (
     <div className="container">
@@ -21,11 +21,11 @@ const grafica = () => {
       </button>
 
       {/* Título */}
-      <h1 className="title">Gráfica</h1>
+      <h1 className="title">Reporte</h1>
 
       {/* Filtros */}
       <div className="filtros">
-        <button className="filtro-button">Tipo de gráfica</button>
+        <button className="filtro-button">Generar reporte</button>
         <button className="filtro-button">Fecha Inicial</button>
         <button className="filtro-button">Fecha final</button>
       </div>
@@ -47,9 +47,9 @@ const grafica = () => {
       </div>
 
       {/* Botón de exportar */}
-      <button className="export-button">Exportar gráfica</button>
+      <button className="export-button">Exportar reporte</button>
     </div>
   );
 };
 
-export default grafica;
+export default reporte;

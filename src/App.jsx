@@ -23,20 +23,20 @@ import CrudGrupos from './pages/admin/crudGrupo';
 import CrudSalon from './pages/admin/crudSalon';
 import CrudMaestros from './pages/admin/crudMaestro';
 import CrudClases from './pages/admin/crudClase';
+import CrudEstadisticas from './pages/admin/crudEstadistica';
 
 import CrearSalon from './pages/admin/crearSalon';
 import CrearAlumno from './pages/admin/crearAlumno';
 import CrearGrupo from './pages/admin/crearGrupo';
-import CrearClase from './pages/admin/CrearClase';
+import CrearClase from './pages/admin/crearClase';
 import CrearMaestro from './pages/admin/crearMaestro';
 import CrearMateria from './pages/admin/crearMateria';
 import CrearCarrera from './pages/admin/crearCarrera';
 
 import Grafica from './pages/admin/grafica';
-import HorarioAdmin from './pages/admin/horarioAdmin'
-import GrupoConsulta from './pages/admin/GrupoConsulta';
+import Reporte from './pages/admin/reporte';
 
-import ConsultaCarrera from './pages/admin/ConsultaCarrera';
+import ConsultaCarrera from './pages/admin/consultaCarrera';
 import ConsultaMaestro from './pages/admin/consultaMaestro';
 import ConsultaGrupo from './pages/admin/consultaGrupo';
 import ConsultaMateria from './pages/admin/consultaMateria';
@@ -46,7 +46,6 @@ import ConsultaClase from './pages/admin/consultaClase';
 
 //maestro imports
 import MaestroDashboard from './pages/teachers/indexMaestro';
-import HorarioMaestro2 from './pages/teachers/horario';
 import HorarioMaestro from './pages/teachers/horarioMaestro';
 import ListasMaestro from './pages/teachers/listasMaestro';
 
@@ -77,10 +76,11 @@ function App() {
           <Route path="/admin/crud-carreras" element={<PrivateRoute allowedRoles={[3]}><CrudCarreras /></PrivateRoute>} />
           <Route path="/admin/crud-alumnos" element={<PrivateRoute allowedRoles={[3]}><CrudAlumnos /></PrivateRoute>} />
           <Route path="/admin/crud-salones" element={<PrivateRoute allowedRoles={[3]}><CrudSalon /></PrivateRoute>} />
-          <Route path="/admin/crud-clase" element={<PrivateRoute allowedRoles={[3]}><CrudClases /></PrivateRoute>} />
+          <Route path="/admin/crud-clases" element={<PrivateRoute allowedRoles={[3]}><CrudClases /></PrivateRoute>} />
+          <Route path="/admin/crud-estadisticas" element={<PrivateRoute allowedRoles={[3]}><CrudEstadisticas /></PrivateRoute>} />
 
-          <Route path='/admin/Horario' element={<PrivateRoute allowedRoles={[3]}><HorarioAdmin /></PrivateRoute>} />
           <Route path="/admin/grafica" element={<PrivateRoute allowedRoles={[3]}><Grafica /></PrivateRoute>} />
+          <Route path="/admin/reporte" element={<PrivateRoute allowedRoles={[3]}><Reporte/></PrivateRoute>} />
 
           <Route path="/admin/crear-salon/:idSalon?" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo/:idGrupo?" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const CrearClase = () => {
+const crearClase = () => {
   const navigate = useNavigate();
 
   return (
@@ -74,4 +74,4 @@ const CrearClase = () => {
   );
 };
 
-export default CrearClase;
+export default crearClase;
