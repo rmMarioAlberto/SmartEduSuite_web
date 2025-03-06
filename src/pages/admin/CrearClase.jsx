@@ -23,9 +23,7 @@ const CrearClase = () => {
         {/* Columna 1 */}
         <div className="column1">
           <form className="form">
-            <label className="label">Ingrese el nombre de la materia:
-              <input type="text" className="input" placeholder="Materia" required />
-            </label>
+            
             <label className="label">Seleccione el grupo:</label>
             <select name="grupo" id="grupo" className="select" required>
               <option>Grupo</option>
@@ -38,16 +36,19 @@ const CrearClase = () => {
             <select name="salon" id="salon" className="select" required>
               <option>Salón</option>
             </select>
-            <label className="label">Seleccione el día:</label>
-            <select name="dia" id="dia" className="select" required>
-              <option>Día</option>
-            </select>
+            <label className="label">Ingrese el nombre de la materia:
+              <input type="text" className="input" placeholder="Materia" required />
+            </label>
           </form>
         </div>
 
         {/* Columna 2 */}
         <div className="column2">
           <form className="form">
+          <label className="label">Seleccione el día:</label>
+            <select name="dia" id="dia" className="select" required>
+              <option>Día</option>
+            </select>
             <label className="label">Seleccione el horario:</label>
             <select name="horario" id="horario" className="select" required>
               <option>Horario</option>
