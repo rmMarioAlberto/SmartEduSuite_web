@@ -69,9 +69,6 @@ const ConsultaMateria = () => {
       <button onClick={() => navigate('/admin/crud-materias')} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      <button onClick={() => navigate(-1)} className="backButton">
-        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-      </button>
       {/* Título. */}
       <h1 className="title">Materia</h1>
 

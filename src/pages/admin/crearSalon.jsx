@@ -48,23 +48,6 @@ const CrearSalon = () => {
                             />
                         </label>
                         <label className="label">
-                            Ingrese el edificio:
-                            <input
-                                type="text"
-                                className="input"
-                                placeholder="Edificio"
-                                value={edificio}
-                                onChange={(e) => setEdificio(e.target.value)}
-                                required
-                            />
-                        </label>
-                    </form>
-                </div>
-
-                {/* Columna 2 */}
-                <div className="column2">
-                    <form className="form" onSubmit={handleSubmit}>
-                        <label className="label">
                             Seleccione el horario disponible:
                         </label>
                         <select
@@ -80,6 +63,23 @@ const CrearSalon = () => {
                             <option value="Horario3">Horario 3</option>
                             <option value="Horario4">Horario 4</option>
                         </select>
+                    </form>
+                </div>
+
+                {/* Columna 2 */}
+                <div className="column2">
+                    <form className="form" onSubmit={handleSubmit}>
+                    <label className="label">
+                            Ingrese el edificio:
+                            <input
+                                type="text"
+                                className="input"
+                                placeholder="Edificio"
+                                value={edificio}
+                                onChange={(e) => setEdificio(e.target.value)}
+                                required
+                            />
+                        </label>
                         <label className="label">
                             Seleccione el status:
                         </label>

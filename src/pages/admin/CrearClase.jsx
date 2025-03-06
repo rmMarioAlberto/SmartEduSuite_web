@@ -8,7 +8,7 @@ const CrearClase = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container-crear">
+    <div className="column1">
       {/* Header */}
       <header className="header-crear">
         {/* Botón de regreso */}
@@ -23,8 +23,7 @@ const CrearClase = () => {
         {/* Columna 1 */}
         <div className="column1">
           <form className="form">
-            <label className="label">
-              Ingrese el nombre de la materia:
+            <label className="label">Ingrese el nombre de la materia:
               <input type="text" className="input" placeholder="Materia" required />
             </label>
             <label className="label">Seleccione el grupo:</label>
