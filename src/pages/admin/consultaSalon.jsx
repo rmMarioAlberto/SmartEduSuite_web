@@ -1,12 +1,67 @@
-import React from "react";
-import { IoSearch } from "react-icons/io5"; // Icono de búsqueda
-import { useNavigate } from "react-router-dom"; // Para la navegación
-import "../../styles/Consulta.css"; // Estilos de la página
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
+import React, { useState, useEffect, useContext } from "react";
+import { IoSearch } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import "../../styles/Consulta.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const consultaSalon = () => {
+import { getSalones, searchSalon } from "../../services/salonService"; // Asegúrate de que la ruta sea correcta
+import { getUser , getToken } from "../../services/authService";
+import { AuthContext } from '../../context/AuthContext';
+
+const ConsultaSalon = () => {
   const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
+  const [salones, setSalones] = useState([]); // Inicializar como un array vacío
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const user = getUser ();
+  const token = getToken();
+  const idUsuario = user?.id;
+
+  const handleFetchSalones = async () => {
+    if (!idUsuario || !token) {
+      setError("ID de usuario o token no encontrado. Inicia sesión nuevamente.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await getSalones(idUsuario, token, handleLogout);
+      setSalones(data);
+    } catch (error) {
+      setError(`Error al cargar salones: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSearchSalon = async () => {
+    if (!idUsuario || !token || !searchTerm.trim()) {
+      setError("Ingrese un término de búsqueda válido.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await searchSalon(searchTerm, idUsuario, token, handleLogout);
+      setSalones(data);
+    } catch (error) {
+      setError(`Error al buscar salones: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleFetchSalones();
+  }, []);
 
   return (
     <div className="container">
@@ -15,7 +70,7 @@ const consultaSalon = () => {
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       {/* Título. */}
-      <h1 className="title">Salón</h1>
+      <h1 className="title">Salones</h1>
 
       {/* Barra de búsqueda. */}
       <div className="searchContainer">
@@ -23,13 +78,15 @@ const consultaSalon = () => {
           type="text"
           className="searchInput"
           placeholder="Ingrese el nombre del salón."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="searchButton">
+        <button className="searchButton" onClick={handleSearchSalon}>
           <IoSearch size={20} color="white" />
         </button>
       </div>
 
-      {/* Tabla de salones. ;) */}
+      {/* Tabla de salones. */}
       <table className="Table">
         <thead>
           <tr>
@@ -40,27 +97,39 @@ const consultaSalon = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Filas de ejemplo. */}
-          <tr>
-            <td>Salon1.</td>
-            <td>Edificio1.</td>
-            <td>Activa</td>
-            <td>
-              <button onClick={() => navigate('/admin/crear-materia')} className="updateButton">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Salon2.</td>
-            <td>Edificio2.</td>
-            <td>Inactiva</td>
-            <td>
-              <button className="updateButton">Actualizar</button>
-            </td>
-          </tr>
+          {loading ? (
+            <tr>
+              <td colSpan="4">Cargando salones...</td>
+            </tr>
+          ) : error ? (
+            <tr>
+              <td colSpan="4">{error}</td>
+            </tr>
+          ) : salones.length > 0 ? (
+            salones.map((salon) => (
+              <tr key={salon.id}>
+                <td>{salon.nombre}</td>
+                <td>{salon.edificio}</td>
+                <td>{salon.status === 1 ? "Activa" : "Inactiva"}</td>
+                <td>
+                  <button
+                    onClick={() => navigate(`/admin/crear-salon/${salon.id}`)}
+                    className="updateButton"
+                  >
+                    Actualizar
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4">No hay salones disponibles</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default consultaSalon;
+export default ConsultaSalon;

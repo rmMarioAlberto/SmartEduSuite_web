@@ -1,110 +1,141 @@
 import "../../styles/listaCreacion.css";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { addSalon, getSalonById, updateSalon } from '../../services/salonService'; // Asegúrate de que la ruta sea correcta
+import { getUser, getToken } from "../../services/authService";
+import { AuthContext } from '../../context/AuthContext';
+
 const CrearSalon = () => {
     const navigate = useNavigate();
+    const { idSalon } = useParams(); // Obtener el ID del salón de la URL
+    const { handleLogout } = useContext(AuthContext);
     const [nombre, setNombre] = useState("");
     const [edificio, setEdificio] = useState("");
-    const [horario, setHorario] = useState("");
-    const [status, setStatus] = useState("activo");
+    const [status, setStatus] = useState("1");
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Lógica para manejar el envío del formulario
-        console.log("Formulario enviado", { nombre, edificio, horario, status });
+    const user = getUser();
+    const token = getToken();
+    const idUsuario = user?.id;
+
+    // Cargar los datos del salón si el ID está presente
+    useEffect(() => {
+        if (idSalon) {
+            const fetchSalon = async () => {
+                try {
+                    const data = await getSalonById(idSalon, idUsuario, token, handleLogout);
+                    setNombre(data[0].nombre); // Asumiendo que la respuesta es un array
+                    setEdificio(data[0].edificio);
+                    setStatus(data[0].status); // Asegúrate de que el campo status exista
+                } catch (error) {
+                    setError(`Error al cargar los datos del salón: ${error.message}`);
+                }
+            };
+            fetchSalon();
+        }
+    }, [idSalon, idUsuario, token, handleLogout]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+        if (!idUsuario || !token) {
+            setError("ID de usuario o token no encontrado. Inicia sesión nuevamente.");
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
+
+        try {
+            if (idSalon) { // Verificar si hay un ID de salón
+                // Si hay un ID, actualizar el salón
+                await updateSalon(
+                    idSalon,
+                    nombre,
+                    edificio,
+                    status,
+                    idUsuario,
+                    token,
+                    handleLogout
+                );
+            } else {
+                // Si no hay ID, crear un nuevo salón
+                await addSalon(
+                    nombre,
+                    edificio,
+                    status,
+                    idUsuario,
+                    token,
+                    handleLogout
+                );
+            }
+
+            // Si la operación es exitosa, redirigir a la lista de salones
+            navigate("/admin/consulta-salon");
+        } catch (error) {
+            setError(`Error al crear o actualizar el salón: ${error.message}`);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className="container-crear">
+            {/* Botón de regreso */}
+            <button onClick={() => navigate('/admin/crud-salones')} className="backButton-crear">
+                <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+            </button>
 
-            {/* Header */}
-            <header className="header-crear">
-                {/* Botón de regreso */}
-                <button onClick={() => navigate('/admin/crud-salones')} className="backButton-crear">
-                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-                </button>
+            <h1 className="title">Crear salón</h1>
 
-                {/* Título */}
-                <h1 className="title-crear">Crear salón</h1>
-            </header>
-
-            <div className="container-grid">
-                {/* Formulario */}
-                {/* Columna 1 */}
-                <div className="column1">
-                    <form className="form" onSubmit={handleSubmit}>
-                        <label className="label">
-                            Ingrese el nombre del salón:
-                            <input
-                                type="text"
-                                className="input"
-                                placeholder="Nombre del salón"
-                                value={nombre}
-                                onChange={(e) => setNombre(e.target.value)}
-                                required
-                            />
-                        </label>
-                        <label className="label">
-                            Ingrese el edificio:
-                            <input
-                                type="text"
-                                className="input"
-                                placeholder="Edificio"
-                                value={edificio}
-                                onChange={(e) => setEdificio(e.target.value)}
-                                required
-                            />
-                        </label>
-                    </form>
+            <form className="form" onSubmit={handleSubmit}>
+                <label className="label">
+                    Ingrese el nombre del salón:
+                    <input
+                        type="text"
+                        className="input"
+                        placeholder="Nombre del salón"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                        required
+                    />
+                </label>
+                <label className="label">
+                    Ingrese el edificio:
+                    <input
+                        type="text"
+                        className="input"
+                        placeholder="Edificio"
+                        value={edificio}
+                        onChange={(e) => setEdificio(e.target.value)}
+                        required
+                    />
+                </label>
+                <label className="label">
+                    Seleccione el status:
+                </label>
+                <select
+                    name="status"
+                    id="status"
+                    className="select"
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                    required
+                >
+                    <option value="1">Activo</option>
+                    <option value="2">desactivado</option>
+                </select>
+                <div className="buttonContainer">
+                    <button type="button" className="cancelButton" onClick={() => navigate(-1)}>Cancelar</button>
+                    <button type="submit" className="sendButton">Enviar</button>
                 </div>
-
-                {/* Columna 2 */}
-                <div className="column2">
-                    <form className="form" onSubmit={handleSubmit}>
-                        <label className="label">
-                            Seleccione el horario disponible:
-                        </label>
-                        <select
-                            name="horario"
-                            id="horario"
-                            className="select"
-                            value={horario}
-                            onChange={(e) => setHorario(e.target.value)}
-                            required
-                        >
-                            <option value="Horario1">Horario 1</option>
-                            <option value="Horario2">Horario 2</option>
-                            <option value="Horario3">Horario 3</option>
-                            <option value="Horario4">Horario 4</option>
-                        </select>
-                        <label className="label">
-                            Seleccione el status:
-                        </label>
-                        <select
-                            name="status"
-                            id="status"
-                            className="select"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            required
-                        >
-                            <option value="activo">Activo</option>
-                            <option value="inactivo">Inactivo</option>
-                        </select>
-                    </form>
-                </div>
-
-                {/* Footer */}
-                <footer className="footer">
-                    <div className="buttonContainer">
-                        <button type="button" className="cancelButton" onClick={() => navigate(-1)}>Cancelar</button>
-                        <button type="submit" className="sendButton" onClick={handleSubmit}>Enviar</button>
-                    </div>
-                </footer>
-            </div>
+                {loading && <p>Cargando...</p>}
+                {error && <p className="error">{error}</p>}
+            </form>
         </div>
     );
 };
