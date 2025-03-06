@@ -1,71 +1,77 @@
+import "../../styles/listaCreacion.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const crearClase = () => {
+const CrearClase = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="clase-container">
-      <button onClick={() => navigate(-1)} className="backButton">
-                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-            </button>
-      <h1 className="title">Crear clase</h1>
-      <form className="form-container">
-        <div className="left-section">
-          <div className="form-group">
-            <label>Ingrese el nombre de la materia:</label>
-            <input type="text" placeholder="Materia." />
-          </div>
-          <div className="form-group">
-            <label>Seleccione el grupo:</label>
-            <select>
-              <option>Grupo.</option>
+    <div className="container-crear">
+      {/* Header */}
+      <header className="header-crear">
+        {/* Botón de regreso */}
+        <button onClick={() => navigate('/admin/crud-clase')} className="backButton-crear">
+          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        </button>
+        {/* Título */}
+        <h1 className="title-crear">Crear clase</h1>
+      </header>
+
+      <div className="container-grid">
+        {/* Columna 1 */}
+        <div className="column1">
+          <form className="form">
+            <label className="label">
+              Ingrese el nombre de la materia:
+              <input type="text" className="input" placeholder="Materia" required />
+            </label>
+            <label className="label">Seleccione el grupo:</label>
+            <select name="grupo" id="grupo" className="select" required>
+              <option>Grupo</option>
             </select>
-          </div>
-          <div className="form-group">
-            <label>Seleccione al maestro:</label>
-            <select>
-              <option>Maestro.</option>
+            <label className="label">Seleccione al maestro:</label>
+            <select name="maestro" id="maestro" className="select" required>
+              <option>Maestro</option>
             </select>
-          </div>
-          <div className="form-group">
-            <label>Seleccione el salón:</label>
-            <select>
-              <option>Salón.</option>
+            <label className="label">Seleccione el salón:</label>
+            <select name="salon" id="salon" className="select" required>
+              <option>Salón</option>
             </select>
-          </div>
-          <div className="form-group">
-            <label>Seleccione el día:</label>
-            <select>
-              <option>Día.</option>
+            <label className="label">Seleccione el día:</label>
+            <select name="dia" id="dia" className="select" required>
+              <option>Día</option>
             </select>
-          </div>
+          </form>
         </div>
 
-        <div className="right-section">
-          <div className="form-group">
-            <label>Seleccione el horario:</label>
-            <select>
-              <option>Horario.</option>
+        {/* Columna 2 */}
+        <div className="column2">
+          <form className="form">
+            <label className="label">Seleccione el horario:</label>
+            <select name="horario" id="horario" className="select" required>
+              <option>Horario</option>
             </select>
-          </div>
-          <div className="form-group">
-            <label>Status:</label>
-            <select>
-              <option>Status.</option>
+            <label className="label">Status:</label>
+            <select name="status" id="status" className="select" required>
+              <option>Status</option>
             </select>
-          </div>
+          </form>
         </div>
-      </form>
-
-      <div className="button-group">
-        <button onClick={() => navigate(-1)} className="cancel-button">Cancelar</button>
-        <button type="Submit" className="submit-button">Enviar</button>
       </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="buttonContainer">
+          <button type="button" className="cancelButton" onClick={() => navigate(-1)}>
+            Cancelar
+          </button>
+          <button type="submit" className="sendButton">Enviar</button>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default crearClase;
+export default CrearClase;

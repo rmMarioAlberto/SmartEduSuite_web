@@ -38,7 +38,7 @@ const CrearMaestro = () => {
                     setHuella(data.huella);
                     setStatus(data.status.toString());
                 } catch (error) {
-                    setError(`Error al cargar los datos del maestro: ${error.message}`);
+                    setError('Error al cargar los datos del maestro: ${error.message}');
                 }
             };
 
@@ -91,7 +91,7 @@ const CrearMaestro = () => {
             // Si la operación es exitosa, redirigir a la lista de maestros
             navigate("/admin/consulta-maestro");
         } catch (error) {
-            setError(`Error al crear o actualizar el maestro: ${error.message}`);
+            setError('Error al crear o actualizar el maestro: ${error.message}');
         } finally {
             setLoading(false);
         }
@@ -102,7 +102,7 @@ const CrearMaestro = () => {
             {/* Header */}
             <header className="header-crear">
                 {/* Botón de regreso */}
-                <button onClick={() => navigate(-1)} className="backButton-crear">
+                <button onClick={() => navigate('/admin/crud-maestros')} className="backButton-crear">
                     <FontAwesomeIcon icon={faArrowLeft} size="lg" />
                 </button>
 
@@ -112,9 +112,9 @@ const CrearMaestro = () => {
 
             <div className="container-grid">
                 {/* Formulario */}
-                <form className="form" onSubmit={handleSubmit}>
-                    {/* Columna 1 */}
-                    <div className="column1">
+                {/* Columna 1 */}
+                <div className="column1">
+                    <form className="form" onSubmit={handleSubmit}>
                         <label className="label">
                             Ingrese el nombre del maestro/a:
                             <input
@@ -151,10 +151,12 @@ const CrearMaestro = () => {
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
                         </select>
-                    </div>
+                    </form>
+                </div>
 
-                    {/* Columna 2 */}
-                    <div className="column2">
+                {/* Columna 2 */}
+                <div className="column2">
+                    <form className="form" onSubmit={handleSubmit}>
                         <label className="label">
                             Ingrese el apellido paterno:
                             <input
@@ -187,18 +189,21 @@ const CrearMaestro = () => {
                                 onChange={(e) => setHuella(e.target.value)}
                             />
                         </label>
-                    </div>
 
-                    {/* Footer */}
-                    <footer className="footer">
                         <div className="buttonContainer">
-                            <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
-                            <button type="submit" className="sendButton" disabled={loading}>
-                                {loading ? "Enviando..." : "Enviar"}
-                            </button>
-                        </div>
-                    </footer>
-                </form>
+                        <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
+                        <button type="submit" className="sendButton" disabled={loading}>
+                            {loading ? "Enviando..." : "Enviar"}
+                        </button>
+                    </div>
+                        
+                    </form>
+                </div>
+
+                {/* Footer */}
+                <footer className="footer">
+                    
+                </footer>
             </div>
         </div>
     );

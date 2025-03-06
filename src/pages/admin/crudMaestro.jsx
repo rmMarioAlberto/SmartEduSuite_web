@@ -10,7 +10,7 @@ const CrudMaestro = () => {
 
   return (
     <div className="container">
-      <button onClick={() => navigate(-1)} className="backButton">
+      <button onClick={() => navigate('/admin/dashboard')} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
 

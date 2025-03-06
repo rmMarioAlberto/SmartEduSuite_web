@@ -64,7 +64,8 @@ const ConsultaGrupo = () => {
 
   return (
     <div className="container">
-      <button onClick={() => navigate(-1)} className="backButton">
+      {/* Botón de regreso. */}
+      <button onClick={() => navigate('/admin/crud-grupos')} className="backButton">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       <h1 className="title">Grupos</h1>

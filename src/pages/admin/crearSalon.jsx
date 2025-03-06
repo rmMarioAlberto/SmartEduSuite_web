@@ -23,7 +23,7 @@ const CrearSalon = () => {
             {/* Header */}
             <header className="header-crear">
                 {/* Botón de regreso */}
-                <button onClick={() => navigate(-1)} className="backButton-crear">
+                <button onClick={() => navigate('/admin/crud-salones')} className="backButton-crear">
                     <FontAwesomeIcon icon={faArrowLeft} size="lg" />
                 </button>
 
