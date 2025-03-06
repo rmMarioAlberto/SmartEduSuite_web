@@ -12,7 +12,7 @@ const crearClase = () => {
       {/* Header */}
       <header className="header-crear">
         {/* Botón de regreso */}
-        <button onClick={() => navigate('/admin/crud-clase')} className="backButton-crear">
+        <button onClick={() => navigate('/admin/crud-clases')} className="backButton-crear">
           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         </button>
         {/* Título */}

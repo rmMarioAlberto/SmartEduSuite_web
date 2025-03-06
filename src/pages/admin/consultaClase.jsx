@@ -10,7 +10,18 @@ import "../../styles/Consulta.css";
 // import { getUser , getToken } from "../../services/authService";
 
 const consultaClase = () => {
-  
+  const navigate = useNavigate();
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [clases, setClase] = useState([]);
+
+  const [error, setError] = useState(null);
+
+  const handleSearchClases = async () => {
+
+  }
+
   return (
     <div className="container">
       <button onClick={() => navigate(-1)} className="backButton">

@@ -25,7 +25,7 @@ const reporte = () => {
 
       {/* Filtros */}
       <div className="filtros">
-        <button className="filtro-button">Generar reporte</button>
+        <select className="filtro-maestro">Seleccione un maestro</select>
         <button className="filtro-button">Fecha Inicial</button>
         <button className="filtro-button">Fecha final</button>
       </div>
