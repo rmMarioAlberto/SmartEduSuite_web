@@ -73,9 +73,6 @@ function LoginScreen() {
         const correo = userInfo.email;
         const idGoogle = userInfo.sub; // ID único de Google
   
-        // Log para depuración
-        console.log('Correo:', correo);
-        console.log('ID de Google:', idGoogle);
   
         // Llamar a tu API de login con Google
         const result = await loginGoogle(correo, idGoogle);
