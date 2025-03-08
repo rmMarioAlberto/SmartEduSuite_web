@@ -30,10 +30,11 @@ const reporte = () => {
         <button className="filtro-button">Fecha final</button>
       </div>
 
-      {/* Texto indicador */}
-      <p className="subtitle">Promedio de consumo:</p>
+  
+      <p className="subtitle">Promedio de horas de luz artificial:</p>
+      <p className="subtitle">Promedio de temperatura:</p>
 
-      {/* Gráfica */}
+      
       <div className="chart">
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={data} margin={{ top: 10, right: 30, left: 10, bottom: 10 }}>
@@ -46,8 +47,7 @@ const reporte = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Botón de exportar */}
-      <button className="export-button">Exportar reporte</button>
+      <button className="export-button">Generar grafica</button>
     </div>
   );
 };
