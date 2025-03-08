@@ -91,7 +91,7 @@ const CrearMaestro = () => {
             // Si la operación es exitosa, redirigir a la lista de maestros
             navigate("/admin/consulta-maestro");
         } catch (error) {
-            setError('Error al crear o actualizar el maestro: ${error.message}');
+            setError(`${error.message}`);
         } finally {
             setLoading(false);
         }
@@ -191,18 +191,19 @@ const CrearMaestro = () => {
                         </label>
 
                         <div className="buttonContainer">
-                        <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
-                        <button type="submit" className="sendButton" disabled={loading}>
-                            {loading ? "Enviando..." : "Enviar"}
-                        </button>
-                    </div>
-                        
+                            <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
+                            <button type="submit" className="sendButton" disabled={loading}>
+                                {loading ? "Enviando..." : "Enviar"}
+                            </button>
+                        </div>
                     </form>
                 </div>
+                {error && <div className="error-message">{error}</div>}
+
 
                 {/* Footer */}
                 <footer className="footer">
-                    
+
                 </footer>
             </div>
         </div>

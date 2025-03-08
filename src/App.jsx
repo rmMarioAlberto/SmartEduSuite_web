@@ -28,7 +28,7 @@ import CrudEstadisticas from './pages/admin/crudEstadistica';
 import CrearSalon from './pages/admin/crearSalon';
 import CrearAlumno from './pages/admin/crearAlumno';
 import CrearGrupo from './pages/admin/crearGrupo';
-import CrearClase from './pages/admin/crearClase';
+import CrearClase from './pages/admin/CrearClase';
 import CrearMaestro from './pages/admin/crearMaestro';
 import CrearMateria from './pages/admin/crearMateria';
 import CrearCarrera from './pages/admin/crearCarrera';
@@ -36,7 +36,7 @@ import CrearCarrera from './pages/admin/crearCarrera';
 import Grafica from './pages/admin/grafica';
 import Reporte from './pages/admin/reporte';
 
-import ConsultaCarrera from './pages/admin/consultaCarrera';
+import ConsultaCarrera from './pages/admin/ConsultaCarrera';
 import ConsultaMaestro from './pages/admin/consultaMaestro';
 import ConsultaGrupo from './pages/admin/consultaGrupo';
 import ConsultaMateria from './pages/admin/consultaMateria';
@@ -84,7 +84,7 @@ function App() {
 
           <Route path="/admin/crear-salon/:idSalon?" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo/:idGrupo?" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
-          <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
+          <Route path="/admin/crear-alumno/:idAlumno?" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
           <Route path="/admin/crear-maestro/:id?" element={<PrivateRoute allowedRoles={[3]}><CrearMaestro /></PrivateRoute>} />          
           <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
           <Route path="/admin/crear-materia/:idMateria?" element={<PrivateRoute allowedRoles={[3]}><CrearMateria /></PrivateRoute>} />
