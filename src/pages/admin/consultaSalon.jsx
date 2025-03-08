@@ -90,6 +90,7 @@ const ConsultaSalon = () => {
       <table className="Table">
         <thead>
           <tr>
+            <th>id</th>
             <th>Nombre del salón</th>
             <th>Edificio</th>
             <th>Status</th>
@@ -108,6 +109,7 @@ const ConsultaSalon = () => {
           ) : salones.length > 0 ? (
             salones.map((salon) => (
               <tr key={salon.id}>
+                <td>{salon.id}</td>
                 <td>{salon.nombre}</td>
                 <td>{salon.edificio}</td>
                 <td>{salon.status === 1 ? "Activa" : "Inactiva"}</td>

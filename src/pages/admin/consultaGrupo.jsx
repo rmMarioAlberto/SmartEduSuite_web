@@ -84,6 +84,7 @@ const ConsultaGrupo = () => {
       <table className="Table">
         <thead>
           <tr>
+            <th>id</th>
             <th>Nombre del grupo</th>
             <th>Carrera</th>
             <th>Status</th>
@@ -102,6 +103,7 @@ const ConsultaGrupo = () => {
           ) : grupos && grupos.length > 0 ? (
             grupos.map((grupo) => (
               <tr key={grupo.grupoId}>
+                <td>{grupo.grupoId}</td>
                 <td>{grupo.grupoNombre}</td>
                 <td>{grupo.carreraNombre}</td>
                 <td>{grupo.status === 1 ? "Activa" : "Inactiva"}</td>

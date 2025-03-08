@@ -96,3 +96,30 @@
     fill: #52687a;
   }
   
+  .filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filtro-input,
+.filtro-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.filtro-input:focus,
+.filtro-select:focus {
+    border-color: #4e6b7c;
+    outline: none;
+    box-shadow: 0 0 5px rgba(78, 107, 124, 0.5);
+}

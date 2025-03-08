@@ -10,6 +10,7 @@ import "../../styles/Consulta.css";
 // import { getUser , getToken } from "../../services/authService";
 
 const consultaClase = () => {
+  const navigate = useNavigate();
   
   return (
     <div className="container">
