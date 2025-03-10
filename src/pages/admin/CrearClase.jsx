@@ -105,7 +105,6 @@ const CrearClase = () => {
 
   const handleFirstFormSubmit = (e) => {
     e.preventDefault();
-    console.log("Primer formulario enviado");
     loadAvailableSchedules();
   };
 
@@ -125,11 +124,6 @@ const CrearClase = () => {
       const daySelected = String(selectedDia);
       const originalDay = String(originalHoursDay.day);
 
-      console.log("Día seleccionado:", daySelected);
-      console.log("Día original:", originalDay);
-      console.log("Horas originales:", originalHoursDay.hours);
-      console.log("¿Son iguales?", daySelected === originalDay);
-
       // Si estamos en el día original
       if (daySelected === originalDay) {
         console.log("Estamos en el día original");
@@ -146,7 +140,6 @@ const CrearClase = () => {
         // Restaurar las horas originales como seleccionadas
         setSelectedSchedules([...originalHoursDay.hours]);
       } else {
-        console.log("No estamos en el día original");
         setAvailableSchedules(horasServer);
         setSelectedSchedules([]); // Limpiar las horas seleccionadas en días que no son el original
       }
@@ -168,7 +161,6 @@ const CrearClase = () => {
 
   const handleDayChange = (e) => {
     const newDay = e.target.value;
-    console.log("Cambiando día a:", newDay);
     setSelectedDia(newDay);
 
     // Dar tiempo para que se actualice el estado antes de cargar horarios
