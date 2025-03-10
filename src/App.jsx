@@ -86,7 +86,7 @@ function App() {
           <Route path="/admin/crear-grupo/:idGrupo?" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
           <Route path="/admin/crear-alumno/:idAlumno?" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
           <Route path="/admin/crear-maestro/:id?" element={<PrivateRoute allowedRoles={[3]}><CrearMaestro /></PrivateRoute>} />          
-          <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
+          <Route path="/admin/crear-clase/:idclase?" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
           <Route path="/admin/crear-materia/:idMateria?" element={<PrivateRoute allowedRoles={[3]}><CrearMateria /></PrivateRoute>} />
           <Route path="/admin/crear-carrera/:idCarrera?" element={<PrivateRoute allowedRoles={[3]}><CrearCarrera /></PrivateRoute>} />
 
