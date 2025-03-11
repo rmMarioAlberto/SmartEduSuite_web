@@ -16,7 +16,7 @@ const crudGrupo = () => {
               <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
       <h1 className="title">Grupo</h1>
-      <div className="buttons">
+      <div className="buttonContainer">
         <div className="button" onClick={() => navigate('/admin/crear-grupo')}>          
           <IoSearch className="icon" />
           <p>Crear nuevo grupo</p>
