@@ -138,26 +138,6 @@ const CrearMaestro = () => {
                             />
                         </label>
                         <label className="label">
-                            Seleccione el status:
-                        </label>
-                        <select
-                            name="status"
-                            id="status"
-                            className="select"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            required
-                        >
-                            <option value="1">Activo</option>
-                            <option value="0">Inactivo</option>
-                        </select>
-                    </form>
-                </div>
-
-                {/* Columna 2 */}
-                <div className="column2">
-                    <form className="form" onSubmit={handleSubmit}>
-                        <label className="label">
                             Ingrese el apellido paterno:
                             <input
                                 type="text"
@@ -168,6 +148,12 @@ const CrearMaestro = () => {
                                 required
                             />
                         </label>
+                    </form>
+                </div>
+
+                {/* Columna 2 */}
+                <div className="column2">
+                    <form className="form" onSubmit={handleSubmit}>
                         <label className="label">
                             Ingrese el correo:
                             <input
@@ -189,6 +175,20 @@ const CrearMaestro = () => {
                                 onChange={(e) => setHuella(e.target.value)}
                             />
                         </label>
+                        <label className="label">
+                            Seleccione el status:
+                        </label>
+                        <select
+                            name="status"
+                            id="status"
+                            className="select"
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            required
+                        >
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
 
                         <div className="buttonContainer">
                             <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
