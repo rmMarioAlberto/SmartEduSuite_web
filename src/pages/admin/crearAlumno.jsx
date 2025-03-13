@@ -153,6 +153,32 @@ const CrearAlumno = () => {
                             />
                         </label>
                         <label className="label">
+                            Ingrese el apellido paterno:
+                            <input
+                                type="text"
+                                className="input"
+                                placeholder="Apellido Paterno"
+                                value={apellidoPa}
+                                onChange={(e) => setApellidoPa(e.target.value)}
+                                required
+                            />
+                        </label>
+                        <label className="label">
+                            Ingrese el correo electrónico:
+                            <input
+                                type="email"
+                                className="input"
+                                placeholder="Correo Electrónico"
+                                value={correo}
+                                onChange={(e) => setCorreo(e.target.value)}
+                                required
+                            />
+                        </label>
+                    </div>
+    
+                    {/* Columna 2 */}
+                    <div className="column2">                      
+                        <label className="label">
                             Seleccione el grupo:
                         </label>
                         <select
@@ -183,32 +209,6 @@ const CrearAlumno = () => {
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
                         </select>
-                    </div>
-    
-                    {/* Columna 2 */}
-                    <div className="column2">
-                        <label className="label">
-                            Ingrese el apellido paterno:
-                            <input
-                                type="text"
-                                className="input"
-                                placeholder="Apellido Paterno"
-                                value={apellidoPa}
-                                onChange={(e) => setApellidoPa(e.target.value)}
-                                required
-                            />
-                        </label>
-                        <label className="label">
-                            Ingrese el correo electrónico:
-                            <input
-                                type="email"
-                                className="input"
-                                placeholder="Correo Electrónico"
-                                value={correo}
-                                onChange={(e) => setCorreo(e.target.value)}
-                                required
-                            />
-                        </label>
                     </div>
     
                     {/* Botones de acción */}
