@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const storedUser  = getUser ();
+        const storedUser  = getUser();
         const storedToken = getToken();
         if (storedUser  && storedToken) {
             setUser (storedUser );

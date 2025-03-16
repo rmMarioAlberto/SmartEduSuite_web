@@ -240,7 +240,7 @@ export const getHoras = async (idUsuario, token, p_id_salon, p_dia, handleLogout
 export const updateClase = async (idClase, status, inicio, final, dia, idMaestro, idGrupo, idMateria, idSalon, idCreate, token, handleLogout) => {
     try {
         const response = await fetch(
-            'http://localhost:3000/web/crudClase/updateClase',
+            'https://smar-edu-suite-backend.vercel.app/web/crudClase/updateClase',
             {
                 method: 'PUT',
                 headers: {
