@@ -1,0 +1,103 @@
+
+.teachers-horario-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.teachers-horario-title {
+    font-family: 'Graduate', sans-serif;
+    font-size: 2.5rem;
+    color: #52687a;
+    margin-bottom: 2rem;
+}
+
+.content-container {
+    display: flex;
+    flex: 1; /* Ocupa el espacio restante */
+    width: 100%;
+    gap: 2rem;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.schedule-container, .active-classes-container, .qr-container {
+    background-color: rgb(195, 203, 227);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0px 4px 6px rgba(230, 187, 187, 0.1);
+    text-align: left;
+    flex: 1; /* Ocupa el espacio disponible dentro de la columna */
+    overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
+}
+
+.schedule-container h2, .active-classes-container h2, .qr-container h2 {
+    font-size: 1.5rem;
+    color: #52687a;
+    margin-bottom: 1rem;
+}
+
+.backButton {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52687a;
+    font-size: 1.5rem;
+}
+
+.backButton:hover {
+    color: #405563;
+}
+
+.class-item {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #3d3e3f;
+    border-radius: 10px;
+}
+
+.qr-image {
+    width: auto;
+    max-width: auto;
+    height: auto;
+    margin-top: 1rem;
+    
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(195, 203, 227);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.qr-image {
+    width: 100%;
+    max-width: 270px; /* Tamaño máximo del QR */
+    height: auto;
+    margin-top: 1rem;
+}
+
+.text{
+    color: black;
+}

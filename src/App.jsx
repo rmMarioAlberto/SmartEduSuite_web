@@ -64,9 +64,8 @@ function App() {
 
           {/* Rutas de maestros */}
           <Route path="/maestro/dashboard" element={<PrivateRoute allowedRoles={[2]}><MaestroDashboard /></PrivateRoute>} />
-          <Route path="/maestro/horario" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/maestro/horario-maestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
-          <Route path="/maestro/listas" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
+          <Route path="/maestro/listas-maestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
 
           {/* Rutas de admin */}
           <Route path="/admin/dashboard" element={<PrivateRoute allowedRoles={[3]}><AdminDashboard /></PrivateRoute>} />

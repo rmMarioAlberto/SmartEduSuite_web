@@ -17,11 +17,11 @@ function TeachersHome() {
     <div className="teachers-home-container">
       <h1 className="teachers-home-title">SmartEdu Suite</h1>
       <div className="teachers-home-buttons">
-        <div className="button-card" onClick={() => navigate('/teachers/horarioMaestro')}>
+        <div className="button-card" onClick={() => navigate('/maestro/horario-maestro')}>
           <FaClock className="icon" />
           <span>Horario</span>
         </div>
-        <div className="button-card" onClick={() => navigate('/listasMaestro')}>
+        <div className="button-card" onClick={() => navigate('/maestro/listas-maestro')}>
           <FaClipboardList className="icon" />
           <span>Asistencias</span>
         </div>
