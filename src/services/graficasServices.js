@@ -29,7 +29,7 @@ export const tempGrafica = async (idUsuario, token, start, end, idSalon, handleL
 
 export const luzGrafica = async (idUsuario, token, start, end, idSalon, handleLogout) => {
     const response = await fetch(
-        'https://smar-edu-suite-backend.vercel.app/web/graficas/tempGrafica',
+        'https://smar-edu-suite-backend.vercel.app/web/graficas/luzGrafica',
         {
             method: 'POST',
             headers: {
