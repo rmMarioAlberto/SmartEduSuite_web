@@ -34,10 +34,10 @@ const Grafica = () => {
       if (data.success) {
         const transformedData = data.data.map(item => ({
           fecha: new Date(item.fecha).toLocaleDateString(),
-          horas: item.estado === 1 ? 1 : 0,
+          horas: item.ventana === 1 ? 1 : 0,
           temperatura: item.temperatura,
           clase: item.clase,
-          estado: item.estado
+          ventana: item.ventana
         }));
         setGrafica(transformedData);
       } else {
@@ -56,12 +56,12 @@ const Grafica = () => {
     return (totalTemperatura / grafica.length).toFixed(2);
   };
 
-  const getBarColor = (clase, estado) => {
-    if (clase === 0) {
+  const getBarColor = (clase, ventana) => {
+    if (clase === 1) {
       return '#4e6b7c'; // Azul para sin clase
-    } else if (clase === 1 && estado === 0) {
+    } else if (clase === 2 && ventana === 0) {
       return '#2ecc71'; // Verde para clase con ventana cerrada
-    } else if (clase === 1 && estado === 1) {
+    } else if (clase === 2 && ventana === 1) {
       return '#27ae60'; // Verde oscuro para clase con ventana abierta
     }
     return '#bdc3c7'; // Gris por defecto
@@ -134,7 +134,7 @@ const Grafica = () => {
             <Tooltip />
             <Bar dataKey={graficaTipo === 'temp' ? "temperatura" : "horas"} barSize={50}>
               {grafica.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={getBarColor(entry.clase, entry.estado)} />
+                <Cell key={`cell-${index}`} fill={getBarColor(entry.clase, entry.ventana)} />
               ))}
             </Bar>
           </BarChart>
