@@ -20,7 +20,7 @@ const Grafica = () => {
   const [graficaTipo, setGraficaTipo] = useState('temp');
   const [fechaStart, setFechaStart] = useState('');
   const [fechaEnd, setFechaEnd] = useState('');
-  const [salon, setSalon] = useState('0');
+  const [salon, setSalon] = useState('');
   const [grafica, setGrafica] = useState([]);
   const [grupos, setGrupos] = useState([]);
   const [error, setError] = useState('');
