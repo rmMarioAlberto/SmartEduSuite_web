@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../../styles/Grafica.css";
+import "../../styles/Reporte.css";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 import { reportePuerta } from "../../services/reportesService";
@@ -156,50 +156,85 @@ const Reporte = () => {
   };
 
   return (
-    <div className="container">
+    <div className="clase-container">
+      {/* Botón de retroceso */}
       <button onClick={() => navigate(-1)} className="back-button">
         <IoArrowBack />
       </button>
 
-      <h2>Consulta de Reporte</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Salón:</label>
-          <select name="salon" className="filtro-select" onChange={(e) => setSalon(e.target.value)} required>
-            <option value="">Selecciona un salón</option>
-            {grupos.map((grupo) => (
-              <option key={grupo.id} value={grupo.id}>
-                {grupo.nombre}
-              </option>
-            ))}
-          </select>
+      {/* Título */}
+      <h2 className="title">Consulta de Reporte</h2>
+
+      {/* Formulario */}
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="left-section">
+          <div className="form-group">
+            <label>Salón:</label>
+            <select
+              name="salon"
+              className="filtro-select"
+              onChange={(e) => setSalon(e.target.value)}
+              required
+            >
+              <option value="">Selecciona un salón</option>
+              {grupos.map((grupo) => (
+                <option key={grupo.id} value={grupo.id}>
+                  {grupo.nombre}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Fecha de Inicio:</label>
+            <input
+              type="datetime-local"
+              value={inicioDate}
+              onChange={(e) => setInicioDate(e.target.value)}
+              required
+            />
+          </div>
         </div>
-        <div>
-          <label>Fecha de Inicio:</label>
-          <input
-            type="datetime-local"
-            value={inicioDate}
-            onChange={(e) => setInicioDate(e.target.value)}
-            required
-          />
+
+        <div className="right-section">
+          <div className="form-group">
+            <label>Fecha de Fin:</label>
+            <input
+              type="datetime-local"
+              value={finDate}
+              onChange={(e) => setFinDate(e.target.value)}
+              required
+            />
+          </div>
+
+          {/* Botón de envío */}
+          <div className="button-group">
+            <button type="submit" className="submit-button" disabled={loading}>
+              {loading ? "Cargando..." : "Generar Reporte"}
+            </button>
+          </div>
         </div>
-        <div>
-          <label>Fecha de Fin:</label>
-          <input
-            type="datetime-local"
-            value={finDate}
-            onChange={(e) => setFinDate(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" disabled={loading}>
-          {loading ? "Cargando..." : "Generar Reporte"}
-        </button>
       </form>
+
+      {/* Mensajes de error */}
       {error && <p className="error">{error}</p>}
+
+      {/* Botón de descarga */}
       {response && (
-        <PDFDownloadLink document={<MyDocument data={response.data} salon={salon} inicioDate={inicioDate} finDate={finDate} />} fileName={`reporte_clases_${salon}_${getCurrentDate()}.pdf`}>
-          {({ blob, url, loading, error }) => (loading ? 'Cargando documento...' : 'Descargar ahora!')}
+        <PDFDownloadLink
+          document={
+            <MyDocument
+              data={response.data}
+              salon={salon}
+              inicioDate={inicioDate}
+              finDate={finDate}
+            />
+          }
+          fileName={`reporte_clases_${salon}_${getCurrentDate()}.pdf`}
+        >
+          {({ loading }) =>
+            loading ? "Cargando documento..." : "Descargar ahora!"
+          }
         </PDFDownloadLink>
       )}
     </div>
