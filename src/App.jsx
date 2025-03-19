@@ -36,7 +36,7 @@ import CrearCarrera from './pages/admin/crearCarrera';
 import Grafica from './pages/admin/grafica';
 import Reporte from './pages/admin/reporte';
 
-import ConsultaCarrera from './pages/admin/consultaCarrera';
+import ConsultaCarrera from './pages/admin/ConsultaCarrera';
 import ConsultaMaestro from './pages/admin/consultaMaestro';
 import ConsultaGrupo from './pages/admin/consultaGrupo';
 import ConsultaMateria from './pages/admin/consultaMateria';
@@ -64,9 +64,8 @@ function App() {
 
           {/* Rutas de maestros */}
           <Route path="/maestro/dashboard" element={<PrivateRoute allowedRoles={[2]}><MaestroDashboard /></PrivateRoute>} />
-          <Route path="/maestro/horario" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
           <Route path="/maestro/horario-maestro" element={<PrivateRoute allowedRoles={[2]}><HorarioMaestro /></PrivateRoute>} />
-          <Route path="/maestro/listas" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
+          <Route path="/maestro/listas-maestro" element={<PrivateRoute allowedRoles={[2]}><ListasMaestro /></PrivateRoute>} />
 
           {/* Rutas de admin */}
           <Route path="/admin/dashboard" element={<PrivateRoute allowedRoles={[3]}><AdminDashboard /></PrivateRoute>} />
@@ -84,9 +83,9 @@ function App() {
 
           <Route path="/admin/crear-salon/:idSalon?" element={<PrivateRoute allowedRoles={[3]}><CrearSalon /></PrivateRoute>} />
           <Route path="/admin/crear-grupo/:idGrupo?" element={<PrivateRoute allowedRoles={[3]}><CrearGrupo /></PrivateRoute>} />
-          <Route path="/admin/crear-alumno" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
+          <Route path="/admin/crear-alumno/:idAlumno?" element={<PrivateRoute allowedRoles={[3]}><CrearAlumno /></PrivateRoute>} />
           <Route path="/admin/crear-maestro/:id?" element={<PrivateRoute allowedRoles={[3]}><CrearMaestro /></PrivateRoute>} />          
-          <Route path="/admin/crear-clase" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
+          <Route path="/admin/crear-clase/:idclase?" element={<PrivateRoute allowedRoles={[3]}><CrearClase /></PrivateRoute>} />
           <Route path="/admin/crear-materia/:idMateria?" element={<PrivateRoute allowedRoles={[3]}><CrearMateria /></PrivateRoute>} />
           <Route path="/admin/crear-carrera/:idCarrera?" element={<PrivateRoute allowedRoles={[3]}><CrearCarrera /></PrivateRoute>} />
 

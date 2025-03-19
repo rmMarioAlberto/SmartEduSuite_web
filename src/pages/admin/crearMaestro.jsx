@@ -91,7 +91,7 @@ const CrearMaestro = () => {
             // Si la operación es exitosa, redirigir a la lista de maestros
             navigate("/admin/consulta-maestro");
         } catch (error) {
-            setError('Error al crear o actualizar el maestro: ${error.message}');
+            setError(`${error.message}`);
         } finally {
             setLoading(false);
         }
@@ -138,26 +138,6 @@ const CrearMaestro = () => {
                             />
                         </label>
                         <label className="label">
-                            Seleccione el status:
-                        </label>
-                        <select
-                            name="status"
-                            id="status"
-                            className="select"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            required
-                        >
-                            <option value="1">Activo</option>
-                            <option value="0">Inactivo</option>
-                        </select>
-                    </form>
-                </div>
-
-                {/* Columna 2 */}
-                <div className="column2">
-                    <form className="form" onSubmit={handleSubmit}>
-                        <label className="label">
                             Ingrese el apellido paterno:
                             <input
                                 type="text"
@@ -168,6 +148,12 @@ const CrearMaestro = () => {
                                 required
                             />
                         </label>
+                    </form>
+                </div>
+
+                {/* Columna 2 */}
+                <div className="column2">
+                    <form className="form" onSubmit={handleSubmit}>
                         <label className="label">
                             Ingrese el correo:
                             <input
@@ -189,20 +175,35 @@ const CrearMaestro = () => {
                                 onChange={(e) => setHuella(e.target.value)}
                             />
                         </label>
+                        <label className="label">
+                            Seleccione el status:
+                        </label>
+                        <select
+                            name="status"
+                            id="status"
+                            className="select"
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            required
+                        >
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
 
                         <div className="buttonContainer">
-                        <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
-                        <button type="submit" className="sendButton" disabled={loading}>
-                            {loading ? "Enviando..." : "Enviar"}
-                        </button>
-                    </div>
-                        
+                            <button type="button" onClick={() => navigate(-1)} className="cancelButton">Cancelar</button>
+                            <button type="submit" className="sendButton" disabled={loading}>
+                                {loading ? "Enviando..." : "Enviar"}
+                            </button>
+                        </div>
                     </form>
                 </div>
+                {error && <div className="error-message">{error}</div>}
+
 
                 {/* Footer */}
                 <footer className="footer">
-                    
+
                 </footer>
             </div>
         </div>

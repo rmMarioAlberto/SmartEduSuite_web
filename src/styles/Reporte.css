@@ -1,0 +1,119 @@
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: transparent;
+    margin: auto;
+    gap: 20px;
+  }
+  
+  /* Botón de retroceso */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52687a;
+    font-size: 1.5rem;
+  }
+  
+  /* Título */
+  .title {
+    font-size: 2.5rem;
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #52687a;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  /* Contenedor del formulario */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+  
+  /* Secciones izquierda y derecha */
+  .section {
+    width: 100%;
+}
+
+  
+  /* Agrupación de los campos del formulario */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    
+
+  }
+  
+  .form-group label {
+    font-family: 'Graduate', sans-serif;
+    font-weight: bold;
+    color: #52687a;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+  
+  .form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff; /* Borde blanco para visibilidad */
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+  /* Contenedor de botones */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Botón cancelar */
+  .cancel-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .cancel-button:hover {
+    transform: scale(1.05);
+    background-color: #c0392b;
+  }
+  
+  /* Botón enviar */
+  .submit-button {
+    background-color: #0a84ff; /* Azul brillante */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #007bff; /* Azul un poco más claro */
+}
+
+  

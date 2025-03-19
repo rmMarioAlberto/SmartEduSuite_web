@@ -1,72 +1,148 @@
-import React from "react";
-import { IoSearch } from "react-icons/io5"; // Icono de búsqueda
-import { useNavigate } from "react-router-dom"; // Para la navegación
-import "../../styles/Consulta.css"; // Estilos de la página
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Iconos de FontAwesome
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // Icono de flecha izquierda
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { IoSearch } from "react-icons/io5";
+import { getAlumnos, searchAlumno } from "../../services/alumnoService";
+import { getUser, getToken } from "../../services/authService";
+import { AuthContext } from '../../context/AuthContext';
+import "../../styles/Consulta.css"; // Asegúrate de tener este archivo de estilos
 
-const consultaAlumno = () => {
-  const navigate = useNavigate();
+const ConsultaAlumno = () => {
+    const navigate = useNavigate();
+    const { handleLogout } = useContext(AuthContext);
+    const [alumnos, setAlumnos] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
-  return (
-    <div className="container">
-      {/* Botón de regreso. */}
-      <button onClick={() => navigate(-1)} className="backButton">
-        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-      </button>
-      {/* Título. */}
-      <h1 className="title">Alumno/as</h1>
+    const user = getUser();
+    const token = getToken();
+    const idUsuario = user?.id;
 
-      {/* Barra de búsqueda. */}
-      <div className="searchContainer">
-        <input
-          type="text"
-          className="searchInput"
-          placeholder="Ingrese el nombre del alumno o alumna."
-        />
-        <button className="searchButton">
-          <IoSearch size={20} color="white" />
-        </button>
-      </div>
+    const handleFetchAlumnos = async () => {
+        if (!idUsuario || !token) {
+            setError("ID de usuario o token no encontrado. Inicia sesión nuevamente.");
+            return;
+        }
 
-      {/* Tabla de alumno/as. */}
-      <table className="Table">
-        <thead>
-          <tr>
-            <th>Nombre completo</th>
-            <th>Correo</th>
-            <th>Grupo</th>
-            <th>Carrera</th>
-            <th>Status</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* Filas de ejemplo */}
-          <tr>
-            <td>Alumno1</td>
-            <td>Correo1</td>
-            <td>Grupo1</td>
-            <td>Carrera1</td>
-            <td>Activa</td>
-            <td>
-              <button onClick={() => navigate('/admin/crear-alumno')} className="updateButton">Actualizar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Alumno2</td>
-            <td>Correo2</td>
-            <td>Grupo2</td>
-            <td>Carrera2</td>
-            <td>Activa</td>
-            <td>
-              <button className="updateButton">Actualizar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-};
+        setLoading(true);
+        setError(null);
 
-export default consultaAlumno;
+        try {
+            const data = await getAlumnos(idUsuario, token, handleLogout);
+            setAlumnos(data);
+        } catch (error) {
+            setError(`Error al cargar alumnos: ${error.message}`);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSearchAlumnos = async () => {
+        if (!idUsuario || !token || !searchTerm.trim()) {
+            setError("Ingrese un término de búsqueda válido.");
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
+
+        try {
+            const data = await searchAlumno(searchTerm, idUsuario, token, handleLogout);
+            setAlumnos(data);
+        } catch (error) {
+            setError(`Error al buscar alumnos: ${error.message}`);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        handleFetchAlumnos();
+    }, []);
+
+    return (
+        <div className="container">
+            {/* Botón de regreso */}
+            <button onClick={() => navigate('/admin/crud-alumnos')} className="backButton">
+                <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+            </button>
+
+            {/* Título */}
+            <h1 className="title">Alumnos/as</h1>
+
+            {/* Barra de búsqueda */}
+            <div className="searchContainer">
+                <input
+                    type="text"
+                    className="searchInput"
+                    placeholder="Ingrese el nombre del alumno o alumna."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button className="searchButton" onClick={handleSearchAlumnos}>
+                    <IoSearch size={20} color="white" />
+                </button>
+            </div>
+
+            {/* Tabla de alumnos */}
+            <table className="Table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre completo</th>
+                        <th>Correo</th>
+                        <th>Grupo</th>
+                        <th>Carrera</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loading ? (
+                        <tr>
+                            <td colSpan="6">Cargando alumnos...</td>
+                        </tr>
+                    ) : error ? (
+                        <tr>
+                            <td colSpan="6">{error}</td>
+                        </tr>
+                    ) : alumnos ? (
+                        alumnos.length > 0 ? (
+                            alumnos.map((alumno) => (
+                                <tr key={alumno.idusuario}>
+                                    <td>{alumno.idusuario}</td>
+                                    <td>{alumno.nombrecompletousuario}</td>
+                                    <td>{alumno.correousuario}</td>
+                                    <td>{alumno.nombregrupo}</td>
+                                    <td>{alumno.nombrecarrera}</td>
+                                    <td>{alumno.usuariostatus === 1 ? "Activo" : "Inactivo"}</td>
+                                    <td>
+                                        <button
+                                            onClick={() => navigate(`/admin/crear-alumno/${alumno.idusuario}`)}
+                                            className="updateButton"
+                                        >
+                                            Actualizar
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="6">No hay alumnos disponibles</td>
+                            </tr>
+                        )
+                    ) : (
+                        <tr>
+                            <td colSpan="6">Presiona 'Cargar Alumnos' para ver la lista</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    );
+
+
+}
+export default ConsultaAlumno;

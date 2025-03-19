@@ -15,7 +15,7 @@ const CrudMaestro = () => {
       <h1 className="title">Maestros/as</h1>
       <div className="buttonContainer">
         <button onClick={() => navigate('/admin/crear-maestro')} className="card button">
-          <FaUser size="2x" className="icon" /> {/* Usa FaUser */}
+          <FaUser size="2x" className="icon" />
           <p className="cardText">Crear maestro/a.</p>
         </button>
         <button onClick={() => navigate('/admin/consulta-maestro')} className="card button">
