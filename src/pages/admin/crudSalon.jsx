@@ -17,7 +17,7 @@ const crudSalon = () => {
       </button>
 
       <h1 className="title">Salones</h1>
-      <div className="buttons">
+      <div className="buttonContainer">
         <div className="button" onClick={() => navigate('/admin/crear-salon')}>
           <IoSearch className="icon" />
           <p>Registrar nuevo salón</p>
