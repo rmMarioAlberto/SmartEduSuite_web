@@ -118,9 +118,37 @@ export const loginGoogle = async (correo, idGoogle) => {
 };
 
 
-export const logout = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+export const logout = async () => {
+    const user = JSON.parse(localStorage.getItem('user')); 
+    const idUsuario = user.id;
+    const token = localStorage.token;
+
+    const response = await fetch('https://smar-edu-suite-backend.vercel.app/web/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ idUsuario, token })
+    });
+
+    const data = await response.json();
+
+    switch (response.status) { 
+        case 400:
+            throw new Error(data.message || 'El id del usuario y el token son necesarios');
+        case 401:
+            localStorage.removeItem('user'); 
+            localStorage.removeItem('token');
+            throw new Error(data.message || 'El token no es válido');
+        case 500:
+            throw new Error(data.message);
+        case 200:
+            localStorage.removeItem('user'); 
+            localStorage.removeItem('token');
+            return data.message || 'Logout exitoso'; 
+        default:
+            throw new Error(data.message || 'Error desconocido');
+    }
 };
 
 export const getUser = () => {
