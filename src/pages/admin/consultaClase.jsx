@@ -66,7 +66,6 @@ const ConsultaClase = () => {
     handleFetchClases();
   }, []);
 
-<<<<<<< HEAD
 const consultaClase = () => {
   const navigate = useNavigate();
 
@@ -80,8 +79,7 @@ const consultaClase = () => {
 
   }
 
-=======
->>>>>>> 106c6e8d13288b42ba134730033c52596ed3522c
+
   return (
     <div className="container">
       {/* Botón de regreso */}
@@ -158,6 +156,7 @@ const consultaClase = () => {
         </tbody>      </table>
     </div>
   );
+}
 };
 
 export default ConsultaClase;

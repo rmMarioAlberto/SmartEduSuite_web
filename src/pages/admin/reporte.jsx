@@ -155,18 +155,15 @@ const Reporte = () => {
     return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
   };
 
-<<<<<<< HEAD
 const reporte = () => {
   const navigate = useNavigate();
-=======
->>>>>>> 106c6e8d13288b42ba134730033c52596ed3522c
   return (
     <div className="container">
       <button onClick={() => navigate(-1)} className="back-button">
         <IoArrowBack />
       </button>
 
-<<<<<<< HEAD
+
       {/* Título */}
       <h1 className="title">Reporte</h1>
 
@@ -206,7 +203,6 @@ const reporte = () => {
 
       {/* Botón de exportar */}
       <button className="export-button">Exportar reporte</button>
-=======
       <h2 className="title">Consulta de Reporte</h2>
       <form onSubmit={handleSubmit} className="form-container">
         <div >
@@ -250,9 +246,9 @@ const reporte = () => {
           {({ blob, url, loading, error }) => (loading ? 'Cargando documento...' : 'Descargar ahora!')}
         </PDFDownloadLink>
       )}
->>>>>>> 106c6e8d13288b42ba134730033c52596ed3522c
     </div>
   );
+}
 };
 
 export default Reporte;
