@@ -17,7 +17,6 @@ const crudGrupo = () => {
       <h1 className="title">Grupo</h1>
       <div className="buttonContainer">
         <div className="button" onClick={() => navigate('/admin/crear-grupo')}>
-        <div className="button" onClick={() => navigate('/admin/crear-grupo')}>          
           <IoSearch className="icon" />
           <p>Crear nuevo grupo</p>
         </div>
@@ -26,7 +25,6 @@ const crudGrupo = () => {
           <p>Consultar grupo</p>
         </div>
       </div>
-    </div>
     </div>
   );
 };
