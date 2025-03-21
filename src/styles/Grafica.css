@@ -33,10 +33,20 @@
   /* Filtros */
   .filtros {
     display: flex;
-    gap: 10px;
+    gap: 30px;
     margin-bottom: 20px;
   }
-  
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Graduate', sans-serif;
+    font-size: 1rem;
+    color: whitesmoke;
+    margin-bottom: 5px; 
+}
+
+  .filtro-maestro, 
   .filtro-button {
     background-color: #52687a;
     color: white;

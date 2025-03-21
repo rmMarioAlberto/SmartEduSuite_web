@@ -257,12 +257,15 @@ const CrearClase = () => {
 
   return (
     <div className="container-crear">
-      {/* Header */}
-      <header className="header-crear">
+      
+
+      <div className="container-grid">
+        <div className="column2">
+          
         <button onClick={() => navigate('/admin/crud-clases')} className="backButton-crear">
           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         </button>
-        <h1 className="title-crear">{idclase ? "Editar clase" : "Crear clase"}</h1>      </header>
+        <h1 className="title-crear">{idclase ? "Editar clase" : "Crear clase"}</h1>    
 
       <div className="form-container-crear">
         {/* Primer formulario */}
@@ -413,9 +416,10 @@ const CrearClase = () => {
         </button>
       </div>
     </div>
+    </div>
+    </div>
+
   );
-
-
 }
 
 export default CrearClase;

@@ -19,7 +19,7 @@ const crudClase = () => {
       <h1 className="title">Clases</h1>
       <div className="buttonContainer">
             <button onClick={() => navigate('/admin/crear-clase')} className="card button">
-                <FaLanguage size="2x" className="icon" />
+                <FaLanguage  className="icon" />
                 <p className="cardText">Crear clase</p>
           </button>
           <button onClick={() => navigate('/admin/consulta-clase')} className="card button">

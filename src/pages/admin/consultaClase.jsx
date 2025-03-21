@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { IoSearch } from "react-icons/io5";
 import { AuthContext } from '../../context/AuthContext';
-import { getClases, searchClase } from "../../services/claseService"; // Asegúrate de que estas funciones estén implementadas
+import { getClases, searchClase } from "../../services/claseService"; 
 import "../../styles/Consulta.css";
 import { getToken, getUser } from "../../services/authService";
 
@@ -53,8 +53,7 @@ const ConsultaClase = () => {
 
     try {
       const response = await searchClase(searchTerm, idUsuario, token, handleLogout);
-      // Accede a los datos correctamente
-      setClases(response.data); // Cambiado aquí para acceder a response.data
+      setClases(response.data);
     } catch (error) {
       setError(`Error al buscar clases: ${error.message}`);
     } finally {
@@ -128,9 +127,7 @@ const ConsultaClase = () => {
                   <button
                     onClick={() => navigate(`/admin/crear-clase/${clase.idclase}`)}
                     className="updateButton"
-                  >
-                    Actualizar
-                  </button>
+                  >Actualizar</button>
                 </td>
               </tr>
             ))
@@ -139,7 +136,8 @@ const ConsultaClase = () => {
               <td colSpan="8">No hay clases disponibles</td>
             </tr>
           )}
-        </tbody>      </table>
+        </tbody>      
+      </table>
     </div>
   );
 };
