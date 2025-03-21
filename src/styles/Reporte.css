@@ -1,119 +1,109 @@
 /* Contenedor principal */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    background-color: transparent;
-    margin: auto;
-    gap: 20px;
-  }
-  
-  /* Botón de retroceso */
-  .back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #52687a;
-    font-size: 1.5rem;
-  }
-  
-  /* Título */
-  .title {
-    font-size: 2.5rem;
-    font-family: 'Graduate', sans-serif;
-    font-weight: bold;
-    color: #52687a;
-    margin-bottom: 50px;
-    text-align: center;
-  }
-  
-  /* Contenedor del formulario */
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
+.clase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto; /* Cambiado a auto para que se ajuste al contenido */
+  background-color: transparent;
+  padding: 20px; /* Añadido padding para un mejor espaciado */
+  margin: auto;
 }
 
-  
-  /* Secciones izquierda y derecha */
-  .section {
-    width: 100%;
+/* Botón de retroceso */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #52687a;
+  font-size: 1.5rem;
 }
 
-  
-  /* Agrupación de los campos del formulario */
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    
+/* Título */
+.title {
+  font-size: 2.5rem;
+  font-family: 'Graduate', sans-serif;
+  font-weight: bold;
+  color: #52687a;
+  margin-bottom: 20px; /* Ajustado para un mejor espaciado */
+  text-align: center;
+}
 
-  }
-  
-  .form-group label {
-    font-family: 'Graduate', sans-serif;
-    font-weight: bold;
-    color: #52687a;
-    margin-bottom: 5px;
-    font-size: 1rem;
-  }
-  
-  .form-group input,
+/* Contenedor del formulario */
+.form-container {
+  display: flex;
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  max-width: 800px; /* Limitar el ancho máximo del formulario */
+  gap: 20px; /* Espacio entre columnas */
+}
+
+/* Secciones izquierda y derecha */
+.left-section, .right-section {
+  flex: 1; /* Cada sección ocupa el mismo espacio */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Agrupación de los campos del formulario */
+.form-group {
+  display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px; 
+}
+
+/* Estilo de las etiquetas */
+.form-group label {
+  font-family: 'Graduate', sans-serif;
+  font-weight: bold;
+  color: #52687a;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+/* Estilo de entradas y selects */
+.form-group input,
 .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ffffff; /* Borde blanco para visibilidad */
-    border-radius: 12px;
-    font-size: 1rem;
-    background-color: #1e1e1e; /* Fondo oscuro */
-    color: #ffffff; /* Texto blanco */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ffffff; /* Borde blanco para visibilidad */
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
 }
 
-  /* Contenedor de botones */
-  .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  /* Botón cancelar */
-  .cancel-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .cancel-button:hover {
-    transform: scale(1.05);
-    background-color: #c0392b;
-  }
-  
-  /* Botón enviar */
-  .submit-button {
-    background-color: #0a84ff; /* Azul brillante */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: transform 0.2s ease-in-out;
+/* Contenedor de botones */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Botón enviar */
+.submit-button {
+  background-color: #0a84ff; /* Azul brillante */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease-in-out;
 }
 
 .submit-button:hover {
-    background-color: #007bff; /* Azul un poco más claro */
+  background-color: #007bff; /* Azul un poco más claro */
 }
 
-  
+/* Mensaje de error */
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center; /* Centrar el mensaje de error */
+}

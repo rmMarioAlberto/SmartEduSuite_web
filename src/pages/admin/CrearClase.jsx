@@ -257,167 +257,165 @@ const CrearClase = () => {
 
   return (
     <div className="container-crear">
-      
-
-      <div className="container-grid">
         <div className="column2">
-          
-        <button onClick={() => navigate('/admin/crud-clases')} className="backButton-crear">
-          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-        </button>
-        <h1 className="title-crear">{idclase ? "Editar clase" : "Crear clase"}</h1>    
 
-      <div className="form-container-crear">
-        {/* Primer formulario */}
-        <form className="form-crear" onSubmit={handleFirstFormSubmit}>
-          <label className="label-crear">Seleccione de materia:</label>
-          <select
-            name="materia"
-            className="select-crear"
-            value={selectedMateria}
-            onChange={(e) => setSelectedMateria(e.target.value)}
-            required
-          >
-            <option value="">Materia</option>
-            {materias.map((materia) => (
-              <option key={materia.id} value={materia.id}>{materia.nombre}</option>
-            ))}
-          </select>
-          {idclase && !materias.some(m => m.id === originalValues.materia) && <p className="warning">La materia registrada está desactivada o no disponible.</p>}
-
-          <label className="label-crear">Seleccione el grupo:</label>
-          <select
-            name="grupo"
-            className="select-crear"
-            value={selectedGrupo}
-            onChange={(e) => setSelectedGrupo(e.target.value)}
-            required
-          >
-            <option value="">Grupo</option>
-            {grupos.map((grupo) => (
-              <option key={grupo.id} value={grupo.id}>{grupo.nombre}</option>
-            ))}
-          </select>
-          {idclase && !grupos.some(g => g.id === originalValues.grupo) && <p className="warning">El grupo registrado está desactivado o no disponible.</p>}
-          <label className="label-crear">Seleccione al maestro:</label>
-          <select
-            name="maestro"
-            className="select-crear"
-            value={selectedMaestro}
-            onChange={(e) => setSelectedMaestro(e.target.value)}
-            required
-          >
-            <option value="">Maestro</option>
-            {maestros.map((maestro) => (
-              <option key={maestro.id} value={maestro.id}>{maestro.nombremaestro}</option>
-            ))}
-          </select>
-          {idclase && !maestros.some(m => m.id === originalValues.maestro) && <p className="warning">El maestro registrado está desactivado o no disponible.</p>}
-          <label className="label-crear">Seleccione el salón:</label>
-          <select
-            name="salon"
-            className="select-crear"
-            value={selectedSalon}
-            onChange={(e) => setSelectedSalon(e.target.value)}
-            required
-          >
-            <option value="">Salón</option>
-            {salones.map((salon) => (
-              <option key={salon.id} value={salon.id}>{salon.salon}</option>
-            ))}
-          </select>
-          {idclase && !salones.some(s => s.id === originalValues.salon) && <p className="warning">El salón registrado está desactivado o no disponible.</p>}
-          <label className="label-crear">Seleccione el día:</label>
-          <select
-            name="dia"
-            className="select-crear"
-            value={selectedDia}
-            onChange={handleDayChange}
-            required
-          >
-            <option value="">Día</option>
-            <option value="1">Lunes</option>
-            <option value="2">Martes</option>
-            <option value="3">Miércoles</option>
-            <option value="4">Jueves</option>
-            <option value="5">Viernes</option>
-            <option value="6">Sábado</option>
-            <option value="7">Domingo</option>
-          </select>
-
-          <label className="label-crear">Seleccione el estado de la clase:</label>
-          <select
-            name="status"
-            className="select-crear"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            required
-          >
-            <option value="1">Activo</option>
-            <option value="0">Inactivo</option>
-          </select>
-
-          {/* Botón para cargar el segundo formulario */}
-          <button type="button" className="nextButton-crear" onClick={loadAvailableSchedules}>
-            Cargar Horarios
+          <button onClick={() => navigate('/admin/crud-clases')} className="backButton-crear">
+            <FontAwesomeIcon icon={faArrowLeft} size="lg" />
           </button>
-        </form>
+          <br />
+          <h1 className="title-crear">{idclase ? "Editar clase" : "Crear clase"}</h1>
 
-        {/* Tabla de horarios */}
-        <div className="schedule-container-crear">
-          <label className="label-crear">Seleccione el horario:</label>
-          <table className="schedule-table-crear">
-            <thead>
-              <tr>
-                <th>Horario</th>
-                <th>Seleccionar</th>
-              </tr>
-            </thead>
-            <tbody>
-              {availableSchedules.map((schedule) => {
-                const isCurrentSchedule = selectedSchedules.includes(schedule.hora);
-                const isOriginalSchedule = originalHoursDay.day === selectedDia && originalHoursDay.hours.includes(schedule.hora);
+          <div className="form-container-crear">
+            
+            {/* Primer formulario */}
+            <form className="form-crear" onSubmit={handleFirstFormSubmit}>
+              <label className="label-crear">Seleccione de materia:</label>
+              <select
+                name="materia"
+                className="select-crear"
+                value={selectedMateria}
+                onChange={(e) => setSelectedMateria(e.target.value)}
+                required
+              >
+                <option value="">Materia</option>
+                {materias.map((materia) => (
+                  <option key={materia.id} value={materia.id}>{materia.nombre}</option>
+                ))}
+              </select>
+              {idclase && !materias.some(m => m.id === originalValues.materia) && <p className="warning">La materia registrada está desactivada o no disponible.</p>}
 
-                // Una hora está disponible si el servidor dice que está disponible o si es una hora original en el día original
-                const isAvailable = schedule.disponible || isOriginalSchedule;
+              <label className="label-crear">Seleccione el grupo:</label>
+              <select
+                name="grupo"
+                className="select-crear"
+                value={selectedGrupo}
+                onChange={(e) => setSelectedGrupo(e.target.value)}
+                required
+              >
+                <option value="">Grupo</option>
+                {grupos.map((grupo) => (
+                  <option key={grupo.id} value={grupo.id}>{grupo.nombre}</option>
+                ))}
+              </select>
+              {idclase && !grupos.some(g => g.id === originalValues.grupo) && <p className="warning">El grupo registrado está desactivado o no disponible.</p>}
+              <label className="label-crear">Seleccione al maestro:</label>
+              <select
+                name="maestro"
+                className="select-crear"
+                value={selectedMaestro}
+                onChange={(e) => setSelectedMaestro(e.target.value)}
+                required
+              >
+                <option value="">Maestro</option>
+                {maestros.map((maestro) => (
+                  <option key={maestro.id} value={maestro.id}>{maestro.nombremaestro}</option>
+                ))}
+              </select>
+              {idclase && !maestros.some(m => m.id === originalValues.maestro) && <p className="warning">El maestro registrado está desactivado o no disponible.</p>}
+              <label className="label-crear">Seleccione el salón:</label>
+              <select
+                name="salon"
+                className="select-crear"
+                value={selectedSalon}
+                onChange={(e) => setSelectedSalon(e.target.value)}
+                required
+              >
+                <option value="">Salón</option>
+                {salones.map((salon) => (
+                  <option key={salon.id} value={salon.id}>{salon.salon}</option>
+                ))}
+              </select>
+              {idclase && !salones.some(s => s.id === originalValues.salon) && <p className="warning">El salón registrado está desactivado o no disponible.</p>}
+              <label className="label-crear">Seleccione el día:</label>
+              <select
+                name="dia"
+                className="select-crear"
+                value={selectedDia}
+                onChange={handleDayChange}
+                required
+              >
+                <option value="">Día</option>
+                <option value="1">Lunes</option>
+                <option value="2">Martes</option>
+                <option value="3">Miércoles</option>
+                <option value="4">Jueves</option>
+                <option value="5">Viernes</option>
+                <option value="6">Sábado</option>
+                <option value="7">Domingo</option>
+              </select>
 
-                return (
-                  <tr
-                    key={schedule.hora}
-                    style={{
-                      backgroundColor: isCurrentSchedule ? '#007bff' : (isAvailable ? '#0dba2a69' : '#ee040470')
-                    }}
-                  >
-                    <td>{schedule.hora_formato}</td>
-                    <td>
-                      <input
-                        type="checkbox"
-                        value={schedule.hora}
-                        onChange={handleScheduleSelection}
-                        checked={isCurrentSchedule}
-                        disabled={!isAvailable} // Deshabilitar si no está disponible
-                      />
-                    </td>
+              <label className="label-crear">Seleccione el estado de la clase:</label>
+              <select
+                name="status"
+                className="select-crear"
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                required
+              >
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
+              </select>
+
+              {/* Botón para cargar el segundo formulario */}
+              <button type="button" className="nextButton-crear" onClick={loadAvailableSchedules}>
+                Cargar Horarios
+              </button>
+            </form>
+
+            {/* Tabla de horarios */}
+            <div className="schedule-container-crear">
+              <label className="label-crear">Seleccione el horario:</label>
+              <table className="schedule-table-crear">
+                <thead>
+                  <tr>
+                    <th>Horario</th>
+                    <th>Seleccionar</th>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                  {availableSchedules.map((schedule) => {
+                    const isCurrentSchedule = selectedSchedules.includes(schedule.hora);
+                    const isOriginalSchedule = originalHoursDay.day === selectedDia && originalHoursDay.hours.includes(schedule.hora);
+
+                    // Una hora está disponible si el servidor dice que está disponible o si es una hora original en el día original
+                    const isAvailable = schedule.disponible || isOriginalSchedule;
+
+                    return (
+                      <tr
+                        key={schedule.hora}
+                        style={{
+                          backgroundColor: isCurrentSchedule ? '#007bff' : (isAvailable ? '#0dba2a69' : '#ee040470')
+                        }}
+                      >
+                        <td>{schedule.hora_formato}</td>
+                        <td>
+                          <input
+                            type="checkbox"
+                            value={schedule.hora}
+                            onChange={handleScheduleSelection}
+                            checked={isCurrentSchedule}
+                            disabled={!isAvailable} // Deshabilitar si no está disponible
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Botones de envío */}
+          <div className="buttonContainer-crear">
+            <button type="button" className="cancelButton-crear" onClick={() => navigate(-1)}>
+              Cancelar
+            </button>
+            <button type="submit" className="sendButton-crear" onClick={handleSecondFormSubmit}>
+              Enviar
+            </button>
+          </div>
         </div>
       </div>
-
-      {/* Botones de envío */}
-      <div className="buttonContainer-crear">
-        <button type="button" className="cancelButton-crear" onClick={() => navigate(-1)}>
-          Cancelar
-        </button>
-        <button type="submit" className="sendButton-crear" onClick={handleSecondFormSubmit}>
-          Enviar
-        </button>
-      </div>
-    </div>
-    </div>
-    </div>
 
   );
 }

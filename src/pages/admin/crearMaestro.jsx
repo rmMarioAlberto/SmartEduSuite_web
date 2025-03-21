@@ -200,11 +200,6 @@ const CrearMaestro = () => {
                 </div>
                 {error && <div className="error-message">{error}</div>}
 
-
-                {/* Footer */}
-                <footer className="footer">
-
-                </footer>
             </div>
         </div>
     );
