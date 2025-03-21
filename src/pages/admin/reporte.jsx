@@ -156,23 +156,23 @@ const Reporte = () => {
   };
 
   return (
-    <div className="clase-container">
+    <div className="container-crearr">
       {/* Botón de retroceso */}
-      <button onClick={() => navigate(-1)} className="back-button">
+      <button onClick={() => navigate(-1)} className="backButton-crear">
         <IoArrowBack />
       </button>
 
       {/* Título */}
-      <h2 className="title">Consulta de Reporte</h2>
+      <h2 className="title-crear">Consulta de Reporte</h2>
 
       {/* Formulario */}
-      <form onSubmit={handleSubmit} className="form-container">
+      <form onSubmit={handleSubmit} className="form-group">
         <div className="left-section">
           <div className="form-group">
             <label>Salón:</label>
             <select
               name="salon"
-              className="filtro-select"
+              className="input"
               onChange={(e) => setSalon(e.target.value)}
               required
             >
@@ -184,31 +184,33 @@ const Reporte = () => {
               ))}
             </select>
           </div>
-
+<br />
           <div className="form-group">
             <label>Fecha de Inicio:</label>
             <input
               type="date"
               value={inicioDate}
+              className="input"
               onChange={(e) => setInicioDate(e.target.value)}
               required
             />
           </div>
         </div>
-
+<br />
         <div className="right-section">
           <div className="form-group">
             <label>Fecha de Fin:</label>
             <input
               type="date"
               value={finDate}
+              className="input"
               onChange={(e) => setFinDate(e.target.value)}
               required
             />
           </div>
-
+              <br />
           {/* Botón de envío */}
-          <div className="button-group">
+          <div className="buttonContainer">
             <button type="submit" className="submit-button" disabled={loading}>
               {loading ? "Cargando..." : "Generar Reporte"}
             </button>

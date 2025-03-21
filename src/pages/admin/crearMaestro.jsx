@@ -111,7 +111,7 @@ const CrearMaestro = () => {
             </header>
 
             <div className="container-grid">
-                {/* Formulario */}
+                {/* Formulario */}  
                 {/* Columna 1 */}
                 <div className="column1">
                     <form className="form" onSubmit={handleSubmit}>

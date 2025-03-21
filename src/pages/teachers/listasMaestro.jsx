@@ -185,11 +185,11 @@ const AsistenciasPDF = ({ alumnos, fechasClase, periodoFecha, idGrupo, idMateria
                   const fechaAsistencia = new Date(asistencia.fecha).toISOString().split('T')[0];
                   return fechaAsistencia === fecha;
                 });
-                
+
                 // Contador de presentes y ausentes
                 const presentes = asistenciasDelDia.filter(a => a.asistencia === 1).length;
                 const ausentes = asistenciasDelDia.filter(a => a.asistencia !== 1).length;
-                
+
                 return (
                   <View key={fecha} style={styles.tableCol}>
                     <Text style={styles.tableCell}>
@@ -288,23 +288,26 @@ function ListasMaestro() {
   };
 
   return (
-    <div className="listas-teachers-container">
-      <button onClick={() => navigate(-1)} className="backButton">
+    <div className="container-crear">
+      <button onClick={() => navigate(-1)} className="backButton-crear">
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
       </button>
-      <h1 className="listas-teachers-title">Listas Maestros</h1>
+      <h1 className="title-crear">Listas Maestros</h1>
       <form className="listas-teachers-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="horaInicio">Hora de Inicio:</label>
-          <input type="date" id=" horaInicio" value={horaInicio} onChange={(e) => setHoraInicio(e.target.value)} required />
+          <input type="date" id="horaInicio" className="input"
+            value={horaInicio} onChange={(e) => setHoraInicio(e.target.value)} required />
         </div>
         <div>
           <label htmlFor="horaFin">Hora de Fin:</label>
-          <input type="date" id="horaFin" value={horaFin} onChange={(e) => setHoraFin(e.target.value)} required />
+          <input type="date" id="horaFin" className="input"
+            value={horaFin} onChange={(e) => setHoraFin(e.target.value)} required />
         </div>
         <div>
           <label htmlFor="grupo">Selecciona un Grupo:</label>
-          <select id="grupo" value={grupoSeleccionado} onChange={(e) => setGrupoSeleccionado(e.target.value)} required>
+          <select id="grupo" className="input"
+            value={grupoSeleccionado} onChange={(e) => setGrupoSeleccionado(e.target.value)} required>
             <option value="">Seleccione un grupo</option>
             {grupos.map(grupo => (
               <option key={grupo.idClase} value={JSON.stringify({ idGrupo: grupo.idGrupo, idMateria: grupo.idMateria, idClase: grupo.idClase })}>
@@ -313,7 +316,7 @@ function ListasMaestro() {
             ))}
           </select>
         </div>
-        <button type="submit">Cargar Alumnos</button>
+        <button type="submit" className='sendButton'>Cargar Alumnos</button>
       </form>
       {mensajeSinGrupos && <p>No hay grupos disponibles para este maestro.</p>}
       {mostrarTabla && (
