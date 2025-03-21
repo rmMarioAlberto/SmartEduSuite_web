@@ -11,7 +11,8 @@
     font-family: 'Graduate', sans-serif;
     font-size: 2.5rem;
     color: #52687a;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .listas-teachers-form {
@@ -39,7 +40,7 @@
 
 .listas-teachers-form button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #454546;
     color: white;
     border: none;
     border-radius: 4px;
@@ -48,7 +49,7 @@
 }
 
 .listas-teachers-form button:hover {
-    background-color: #45a049;
+    background-color: #6d6c6c;
 }
 
 .listas-teachers-table {
@@ -62,15 +63,16 @@
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    background-color: #64646438;
 }
 
 .listas-teachers-table th {
-    background-color: #4CAF50;
+    background-color: #1e2a6b;
     color: white;
 }
 
 .listas-teachers-table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f1f1f146;
 }
 
 .listas-teachers-checkbox {
@@ -95,4 +97,42 @@
 
 .listas-teachers-update-button:hover {
     background-color: #0056b3;
+}
+
+/* Nuevo CSS para las celdas de asistencia */
+.asistencia-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 5px auto;
+    display: block;
+}
+
+.asistencia {
+    background-color: #4CAF50;
+    /* Verde */
+}
+
+.asistencia-falta {
+    background-color: #FFC107;
+    /* Amarillo */
+}
+
+.falta {
+    background-color: #F44336;
+    /* Rojo */
+}
+
+/* Estilo para el texto de 'No hay asistencias' */
+.no-asistencias {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Asegurarse de que las celdas de la tabla tengan el espacio adecuado */
+.listas-teachers-table td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+    min-width: 30px;
 }
