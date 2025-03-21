@@ -188,7 +188,7 @@ const Reporte = () => {
           <div className="form-group">
             <label>Fecha de Inicio:</label>
             <input
-              type="datetime-local"
+              type="date"
               value={inicioDate}
               onChange={(e) => setInicioDate(e.target.value)}
               required
@@ -200,7 +200,7 @@ const Reporte = () => {
           <div className="form-group">
             <label>Fecha de Fin:</label>
             <input
-              type="datetime-local"
+              type="date"
               value={finDate}
               onChange={(e) => setFinDate(e.target.value)}
               required
