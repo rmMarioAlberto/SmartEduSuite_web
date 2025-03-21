@@ -1,0 +1,98 @@
+.listas-teachers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.listas-teachers-title {
+    font-family: 'Graduate', sans-serif;
+    font-size: 2.5rem;
+    color: #52687a;
+    margin-bottom: 20px;
+}
+
+.listas-teachers-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.listas-teachers-form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.listas-teachers-form input[type="date"],
+.listas-teachers-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.listas-teachers-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.listas-teachers-form button:hover {
+    background-color: #45a049;
+}
+
+.listas-teachers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.listas-teachers-table th,
+.listas-teachers-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.listas-teachers-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.listas-teachers-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.listas-teachers-checkbox {
+    cursor: pointer;
+}
+
+.listas-teachers-count-container {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.listas-teachers-update-button {
+    padding: 8px 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.listas-teachers-update-button:hover {
+    background-color: #0056b3;
+}
