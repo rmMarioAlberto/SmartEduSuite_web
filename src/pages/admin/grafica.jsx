@@ -147,6 +147,9 @@ const Grafica = () => {
         </select>
       </div>
 
+      {error && <div className="error-message">{error}</div>}
+
+
       <p className="subtitle">
         Promedio: {graficaTipo === 'temp' ? `${calcularPromedio()}°C` : `${calcularPromedio()}%`}
       </p>
@@ -184,8 +187,6 @@ const Grafica = () => {
       )}
 
       <button className="export-button" onClick={handleFetchGrafica}>Generar gráfica</button>
-
-      {error && <div className="error-message">{error}</div>}
     </div>
   );
 }

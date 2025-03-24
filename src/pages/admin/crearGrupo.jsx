@@ -15,7 +15,7 @@ const CrearGrupo = () => {
     const { handleLogout } = useContext(AuthContext);
     const [nombre, setNombre] = useState("");
     const [status, setStatus] = useState("1");
-    const [carrera, setCarrera] = useState("");
+    const [carrera, setCarrera] = useState("1");
     const [carreras, setCarreras] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
